@@ -1,49 +1,69 @@
+import { useForm } from "react-hook-form"
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../utils/firebase";
+import { useState } from "react";
 
-function Signup() {
+
+
+function SignUp() {
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+
+  const [UserName, setUserName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+
+  const onSubmit = () => {console.log('data')};
+
   return (
     <>
+    <div className="container-fluid bg-success">
       <div className="container">
         <div className="row">
           <h1
-            className="text-center text-light mt-3 fw-bold d-inline"
+            className="text-center text-light mt-5 fw-bold d-inline"
             style={{ fontFamily: '"Courier New", Courier, monospace' }}
           >
-            Caza Store
+            Shah Store
           </h1>
-          <div className="col-10 mt-2 m-auto pb-5 box">
+          <div className="col-10 mt-4 m-auto pb-5 box">
             <h1 className="text-dark fw-bold heading">Sign Up</h1>
             <div className="row">
               <div className="col-lg-6 col-md-6 col-sm-12">
-                <form id="SignUp-Form">
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <input
                     type="text"
                     placeholder="Full Name"
-                    className="form-control mt-4"
-                    maxLength={15}
+                    {...register("UserName", { required: true, maxLength: 15 })}
+                    className="form-control mt-4 mb-2"
                     autoComplete="on"
-                    required=""
                   />
-                  <input
-                    type="number"
-                    placeholder="#Mobile"
-                    className="form-control mt-4"
-                    maxLength={15}
-                    required=""
-                  />
+                  {errors.UserName && (<span className="error_msg">This field is required</span>)}
+
                   <input
                     type="email"
                     placeholder="Email"
+                    {...register("email", { required: true, maxLength: 15 })}
                     className="form-control mt-4"
-                    maxLength={30}
-                    required=""
                   />
+                  {errors.email && (<span className="error_msg">This field is required</span>)}
+
                   <input
                     type="password"
                     placeholder="Password"
-                    className="form-control mt-4 mb-4"
+                    {...register("Password", { required: true, maxLength: 15 })}
+                    className="form-control mt-4 mb-2"
                     maxLength={15}
-                    required=""
                   />
+                  {errors.Password && (<span className="error_msg">This field is required</span>)}
+
                   <div className="message error_message" />
                   <span className="ps-2 para">Already have an Account ?</span>
                   <a href="../pages/login.html" className="ps-1 para">
@@ -58,7 +78,7 @@ function Signup() {
                         fontWeight: 600,
                       }}
                     >
-                      <button className="btn btn-dark w-50 mt-3 mb-3 button">
+                      <button className="btn btn-dark w-50 mt-3 mb-3 button" type="submit">
                         SignUp
                       </button>
                     </a>
@@ -70,8 +90,9 @@ function Signup() {
           </div>
         </div>
       </div>
+      </div>
     </>
   );
 }
 
-export default Signup;
+export default SignUp;

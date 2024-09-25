@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://localhost/PHP%20Assignment/ECommerce%20Project/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caza Store</title>
+    <link rel="stylesheet" href="./Caza Store_files/style.css">
+    <link rel="stylesheet" href="./Caza Store_files/bootstrap.min.css">
+    <script src="./Caza Store_files/bootstrap.bundle.min.js.download"></script>
+    <link rel="stylesheet" href="./Caza Store_files/all.min.css">
+    <script src="./Caza Store_files/jquery-3.7.0.min.js.download"></script>
+    <link rel="stylesheet" href="./Caza Store_files/animate.min.css">
+    <script>
+        $(document).ready(function(){
+            $(window).scroll(function(){
+              if(
+                $(window).scrollTop () > 40){
+                   $("#nav2").css({"background-color":"white"});
+                }
+                  else{
+                    $("#nav2").css({"background-color":"#D7DBDC"});
+                  }
+            });
+        });
+    </script>
+</head>
+<body cz-shortcut-listen="true">
+
+                                     <!-- navbar -->
+
+    <div class="container-fluid" style="position: sticky; top: 0px; z-index: 12; background-color: rgb(215, 219, 220);" id="nav2">
+        <div class="container">
+            <nav class="nav navbar navbar-expand-sm text-center pb-2 pt-1">
+                <a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="navbar-brand">Caza Store</a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navi">
+                    <i class="navbar-toggler-icon"></i>
+                </button>
+             <div class="collapse navbar-collapse justify-content-end pe-5" id="navi"> 
+                <ul class="navbar-nav ">
+                    <li class="nav-item"><a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="nav-link pe-4">Home</a></li>
+                    <li class="nav-item"><a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="nav-link pe-4">Shop</a></li>
+                    <li class="nav-item"><a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="nav-link pe-4">Blog</a></li>
+                    <li class="nav-item"><a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="nav-link pe-4">About</a></li>
+                    <li class="nav-item"><a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="nav-link pe-4">Contact</a></li>
+                    <li class="nav-item"><a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="nav-link pe-4">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+                                                 <!-- slidebar -->
+
+<div class="carousel slide carousel-fade" data-bs-ride="carousel" id="mycarou">                                               <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div class="carousel-inner">
+        <div class="carousel-item carousel-item-next carousel-item-start" style="height:650px; width: 100%; background-image: url(Assets/img/slide-01.jpg.webp) ; background-size: cover;">
+            <h4 class="animate__animated animate__delay-0.5s animate__fadeInDown"> Women Collection 2023 </h4>
+            <h1 class="animate__animated animate__delay-1s animate__fadeInUp">NEW SESSION</h1>
+            <button class="btn btn-info text-light fw-bold animate__animated animate__delay-2s animate__zoomIn" style="position: absolute;top: 50%;left: 10%;">Shop Now</button>
+           </div>
+          <div class="carousel-item" style="height:650px; width: 100%; background-image: url(Assets/img/slide-02.jpg.webp) ; background-size: cover;">
+            <h4 class="animate__animated animate__delay-0.5s animate__rotateInDownLeft"> Man New-Season </h4>
+            <h1 class="animate__animated animate__delay-1s animate__lightSpeedInRight">Jackets &amp; Coats</h1>
+            <button class="btn btn-info text-light fw-bold animate__animated animate__delay-2s animate__fadeInUp" style="position: absolute;top: 50%;left: 10%;">Shop Now</button>
+           </div>
+           <div class="carousel-item active carousel-item-start" style="height:650px; width: 100%; background-image: url(Assets/img/slide-03.jpg.webp) ; background-size: cover;">
+            <h4 class="animate__animated animate__delay-0.5s animate__rotateInDownLeft"> Man Collection 2023 </h4>
+            <h1 class="animate__animated animate__delay-1s animate__rotateInUpRight">NEW ARRIVALS</h1>
+            <button class="btn btn-info text-light fw-bold animate__animated animate__delay-2s animate__rotateIn" style="position: absolute;top: 50%;left: 10%;">Shop Now</button>
+           </div>
+        </div>
+   </div>
+ </div>
+
+                                             <!-- product -->
+
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 mt-5">
+                    <a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="text-decoration-none text-dark">
+                    <div class="dis" style="background-image: url(Assets/img/img-1.jpg); background-size: cover;">
+                       <h3 class="pt-4 ps-4 fw-bold" style="font-family: &#39;Trebuchet MS&#39;, &#39;Lucida Sans Unicode&#39;, &#39;Lucida Grande&#39;, &#39;Lucida Sans&#39;, Arial, sans-serif;">Women</h3>
+                       <h6 class="ps-4 fw-bold" style="color: #918989; font-family: Cambria, Cochin, Georgia, Times, &#39;Times New Roman&#39;, serif">Spring 2018</h6>
+                       <button class="btn btn-info text-light fw-bold mt-5 ms-4">Shop Now</button>
+                    </div></a>                    
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mt-5">
+                  <a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="text-decoration-none text-dark">
+                    <div class="dis" style="background-image: url(Assets/img/img-2.jpg); background-size: cover;">
+                        <h3 class="pt-4 ps-4 fw-bold" style="font-family: &#39;Trebuchet MS&#39;, &#39;Lucida Sans Unicode&#39;, &#39;Lucida Grande&#39;, &#39;Lucida Sans&#39;, Arial, sans-serif;">Men</h3>
+                        <h6 class="ps-4 fw-bold" style="color: #918989; font-family: Cambria, Cochin, Georgia, Times, &#39;Times New Roman&#39;, serif">Spring 2018</h6>
+                        <button class="btn btn-info text-light fw-bold mt-4 ms-3">Shop Now</button>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 mt-5">
+                  <a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="text-decoration-none text-dark">
+                    <div class="dis" style="background-image: url(Assets/img/img-3.jpg); background-size: cover;">
+                        <h3 class="pt-4 ps-4 fw-bold" style="font-family: &#39;Trebuchet MS&#39;, &#39;Lucida Sans Unicode&#39;, &#39;Lucida Grande&#39;, &#39;Lucida Sans&#39;, Arial, sans-serif;">Accesories</h3>
+                        <h6 class="ps-4 fw-bold" style="color: #918989; font-family: Cambria, Cochin, Georgia, Times, &#39;Times New Roman&#39;, serif">Spring 2018</h6>
+                        <button class="btn btn-info text-light fw-bold mt-5 ms-4">Shop Now</button>
+                    </div>
+                  </a>                    
+                </div>
+            </div>
+        </div>
+    
+                                               <!-- product -->
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 mt-5">
+                    <h2 class="hdg mt-5 fw-bold">Product Upload</h2>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 mt-5 ">
+                    <button class="btn btn-info text-light fw-bold mt-5 w-25 add"> Add Product</button>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="dis1 mt-5 mb-5" style="height:300px; border:1px solid #ccc;">
+                            
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="dis1 mt-5 mb-5" style="height:300px; border:1px solid #ccc;">
+
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="dis1 mt-5 mb-5" style="height:300px; border:1px solid #ccc;">
+
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="dis1 mt-5 mb-5" style="height:300px; border:1px solid #ccc;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                                                    <!-- Footer -->
+
+    <div class="container-fluid bg-dark" style="height: 400px; ">
+       <div class="container mt-5">
+          <div class="row mt-5">
+              <div class="col-3 mt-5">
+                 <h5 class=" fw-bold text-light mt-5" style="font-family: &#39;Times New Roman&#39;, Times, serif;">CATEGORIES</h5>
+                 <p class="lh-base pt-4" style="color: #918989;">Men</p>
+                 <p class="lh-base" style="color: #918989;">Women</p>
+                 <p class="lh-base" style="color: #918989;">Shoes</p>
+                 <p class="lh-base" style="color: #918989;">Watches</p>
+                </div>
+              <div class="col-2 mt-5">
+                <h5 class=" fw-bold text-light mt-5" style="font-family: &#39;Times New Roman&#39;, Times, serif;">HELP</h5>
+                <p class="lh-base pt-4" style="color: #918989;">Track Order</p>
+                <p class="lh-base" style="color: #918989;">Returns</p>
+                <p class="lh-base" style="color: #918989;">Shipping</p>
+                <p class="lh-base" style="color: #918989;">FAQ's</p>
+              </div>
+              <div class="col-4 mt-5">
+                <h5 class=" fw-bold text-light mt-5" style="font-family: &#39;Times New Roman&#39;, Times, serif;">GET IN TOUCH</h5>
+                <p class="lh-base pt-4" style="color: #918989;">Any questions? Let us know in store at 8th floor, 379 Hudson St,
+                 New York, NY 10018 or call us on (+1) 96 716</p>
+                 <a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="ic"><i class="fa-brands fa-facebook fs-5 mt-2 me-2" style="color: #918989;"></i></a>             
+                 <a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="ic"><i class="fa-brands fa-instagram fs-5 mt-2 me-2" style="color: #918989;"></i></a>             
+                 <a href="http://localhost/PHP%20Assignment/ECommerce%20Project/index.php" class="ic"><i class="fa-brands fa-pinterest fs-5 mt-2 me-2" style="color: #918989;"></i></a>             
+                </div>
+              <div class="col-3 mt-5">
+                <h5 class=" fw-bold text-light mt-5" style="font-family: &#39;Times New Roman&#39;, Times, serif;">NEWSLETTER</h5>
+                 <input type="text" style="height: 35px; margin-top: 20px;color: white; background-color: #212529; border:none; border-bottom: 2px solid #666; outline: none;" placeholder="email@example.com">
+                 <button class="btn btn-info mt-4 w-50 text-light fw-bold">Subscribe</button>
+              </div>
+            </div>
+       </div>
+    </div>
+
+</body></html>
