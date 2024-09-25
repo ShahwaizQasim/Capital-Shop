@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::selection{
+  background-color: white;
+  color: green;
+}
+
+#nav2{
+    transition: 1s;
+  }
+.nav-link{
+   transition: 0.9s;
+  }
+.nav-link:hover{
+    color: #31D2F2 !important;
+  }
+
+  .box {
+    height: auto;
+    border-radius: 15px;
+    background-image: url(../img/slide-02.jpg.webp);
+    background-size: cover;
+  }
+  .heading {
+    margin-left: 140px;
+    margin-top: 50px;
+    font-family: "Courier New", Courier, monospace;
+  }
+  
+  .form-control {
+    height: 45px;
+    font-family: "poppins";
+  }
+  
+  .form-control::placeholder {
+    font-size: 1rem;
+    font-family: "poppins";
+  }
+  .message {
+    position: relative;
+    left: 10px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    color: #5382f7;
+  }
+  .error_message {
+    color: red;
+  }
+  
+  .para {
+    font-family: "poppins";
+  }
+  .button {
+    font-family: "poppins";
+    font-weight: 600;
+  }
+  
