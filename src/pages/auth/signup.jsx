@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -66,9 +67,9 @@ function SignUp() {
 
                   <div className="message error_message" />
                   <span className="ps-2 para">Already have an Account ?</span>
-                  <a href="../pages/login.html" className="ps-1 para">
+                  <Link to="/SignIn" className="ps-1 para">
                     Log in
-                  </a>
+                  </Link>
                   <center>
                     <a
                       href="../pages/login.html"
