@@ -18,7 +18,7 @@ function SignUp() {
   const [Password, setPassword] = useState("");
 
   const onSubmit = () => {
-    
+    console.log('Data');
   };
 
   return (
@@ -40,26 +40,26 @@ function SignUp() {
                     <input
                       type="text"
                       placeholder="Full Name"
-                      value={UserName}
-                      onChange={(e) => setUserName(e.target.value)}
                       {...register("UserName", {
                         required: true,
                         maxLength: 25,
                       })}
                       className="form-control mt-4 mb-2"
                       autoComplete="on"
+                      value={UserName}
+                      onChange={(e)=> setUserName(e.target.value)}
                     />
-                    {errors.UserName && (
+                     {errors.UserName && (
                       <span className="error_msg">This field is required</span>
                     )}
 
                     <input
                       type="email"
                       placeholder="Email"
-                      value={Email}
-                      onChange={(e) => setEmail(e.target.value)}
                       {...register("email", { required: true, maxLength: 25 })}
                       className="form-control mt-4"
+                      value={Email}
+                      onChange={(e)=> setEmail(e.target.value)}
                     />
                     {errors.email && (
                       <span className="error_msg">This field is required</span>
@@ -68,17 +68,17 @@ function SignUp() {
                     <input
                       type="password"
                       placeholder="Password"
-                      value={Password}
-                      onChange={(e) => setPassword(e.target.value)}
                       {...register("Password", {
                         required: true,
-                        maxLength: 15,
+                        minLength: 8,
                       })}
                       className="form-control mt-4 mb-2"
+                      value={Password}
+                      onChange={(e)=> setPassword(e.target.value)}
                     />
                     {errors.Password && (
                       <span className="error_msg">
-                        Must at least 10 characters
+                        Must at least 8 characters
                       </span>
                     )}
 
@@ -88,21 +88,21 @@ function SignUp() {
                       Log in
                     </Link>
                     <center>
-                      <Link
-                        to="/SignIn"
+                      {/* <Link
+                        to={"#"}
                         style={{
                           textDecoration: "none",
                           color: "aliceblue",
                           fontWeight: 600,
                         }}
-                      >
+                      > */}
                         <button
                           className="btn btn-dark w-50 mt-3 mb-3 button"
                           type="submit"
                         >
                           SignUp
                         </button>
-                      </Link>
+                      {/* </Link> */}
                     </center>
                   </form>
                 </div>

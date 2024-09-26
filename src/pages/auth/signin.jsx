@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function SignIp() {
   const {
@@ -15,6 +16,9 @@ function SignIp() {
   const onSubmit = () => {
     console.log("data");
   };
+
+  const [email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
 
   //   createUserWithEmailAndPassword();
   //   auth
@@ -50,6 +54,8 @@ function SignIp() {
                   placeholder="Email"
                   {...register("email", { required: true, maxLength: 15 })}
                   className="form-control mt-4 mb-2"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 {errors.email && (
                   <span className="error_msg">This field is required</span>
@@ -60,7 +66,8 @@ function SignIp() {
                   placeholder="Password"
                   {...register("Password", { required: true, maxLength: 15 })}
                   className="form-control mt-4 mb-2"
-                  maxLength={15}
+                  value={Password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 {errors.Password && (
                   <span className="error_msg">This field is required</span>
