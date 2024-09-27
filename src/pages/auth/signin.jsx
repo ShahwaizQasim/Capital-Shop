@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye } from "@fortawesome/free-solid-svg-icons"
 import { auth } from "../../utils/firebase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function SignIp() {
@@ -13,15 +15,32 @@ function SignIp() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = () => {
-    console.log("data");
-  };
-
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  //   createUserWithEmailAndPassword();
-  //   auth
+  const onSubmit = () => {
+
+    try {
+      console.log("data");
+      const userLogin = signInWithEmailAndPassword(auth, email, Password)
+      console.log('userLogin', userLogin);
+      navigate('/');
+      navigate('/Home') 
+    } catch (error) {
+      console.log('Error', error.message);
+      
+    }
+     
+  };
+
+  const handleOnType = () => {
+    // if () {
+      
+    // }
+  } 
+
+ 
   return (
     <>
       <div className="container-fluid bg-success">
@@ -52,25 +71,32 @@ function SignIp() {
                 <input
                   type="email"
                   placeholder="Email"
-                  {...register("email", { required: true, maxLength: 15 })}
+                  {...register("email", { required: true, maxLength: 25 })}
                   className="form-control mt-4 mb-2"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 {errors.email && (
-                  <span className="error_msg">This field is required</span>
+                  <span className="error_msg">Email is required</span>
                 )}
-
+<div style={{
+  display:'flex'
+}}>
                 <input
                   type="password"
                   placeholder="Password"
-                  {...register("Password", { required: true, maxLength: 15 })}
+                  {...register("Password", { required: true, minLength: 8 })}
                   className="form-control mt-4 mb-2"
                   value={Password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                <FontAwesomeIcon icon={faEye} onClick={handleOnType} style={{
+                  marginTop:'35px',
+                  fontSize:'1.4rem',
+                }}/>
+                </div>
                 {errors.Password && (
-                  <span className="error_msg">This field is required</span>
+                  <span className="error_msg">Must at least 8 characters</span>
                 )}
                 <div className="message" />
                 <span className="ps-2 para">Don't have an Account ?</span>
@@ -78,7 +104,7 @@ function SignIp() {
                   Sign up
                 </Link>
                 <center>
-                  <button className="btn btn-dark w-25 mt-3 mb-2 button">
+                  <button className="btn btn-dark w-25 mt-3 mb-2 button" type="submit">
                     Log in
                   </button>
                 </center>

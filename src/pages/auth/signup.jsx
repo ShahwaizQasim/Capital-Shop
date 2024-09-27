@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignUp() {
   const {
@@ -16,8 +16,18 @@ function SignUp() {
   const [UserName, setUserName] = useState("");
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const onSubmit = () => {
+    try {
+      const user = createUserWithEmailAndPassword(auth, Email, Password);
+      console.log('user',user);
+      navigate('/SignIn')
+      
+    } catch (error) {
+      console.log('Error', error);
+      
+    }
     console.log('Data');
   };
 
@@ -57,12 +67,12 @@ function SignUp() {
                       type="email"
                       placeholder="Email"
                       {...register("email", { required: true, maxLength: 25 })}
-                      className="form-control mt-4"
+                      className="form-control mt-4 mb-2"
                       value={Email}
                       onChange={(e)=> setEmail(e.target.value)}
                     />
                     {errors.email && (
-                      <span className="error_msg">This field is required</span>
+                      <span className="error_msg">Email is required</span>
                     )}
 
                     <input
