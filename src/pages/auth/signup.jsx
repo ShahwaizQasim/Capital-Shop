@@ -3,6 +3,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 function SignUp() {
   const {
@@ -16,19 +18,22 @@ function SignUp() {
   const [UserName, setUserName] = useState("");
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const onSubmit = () => {
+  const handleOnShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const onSubmit = async () => {
     try {
-      const user = createUserWithEmailAndPassword(auth, Email, Password);
-      console.log('user',user);
-      navigate('/SignIn')
-      
+      const user = await createUserWithEmailAndPassword(auth, Email, Password);
+      console.log("user", user);
+      navigate("/SignIn");
     } catch (error) {
-      console.log('Error', error);
-      
+      console.log("Error", error);
     }
-    console.log('Data');
+    console.log("Data");
   };
 
   return (
@@ -57,9 +62,9 @@ function SignUp() {
                       className="form-control mt-4 mb-2"
                       autoComplete="on"
                       value={UserName}
-                      onChange={(e)=> setUserName(e.target.value)}
+                      onChange={(e) => setUserName(e.target.value)}
                     />
-                     {errors.UserName && (
+                    {errors.UserName && (
                       <span className="error_msg">This field is required</span>
                     )}
 
@@ -69,23 +74,41 @@ function SignUp() {
                       {...register("email", { required: true, maxLength: 25 })}
                       className="form-control mt-4 mb-2"
                       value={Email}
-                      onChange={(e)=> setEmail(e.target.value)}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                     {errors.email && (
                       <span className="error_msg">Email is required</span>
                     )}
 
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      {...register("Password", {
-                        required: true,
-                        minLength: 8,
-                      })}
-                      className="form-control mt-4 mb-2"
-                      value={Password}
-                      onChange={(e)=> setPassword(e.target.value)}
-                    />
+                    <div
+                      style={{
+                        display: "flex",
+                      }}
+                    >
+                      {" "}
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Password"
+                        {...register("Password", {
+                          required: true,
+                          minLength: 8,
+                        })}
+                        className="form-control mt-4 mb-2"
+                        value={Password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                      <FontAwesomeIcon
+                        icon={showPassword ? faEyeSlash : faEye}
+                        onClick={handleOnShowPassword}
+                        style={{
+                          marginTop: "35px",
+                          fontSize: "1.4rem",
+                          cursor: "pointer",
+                          width: "10%",
+                        }}
+                      />
+                    </div>
+
                     {errors.Password && (
                       <span className="error_msg">
                         Must at least 8 characters
@@ -106,12 +129,12 @@ function SignUp() {
                           fontWeight: 600,
                         }}
                       > */}
-                        <button
-                          className="btn btn-dark w-50 mt-3 mb-3 button"
-                          type="submit"
-                        >
-                          SignUp
-                        </button>
+                      <button
+                        className="btn btn-dark w-50 mt-3 mb-3 button"
+                        type="submit"
+                      >
+                        SignUp
+                      </button>
                       {/* </Link> */}
                     </center>
                   </form>

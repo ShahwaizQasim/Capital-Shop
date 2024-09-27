@@ -36,7 +36,6 @@
   margin-top: 50px;
   font-family: "Courier New", Courier, monospace;
 }
-
 .form-control {
   height: 45px;
   font-family: "poppins";
@@ -60,12 +59,12 @@
 }
 .button {
   font-family: "poppins";
-  font-weight: 600;
+  font-weight: 500;
 }
-.error_msg{
+.error_msg {
   color: red;
   margin-left: 5px;
-  font-family: 'poppins';
+  font-family: "poppins";
 }
 
 /* signin */
@@ -82,4 +81,29 @@
   display: flex;
   justify-content: center;
   color: red;
+}
+
+/* Loading  */
+
+.loading-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 10px solid #1cd42550;
+  border-top-color: #1cd425;
+  animation: spin013151 1s linear infinite;
+  border-radius: 100%;
+}
+
+@keyframes spin013151 {
+  to {
+    transform: rotate(360deg);
+  }
 }

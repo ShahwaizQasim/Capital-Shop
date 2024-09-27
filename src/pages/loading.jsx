@@ -1,9 +1,11 @@
-function Loading(){
+function Spinner(){
     return(
         <>
-        <h2>Loading....</h2>
+        <div className="container-fluid loading-container">
+          <div class="loader"></div>
+        </div>
         </>
     )
 }
 
-export default Loading;
+export default Spinner;
