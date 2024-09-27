@@ -12,26 +12,34 @@ function AuthContextProvider({ children }) {
   });
   const [Loading, setLoading] = useState(true);
 
-  onAuthStateChanged(auth, (user) => {
-    setUser(user);
-    if (user) {
-      console.log("user=>", user);
-      const uid = user.uid;
-      console.log("User Id", uid);
-      setUser({ isLogin: true, ...user.userInfo });
-    } else {
-      // User is signed out
-      // ...
-      setUser({ isLogin: false, userInfo: {} });
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("user=>", user);
+        const uid = user.uid;
+        console.log("User Id", uid);
+        setUser({
+          isLogin: true,
+          userInfo: {
+            name: user?.displayName,
+            UserPhoto: user?.photoURL,
+            userEmail: user?.email,
+          },
+        });
+      } else {
+        // User is signed out
+        // ...
+        setUser({ isLogin: false, userInfo: {} });
 
-      console.log("User SignOut");
-    }
-    setLoading(false);
-  });
+        console.log("User SignOut");
+      }
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <AuthContext.Provider value={[user, setUser]}>
-      {Loading ? <Spinner /> : { children }}
+      {Loading ? <Spinner /> : children}
     </AuthContext.Provider>
   );
 }

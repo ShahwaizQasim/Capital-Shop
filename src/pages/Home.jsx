@@ -1,10 +1,11 @@
 import Navbar from "../components/navbar";
+import Slider from "../components/slider";
 
 function Home(){
     return(
     <>
     <Navbar />
-    {/* <h3>Welcome to my Home Page</h3> */}
+    <Slider />
     </>
     )
 }

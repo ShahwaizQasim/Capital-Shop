@@ -1,4 +1,38 @@
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { Avatar } from "@mui/material";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../utils/firebase";
+
 function Navbar() {
+  const [user, setUser] = useContext(AuthContext);
+  const navigate = useNavigate();
+  console.log("User=>", user);
+
+  // agr user hai tw dashboard pr le joa warna login page le joa
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      navigate("/");
+    } else {
+      navigate("/SignIn");
+    }
+  });
+
+  // user ko logout karwaya hai
+  const handleOnLogOut = async () => {
+    console.log("data");
+    try {
+      const userSignOut = await signOut(auth);
+      console.log("UserSignOut", userSignOut);
+      navigate("/SignIn");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <>
       <div
@@ -73,14 +107,33 @@ function Navbar() {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <button
-                    className="btn btn-secondary"
-                    style={{ fontFamily: "poppins" }}
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
-                  >
-                    Logout <i className="fas fa-user" />
-                  </button>
+                  {/* Example single danger button */}
+                  <div className="btn-group">
+                    <button
+                      type="button"
+                      className="btn dropdown-toggle"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <div className="userPhoto">
+                        <Avatar src={user?.userInfo?.UserPhoto} />
+                      </div>
+                    </button>
+
+                    <ul className="dropdown-menu">
+                      <li>
+                        <a
+                          className="dropdown-item btn btn-secondary"
+                          style={{ fontFamily: "poppins" }}
+                          data-bs-toggle="modal"
+                          data-bs-target="#staticBackdrop"
+                          href="#"
+                        >
+                          Logout <FontAwesomeIcon icon={faUser} />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -120,7 +173,7 @@ function Navbar() {
               </p>
             </div>
             <div className="modal-footer">
-              <a href="../pages/dashboard.html">
+              <Link to="/">
                 <button
                   type="button"
                   className="btn btn-secondary"
@@ -129,12 +182,12 @@ function Navbar() {
                 >
                   Confirm Account
                 </button>
-              </a>
+              </Link>
               <button
                 type="button"
                 className="btn btn-success"
                 style={{ fontFamily: "poppins" }}
-                id="LogOut"
+                onClick={handleOnLogOut}
               >
                 Log Out
               </button>

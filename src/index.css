@@ -21,6 +21,21 @@
   color: #31d2f2 !important;
 }
 
+.dropdown-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  outline: none;
+  border: none;
+}
+.userPhoto {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: aliceblue;
+}
+
 /* signup */
 .container-fluid {
   height: 100vh;
@@ -106,4 +121,39 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Slider  */
+
+.dis {
+  height: 220px;
+  width: 98%;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  transition: transform 0.6s;
+}
+.dis:hover {
+  transform: translateY(-10px);
+  box-shadow: 1px 1px 20px #666;
+}
+.slider23 {
+  height: 650px;
+  width: 100%;
+  background-image: url(./img/slide-02.jpg.webp);
+  background-size: "cover";
+}
+h4{
+  position: absolute;
+  top: 25%;
+  left: 8% ;
+  font-family: 'Times New Roman', Times, serif;
+}
+h1{
+  position: absolute;
+  top: 32%;
+  left: 8%;
+  font-size: 65px !important;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
 }
