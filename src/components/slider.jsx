@@ -3,17 +3,17 @@ import 'animate.css';
 function Slider() {
   return (
     <>
-      {/* <div
+      <div
         id="carouselExampleSlidesOnly"
         className="carousel slide"
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
           <div className="carousel-item active slider23">
-            <h4 className="animate__animated animate__delay-0.5s animate__fadeInDown">
+            <h4 className="animate__animated animate__delay-0.5s animate__fadeInDown slider-heading4">
               Women Collection 2023
             </h4>
-            <h1 className="animate__animated animate__delay-1s animate__fadeInUp">
+            <h1 className="animate__animated animate__delay-1s animate__fadeInUp slider-heading1">
               NEW SESSION
             </h1>
             <button
@@ -32,10 +32,10 @@ function Slider() {
               backgroundSize: "cover",
             }}
           >
-            <h4 className="animate__animated animate__delay-0.5s animate__rotateInDownLeft">
+            <h4 className="animate__animated animate__delay-0.5s animate__rotateInDownLeft slider-heading4">
               Man New-Season
             </h4>
-            <h1 className="animate__animated animate__delay-1s animate__lightSpeedInRight">
+            <h1 className="animate__animated animate__delay-1s animate__lightSpeedInRight slider-heading1">
               Jackets &amp; Coats
             </h1>
             <button
@@ -54,10 +54,10 @@ function Slider() {
               backgroundSize: "cover",
             }}
           >
-            <h4 className="animate__animated animate__delay-0.5s animate__rotateInDownLeft">
+            <h4 className="animate__animated animate__delay-0.5s animate__rotateInDownLeft slider-heading4">
               Man Collection 2023
             </h4>
-            <h1 className="animate__animated animate__delay-1s animate__rotateInUpRight">
+            <h1 className="animate__animated animate__delay-1s animate__rotateInUpRight slider-heading1">
               NEW ARRIVALS
             </h1>
             <button
@@ -68,7 +68,7 @@ function Slider() {
             </button>
           </div>
         </div>
-      </div> */}
+      </div>
 
     </>
   );
