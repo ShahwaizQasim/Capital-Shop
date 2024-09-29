@@ -37,18 +37,18 @@ function Navbar() {
     <>
       <div
         className="container-fluid pt-2 pb-2"
-        style={{ position: "sticky", top: 0, zIndex: 12 }}
+        style={{ position: "sticky", top: 0, zIndex: 12, backgroundColor:'#fff' }}
         id="nav2"
       >
         <div className="container">
           <nav className="nav navbar navbar-expand-md text-center pb-1 pt-1">
-            <a
-              href=""
+            <Link
+              to="#"
               className="navbar-brand"
               style={{ fontFamily: "poppins" }}
             >
               Caza Store
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               data-bs-toggle="collapse"
@@ -62,40 +62,40 @@ function Navbar() {
             >
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a
-                    href="./dashboard.html"
+                  <Link
+                    to="/"
                     className="nav-link pe-4"
                     style={{ fontFamily:"poppins" }}
                   >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
-                    href="./dashboard.html"
+                  <Link
+                    to="/"
                     className="nav-link pe-4"
                     style={{ fontFamily: "poppins" }}
                   >
                     Shop
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     href="#"
                     className="nav-link pe-4"
                     style={{ fontFamily: "poppins" }}
                   >
                     Blog
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
-                    href="./dashboard.html"
+                  <Link
+                    to="#"
                     className="nav-link pe-4"
                     style={{ fontFamily: "poppins" }}
                   >
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <a
