@@ -124,19 +124,6 @@
 }
 
 /* Slider  */
-
-.dis {
-  height: 220px;
-  width: 98%;
-  overflow: hidden;
-  border: 1px solid #ccc;
-  margin-top: 20px;
-  transition: transform 0.6s;
-}
-.dis:hover {
-  transform: translateY(-10px);
-  box-shadow: 1px 1px 20px #666;
-}
 .slider23 {
   height: 650px;
   width: 100%;
@@ -168,4 +155,48 @@
   font-size: 65px !important;
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
+}
+
+/* Static Product  */
+.dis {
+  height: 220px;
+  width: 98%;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  transition: transform 0.6s;
+  background-image: url(./img/img-1.jpg);
+  background-size: cover;
+}
+.dis:hover {
+  transform: translateY(-10px);
+  box-shadow: 1px 1px 20px #666;
+}
+.dis1 {
+  height: 220px;
+  width: 98%;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  transition: transform 0.6s;
+  background-image: url(./img/img-2.jpg);
+  background-size: cover;
+}
+.dis1:hover {
+  transform: translateY(-10px);
+  box-shadow: 1px 1px 20px #666;
+}
+.dis2 {
+  height: 220px;
+  width: 98%;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  transition: transform 0.6s;
+  background-image: url(./img/img-3.jpg);
+  background-size: cover;
+}
+.dis2:hover {
+  transform: translateY(-10px);
+  box-shadow: 1px 1px 20px #666;
 }
