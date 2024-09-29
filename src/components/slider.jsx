@@ -1,4 +1,4 @@
-import 'animate.css';
+import "animate.css";
 
 function Slider() {
   return (
@@ -69,7 +69,6 @@ function Slider() {
           </div>
         </div>
       </div>
-
     </>
   );
 }

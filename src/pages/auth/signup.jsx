@@ -38,7 +38,7 @@ function SignUp() {
 
   return (
     <>
-      <div className="container-fluid bg-success">
+      <div className="container-fluid bg-success SignUp-Container">
         <div className="container">
           <div className="row">
             <h1
