@@ -143,17 +143,29 @@
   background-image: url(./img/slide-02.jpg.webp);
   background-size: "cover";
 }
-.slider-heading4{
+.slider24 {
+  height: 650px;
+  width: 100%;
+  background-image: url(./img/slide-01.jpg.webp);
+  background-size: "cover";
+}
+.slider25 {
+  height: 650px;
+  width: 100%;
+  background-image: url(./img/slide-03.jpg.webp);
+  background-size: "cover";
+}
+.slider-heading4 {
   position: absolute;
   top: 25%;
-  left: 8% ;
-  font-family: 'Times New Roman', Times, serif;
+  left: 12%;
+  font-family: "Times New Roman", Times, serif;
 }
-.slider-heading1{
+.slider-heading1 {
   position: absolute;
   top: 32%;
-  left: 8%;
+  left: 12%;
   font-size: 65px !important;
   font-weight: bold;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }

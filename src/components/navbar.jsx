@@ -41,7 +41,7 @@ function Navbar() {
         id="nav2"
       >
         <div className="container">
-          <nav className="nav navbar navbar-expand-md text-center pb-2 pt-1">
+          <nav className="nav navbar navbar-expand-md text-center pb-1 pt-1">
             <a
               href=""
               className="navbar-brand"
@@ -65,7 +65,7 @@ function Navbar() {
                   <a
                     href="./dashboard.html"
                     className="nav-link pe-4"
-                    style={{ fontFamily: "poppins !important" }}
+                    style={{ fontFamily:"poppins" }}
                   >
                     Home
                   </a>
@@ -74,7 +74,7 @@ function Navbar() {
                   <a
                     href="./dashboard.html"
                     className="nav-link pe-4"
-                    style={{ fontFamily: "poppins !important" }}
+                    style={{ fontFamily: "poppins" }}
                   >
                     Shop
                   </a>
@@ -83,7 +83,7 @@ function Navbar() {
                   <a
                     href="#"
                     className="nav-link pe-4"
-                    style={{ fontFamily: "poppins !important" }}
+                    style={{ fontFamily: "poppins" }}
                   >
                     Blog
                   </a>
@@ -92,7 +92,7 @@ function Navbar() {
                   <a
                     href="./dashboard.html"
                     className="nav-link pe-4"
-                    style={{ fontFamily: "poppins !important" }}
+                    style={{ fontFamily: "poppins" }}
                   >
                     About
                   </a>
@@ -101,7 +101,7 @@ function Navbar() {
                   <a
                     href="./dashboard.html"
                     className="nav-link pe-4"
-                    style={{ fontFamily: "poppins !important" }}
+                    style={{ fontFamily: "poppins" }}
                   >
                     Contact
                   </a>
