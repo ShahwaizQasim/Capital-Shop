@@ -74,7 +74,12 @@ function SignIp() {
 
   return (
     <>
-      <div className="container-fluid bg-success">
+      <div
+        className="container-fluid bg-success"
+        style={{
+          height: "100vh",
+        }}
+      >
         <div className="container pt-5">
           <div className="row">
             <h1
@@ -169,14 +174,15 @@ function SignIp() {
                   type="submit"
                   style={{
                     width: "50%",
+                    fontSize: "0.9rem",
                   }}
                   onClick={LoginWithGoogle}
                 >
                   Login With Google{" "}
                   <img
                     src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
-                    height={35}
-                    width={35}
+                    height={25}
+                    width={25}
                     alt="google"
                   />
                 </button>
