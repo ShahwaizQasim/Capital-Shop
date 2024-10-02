@@ -21,28 +21,26 @@ function AddProduct() {
   const [ProductPrice, setProductPrice] = useState("");
   const [ProductDescription, setProductDescription] = useState("");
   const [ProductPicture, setProductPicture] = useState("");
+  console.log(ProductPicture);
 
   const onSubmit = async () => {
-     try {
-      const myCollectionRef = collection(db, 'products');
- 
+    try {
+      // const myCollectionRef = collection(db, 'products');
+
       const myProduct = {
         ProductName: ProductName,
         ProductPrize: ProductPrice,
         ProductDescription: ProductDescription,
-      }
+      };
 
-      const docRef = await addDoc(myCollectionRef, myProduct);
-      console.log("Document", docRef.id);
+      // const docRef = await addDoc(myCollectionRef, myProduct);
+      // console.log("Document", docRef.id);
 
-      message.success("Product Added Successfully")
-
-     } catch (error) {
-        console.log("Error", error);
-        
-     }
-  }
-
+      message.success("Product Added Successfully");
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
 
   return (
     <>

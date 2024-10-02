@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -9,7 +10,7 @@ const firebaseConfig = {
   projectId: "syed-store",
   storageBucket: "syed-store.appspot.com",
   messagingSenderId: "694081876627",
-  appId: "1:694081876627:web:e9221e13b3653d7fced366"
+  appId: "1:694081876627:web:e9221e13b3653d7fced366",
 };
 
 // Initialize Firebase
@@ -19,4 +20,6 @@ const auth = getAuth(app);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
-export{auth, db}
+const storage = getStorage(app);
+
+export { auth, db, storage };
