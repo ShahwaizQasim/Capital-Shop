@@ -33,9 +33,7 @@ function SignIp() {
 
   const onSubmit = async () => {
     try {
-      console.log("data");
       const userLogin = await signInWithEmailAndPassword(auth, email, Password);
-      console.log("userLogin", userLogin);
       navigate("/");
     } catch (error) {
       console.log("Error", error.message);

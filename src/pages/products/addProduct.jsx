@@ -1,5 +1,8 @@
+import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { db } from "../../utils/firebase";
+import { message } from "antd";
 
 const onSubmit = () => {
   console.log("data");
@@ -18,6 +21,28 @@ function AddProduct() {
   const [ProductPrice, setProductPrice] = useState("");
   const [ProductDescription, setProductDescription] = useState("");
   const [ProductPicture, setProductPicture] = useState("");
+
+  const onSubmit = async () => {
+     try {
+      const myCollectionRef = collection(db, 'products');
+ 
+      const myProduct = {
+        ProductName: ProductName,
+        ProductPrize: ProductPrice,
+        ProductDescription: ProductDescription,
+      }
+
+      const docRef = await addDoc(myCollectionRef, myProduct);
+      console.log("Document", docRef.id);
+
+      message.success("Product Added Successfully")
+
+     } catch (error) {
+        console.log("Error", error);
+        
+     }
+  }
+
 
   return (
     <>
@@ -60,19 +85,18 @@ function AddProduct() {
                     )}
 
                     <input
-                      type="email"
-                      placeholder="Product Prize"
+                      type="number"
+                      placeholder="Product Price"
                       {...register("ProductPrize", {
                         required: true,
                         maxLength: 50,
-                        minLength: 10,
                       })}
                       className="form-control mt-4 mb-2"
                       value={ProductPrice}
                       onChange={(e) => setProductPrice(e.target.value)}
                     />
                     {errors.ProductPrize && (
-                      <span className="error_msg">Email is required</span>
+                      <span className="error_msg">Price is required</span>
                     )}
 
                     <input
@@ -80,7 +104,7 @@ function AddProduct() {
                       placeholder="Product Description"
                       {...register("ProductDescription", {
                         required: true,
-                        minLength: 8,
+                        minLength: 15,
                       })}
                       className="form-control mt-4 mb-2"
                       value={ProductDescription}
@@ -88,7 +112,7 @@ function AddProduct() {
                     />
                     {errors.ProductDescription && (
                       <span className="error_msg">
-                        Must at least 8 characters
+                        ProductDescription is required
                       </span>
                     )}
 
@@ -97,7 +121,6 @@ function AddProduct() {
                       placeholder="Product Picture"
                       {...register("ProductPicture", {
                         required: true,
-                        minLength: 8,
                       })}
                       className="form-control mt-4 mb-2"
                       value={ProductPicture}
@@ -105,7 +128,7 @@ function AddProduct() {
                     />
                     {errors.ProductPicture && (
                       <span className="error_msg">
-                        Must at least 8 characters
+                        Product Picture is required
                       </span>
                     )}
 
