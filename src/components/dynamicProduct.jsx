@@ -9,14 +9,14 @@ function DynamicProduct() {
             <h2 className="hdg mt-5 fw-bold">Product Upload</h2>
           </div>
           <div className="col-lg-6 col-md-6 col-sm-8 mt-5">
-            
+            <Link to="/addProduct" className="text-decoration-none text-white">
               <button
                 className="btn btn-info text-light fw-bold mt-5"
                 style={{ marginLeft: "70%" }}
               >
-                <Link to="/addProduct" className="text-decoration-none text-white">   Add Product</Link>
-             
+                Add Product
               </button>
+            </Link>
           </div>
         </div>
         <div className="row">

@@ -17,21 +17,25 @@ function AddProduct() {
     formState: { errors },
   } = useForm();
 
-  const [ProductName, setProductName] = useState("");
-  const [ProductPrice, setProductPrice] = useState("");
-  const [ProductDescription, setProductDescription] = useState("");
-  const [ProductPicture, setProductPicture] = useState("");
-  console.log(ProductPicture);
+  // const [ProductName, setProductName] = useState("");
+  // const [ProductPrice, setProductPrice] = useState("");
+  // const [ProductDescription, setProductDescription] = useState("");
+  // const [ProductPicture, setProductPicture] = useState("");
+  // console.log(ProductPicture);
 
-  const onSubmit = async () => {
+  const onSubmit = async (data) => {
     try {
+
+      console.log(data);
+      
+      // const ref = 
       // const myCollectionRef = collection(db, 'products');
 
-      const myProduct = {
-        ProductName: ProductName,
-        ProductPrize: ProductPrice,
-        ProductDescription: ProductDescription,
-      };
+      // const myProduct = {
+      //   ProductName: ProductName,
+      //   ProductPrize: ProductPrice,
+      //   ProductDescription: ProductDescription,
+      // };
 
       // const docRef = await addDoc(myCollectionRef, myProduct);
       // console.log("Document", docRef.id);
@@ -75,8 +79,6 @@ function AddProduct() {
                       })}
                       className="form-control mt-4 mb-2"
                       autoComplete="on"
-                      value={ProductName}
-                      onChange={(e) => setProductName(e.target.value)}
                     />
                     {errors.ProductName && (
                       <span className="error_msg">This field is required</span>
@@ -90,8 +92,6 @@ function AddProduct() {
                         maxLength: 50,
                       })}
                       className="form-control mt-4 mb-2"
-                      value={ProductPrice}
-                      onChange={(e) => setProductPrice(e.target.value)}
                     />
                     {errors.ProductPrize && (
                       <span className="error_msg">Price is required</span>
@@ -105,8 +105,6 @@ function AddProduct() {
                         minLength: 15,
                       })}
                       className="form-control mt-4 mb-2"
-                      value={ProductDescription}
-                      onChange={(e) => setProductDescription(e.target.value)}
                     />
                     {errors.ProductDescription && (
                       <span className="error_msg">
@@ -121,8 +119,6 @@ function AddProduct() {
                         required: true,
                       })}
                       className="form-control mt-4 mb-2"
-                      value={ProductPicture}
-                      onChange={(e) => setProductPicture(e.target.value)}
                     />
                     {errors.ProductPicture && (
                       <span className="error_msg">
