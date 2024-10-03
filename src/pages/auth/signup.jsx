@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "antd";
+import { message } from "antd";
 
 function SignUp() {
   const {
@@ -20,7 +20,7 @@ function SignUp() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleOnShowPassword = () => {
@@ -29,12 +29,20 @@ function SignUp() {
 
   const onSubmit = async (data) => {
     try {
-      console.log('Data', data?.email);
-      const user = await createUserWithEmailAndPassword(auth, data?.email, data?.Password);
+      setLoading(true);
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        data?.email,
+        data?.Password
+      );
       console.log("user", user);
+      message.success("SignUp Successfully");
+      setLoading(false);
       navigate("/SignIn");
     } catch (error) {
+      message.error(error.message);
       console.log("Error", error.message);
+      setLoading(false);
     }
     console.log("Data");
   };
@@ -92,7 +100,7 @@ function SignUp() {
                           required: true,
                           minLength: 8,
                         })}
-                        className="form-control mt-4 mb-2"
+                        className="form-control mt-3 mb-2"
                       />
                       <FontAwesomeIcon
                         icon={showPassword ? faEyeSlash : faEye}
@@ -118,24 +126,17 @@ function SignUp() {
                       Log in
                     </Link>
                     <center>
-                      {/* <Link
-                        to={"#"}
-                        style={{
-                          textDecoration: "none",
-                          color: "aliceblue",
-                          fontWeight: 600,
-                        }}
-                      > */}
                       <button
                         className="btn btn-dark w-50 mt-3 mb-3 button"
                         type="submit"
                       >
-                        SignUp
+                        {loading ? (
+                          <h5 className="pt-1 text-normal">loading...</h5>
+                        ) : (
+                          "SignUp"
+                        )}
                       </button>
-
-                      {/* </Link> */}
                     </center>
-
                   </form>
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-12" />
