@@ -57,7 +57,7 @@ function SignUp() {
         <div className="container">
           <div className="row">
             <h1
-              className="text-center text-light mt-5 fw-bold d-inline"
+              className="text-center text-light mt-4 fw-bold d-inline"
               style={{ fontFamily: '"Courier New", Courier, monospace' }}
             >
               Shah Store
