@@ -1,4 +1,11 @@
   /* Media Query */
+
+  /* @media screen and (max-width:768px) {
+    .eyeIcon{
+        font-size: 1rem;
+        margin-top: 20px;
+    }    
+  } */
   
   @media screen and (max-width: 425px) {
     .heading {
@@ -15,3 +22,4 @@
         margin-left: 70px;
     }
 }
+
