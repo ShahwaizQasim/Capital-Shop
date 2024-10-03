@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "antd";
 
 function SignUp() {
   const {
@@ -19,19 +20,21 @@ function SignUp() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const handleOnShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const onSubmit = async () => {
+  const onSubmit = async (data) => {
     try {
-      const user = await createUserWithEmailAndPassword(auth, Email, Password);
+      console.log('Data', data?.email);
+      const user = await createUserWithEmailAndPassword(auth, data?.email, data?.Password);
       console.log("user", user);
       navigate("/SignIn");
     } catch (error) {
-      console.log("Error", error);
+      console.log("Error", error.message);
     }
     console.log("Data");
   };
@@ -61,8 +64,6 @@ function SignUp() {
                       })}
                       className="form-control mt-4 mb-2"
                       autoComplete="on"
-                      value={UserName}
-                      onChange={(e) => setUserName(e.target.value)}
                     />
                     {errors.UserName && (
                       <span className="error_msg">This field is required</span>
@@ -73,8 +74,6 @@ function SignUp() {
                       placeholder="Email"
                       {...register("email", { required: true, maxLength: 25 })}
                       className="form-control mt-4 mb-2"
-                      value={Email}
-                      onChange={(e) => setEmail(e.target.value)}
                     />
                     {errors.email && (
                       <span className="error_msg">Email is required</span>
@@ -94,8 +93,6 @@ function SignUp() {
                           minLength: 8,
                         })}
                         className="form-control mt-4 mb-2"
-                        value={Password}
-                        onChange={(e) => setPassword(e.target.value)}
                       />
                       <FontAwesomeIcon
                         icon={showPassword ? faEyeSlash : faEye}
@@ -135,8 +132,10 @@ function SignUp() {
                       >
                         SignUp
                       </button>
+
                       {/* </Link> */}
                     </center>
+
                   </form>
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-12" />

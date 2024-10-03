@@ -11,7 +11,7 @@ import { auth } from "../../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-function SignIp() {
+function SignIn() {
   const {
     register,
     handleSubmit,
@@ -193,4 +193,4 @@ function SignIp() {
   );
 }
 
-export default SignIp;
+export default SignIn;
