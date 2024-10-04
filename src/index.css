@@ -46,6 +46,12 @@
   background-image: url(./img/slide-02.jpg.webp);
   background-size: cover;
 }
+.box2 {
+  height: auto;
+  border-radius: 15px;
+  background-image: url(./img/slide-03.jpg.webp);
+  background-size: cover;
+}
 .heading {
   margin-top: 50px;
   font-family: "Courier New", Courier, monospace;
@@ -71,10 +77,6 @@
 .error_message {
   color: red;
 }
-.button {
-  font-family: "poppins";
-  font-weight: 500;
-}
 .error_msg {
   color: red;
   margin-left: 5px;
@@ -89,6 +91,15 @@
   max-width: 85%;
   margin-top: 25px;
   margin-left: 10px;
+}
+.group2 {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 90%;
+  margin-top: 25px;
+  margin-left: 25px;
 }
 
 .input {
@@ -116,7 +127,7 @@
 }
 
 .input:focus {
-  box-shadow: 0 0 0 1.5px green;
+  box-shadow: 0 0 0 1.5px #ff201e;
 }
 
 .search-icon {
@@ -247,13 +258,16 @@
   transform: translateY(-10px);
   box-shadow: 1px 1px 20px #666;
 }
-.button{
+.button {
   height: 40px;
   width: 120px;
-  background-color: #FF201E;
+  background-color: #ff201e;
   color: #fff;
-  font-family: 'poppins';
+  font-family: "poppins";
   border: none;
   outline: none;
   border-radius: 5px;
+}
+.button:active {
+  border: 4px solid #fff;
 }

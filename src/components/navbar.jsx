@@ -12,14 +12,14 @@ function Navbar() {
   const navigate = useNavigate();
   console.log("User=>", user);
 
-  // agr user hai tw dashboard pr le joa warna login page le joa
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      navigate("/");
-    } else {
-      navigate("/SignIn");
-    }
-  });
+  // // agr user hai tw dashboard pr le joa warna login page le joa
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //     navigate("/");
+  //   } else {
+  //     navigate("/SignIn");
+  //   }
+  // });
 
   // user ko logout karwaya hai
   const handleOnLogOut = async () => {
@@ -37,7 +37,12 @@ function Navbar() {
     <>
       <div
         className="container-fluid pt-2 pb-2"
-        style={{ position: "sticky", top: 0, zIndex: 12, backgroundColor:'#fff' }}
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 12,
+          backgroundColor: "#fff",
+        }}
         id="nav2"
       >
         <div className="container">
@@ -47,7 +52,10 @@ function Navbar() {
               className="navbar-brand"
               style={{ fontFamily: "poppins" }}
             >
-              <img src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png.webp" alt="Logo" />
+              <img
+                src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png.webp"
+                alt="Logo"
+              />
             </Link>
             <button
               className="navbar-toggler"
@@ -65,7 +73,7 @@ function Navbar() {
                   <Link
                     to="/"
                     className="nav-link pe-4"
-                    style={{ fontFamily:"poppins" }}
+                    style={{ fontFamily: "poppins" }}
                   >
                     Home
                   </Link>
