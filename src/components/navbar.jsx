@@ -43,11 +43,11 @@ function Navbar() {
         <div className="container">
           <nav className="nav navbar navbar-expand-md text-center pb-1 pt-1">
             <Link
-              to="#"
+              to="/"
               className="navbar-brand"
               style={{ fontFamily: "poppins" }}
             >
-              Caza Store
+              <img src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png.webp" alt="Logo" />
             </Link>
             <button
               className="navbar-toggler"

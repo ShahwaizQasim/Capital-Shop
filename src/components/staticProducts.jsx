@@ -29,7 +29,7 @@ function StaticProduct() {
                 >
                   Spring 2018
                 </h6>
-                <button className="btn btn-info text-light fw-bold mt-5 ms-4">
+                <button className="button mt-4 ms-4">
                   Shop Now
                 </button>
               </div>
@@ -61,7 +61,7 @@ function StaticProduct() {
                 >
                   Spring 2018
                 </h6>
-                <button className="btn btn-info text-light fw-bold mt-4 ms-3">
+                <button className="button mt-4 ms-3">
                   Shop Now
                 </button>
               </div>
@@ -93,7 +93,7 @@ function StaticProduct() {
                 >
                   Spring 2018
                 </h6>
-                <button className="btn btn-info text-light fw-bold mt-5 ms-4">
+                <button className="button mt-4 ms-4">
                   Shop Now
                 </button>
               </div>

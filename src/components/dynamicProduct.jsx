@@ -11,8 +11,8 @@ function DynamicProduct() {
           <div className="col-lg-6 col-md-6 col-sm-8 mt-5">
             <Link to="/addProduct" className="text-decoration-none text-white">
               <button
-                className="btn btn-info text-light fw-bold mt-5"
-                style={{ marginLeft: "70%" }}
+                className="button mt-5"
+                style={{ marginLeft: "70%",width:'140px' }}
               >
                 Add Product
               </button>

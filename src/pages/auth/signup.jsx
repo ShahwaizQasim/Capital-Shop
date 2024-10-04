@@ -53,14 +53,14 @@ function SignUp() {
 
   return (
     <>
-      <div className="container-fluid bg-success SignUp-Container">
+      <div className="container-fluid SignUp-Container">
         <div className="container">
           <div className="row">
             <h1
-              className="text-center text-light mt-4 fw-bold d-inline"
+              className="text-center text-light mt-5 fw-bold d-inline"
               style={{ fontFamily: '"Courier New", Courier, monospace' }}
             >
-              Shah Store
+              <img src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png.webp" alt="" />
             </h1>
             <div className="col-lg-9 mt-4 m-auto pb-5 box">
               <div className="row">

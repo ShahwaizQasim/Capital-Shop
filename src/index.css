@@ -86,7 +86,7 @@
   line-height: 28px;
   align-items: center;
   position: relative;
-  max-width: 80%;
+  max-width: 85%;
   margin-top: 25px;
   margin-left: 10px;
 }
@@ -246,4 +246,14 @@
 .dis2:hover {
   transform: translateY(-10px);
   box-shadow: 1px 1px 20px #666;
+}
+.button{
+  height: 40px;
+  width: 120px;
+  background-color: #FF201E;
+  color: #fff;
+  font-family: 'poppins';
+  border: none;
+  outline: none;
+  border-radius: 5px;
 }
