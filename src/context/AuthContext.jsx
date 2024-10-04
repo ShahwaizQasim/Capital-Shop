@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import Spinner from "../pages/loading";
+import Spinner from "../components/loading";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
 

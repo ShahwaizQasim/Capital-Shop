@@ -11,6 +11,7 @@ import { auth } from "../../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { message } from "antd";
 
 function SignIn() {
   const {
@@ -37,9 +38,10 @@ function SignIn() {
         data?.email,
         data?.Password
       );
+      message.success('Login Successfully')
       navigate("/");
     } catch (error) {
-      console.log("Error", error.message);
+      message.error(error.message)
       firebaseErrorShow.innerText = error.message.slice(10);
     }
   };

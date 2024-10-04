@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,9 +6,12 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { Avatar } from "@mui/material";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { message } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 
 function Navbar() {
   const [user, setUser] = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   console.log("User=>", user);
 
@@ -25,11 +28,14 @@ function Navbar() {
   const handleOnLogOut = async () => {
     console.log("data");
     try {
+      setLoading(true);
       const userSignOut = await signOut(auth);
-      console.log("UserSignOut", userSignOut);
+      message.success("Logout Successfully");
       navigate("/SignIn");
     } catch (error) {
       console.log(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -46,7 +52,7 @@ function Navbar() {
         id="nav2"
       >
         <div className="container">
-          <nav className="nav navbar navbar-expand-md text-center pb-1 pt-1">
+          <nav className="nav navbar navbar-expand-xxl text-center pb-1 pt-1">
             <Link
               to="/"
               className="navbar-brand"
@@ -89,15 +95,6 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    href="#"
-                    className="nav-link pe-4"
-                    style={{ fontFamily: "poppins" }}
-                  >
-                    Blog
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
                     to="#"
                     className="nav-link pe-4"
                     style={{ fontFamily: "poppins" }}
@@ -106,13 +103,22 @@ function Navbar() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a
-                    href="./dashboard.html"
+                  <Link
+                    to="#"
                     className="nav-link pe-4"
                     style={{ fontFamily: "poppins" }}
                   >
-                    Contact
-                  </a>
+                    <ShoppingCartOutlined />
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                  >
+                    Logout <FontAwesomeIcon icon={faUser} />{" "}
+                  </button>
                 </li>
                 <li className="nav-item">
                   {/* Example single danger button */}
@@ -130,15 +136,7 @@ function Navbar() {
 
                     <ul className="dropdown-menu">
                       <li>
-                        <a
-                          className="dropdown-item btn btn-secondary"
-                          style={{ fontFamily: "poppins" }}
-                          data-bs-toggle="modal"
-                          data-bs-target="#staticBackdrop"
-                          href="#"
-                        >
-                          Logout <FontAwesomeIcon icon={faUser} />
-                        </a>
+                        <Link to={"/UserProfile"}>User Profile</Link>
                       </li>
                     </ul>
                   </div>
@@ -160,8 +158,6 @@ function Navbar() {
       >
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
-            {/* <div class="modal-header">
-    </div> */}
             <div className="modal-body">
               <h5
                 className="text-center"
@@ -197,7 +193,7 @@ function Navbar() {
                 style={{ fontFamily: "poppins" }}
                 onClick={handleOnLogOut}
               >
-                Log Out
+                {loading ? <h5>loading...</h5> : "Logout"}
               </button>
             </div>
           </div>

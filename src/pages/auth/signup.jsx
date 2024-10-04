@@ -39,7 +39,6 @@ function SignUp() {
         data?.email,
         data?.Password
       );
-      console.log("user", user);
       message.success("Sign Up Successfully");
       setLoading(false);
       navigate("/SignIn");
