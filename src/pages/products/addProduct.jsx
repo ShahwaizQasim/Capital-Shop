@@ -4,11 +4,8 @@ import { useForm } from "react-hook-form";
 import { db } from "../../utils/firebase";
 import { message } from "antd";
 
-const onSubmit = () => {
-  console.log("data");
-};
-
 function AddProduct() {
+  const [loading,setLoading] = useState(false)
   const {
     register,
     handleSubmit,
@@ -37,6 +34,7 @@ function AddProduct() {
       //   ProductDescription: ProductDescription,
       // };
 
+      setLoading(true)
       // const docRef = await addDoc(myCollectionRef, myProduct);
       // console.log("Document", docRef.id);
 
@@ -44,30 +42,29 @@ function AddProduct() {
     } catch (error) {
       console.log("Error", error);
     }
+    finally{
+      setLoading(false);
+    }
   };
 
   return (
     <>
-      <div className="container-fluid bg-success SignUp-Container">
+      <div className="container-fluid SignUp-Container">
         <div className="container">
           <div className="row">
             <h1
               className="text-center text-light mt-5 fw-bold d-inline"
               style={{ fontFamily: '"Courier New", Courier, monospace' }}
             >
-              Shah Store
+             <img src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png.webp" alt="logo" height={50} />
             </h1>
             <div className="col-10 mt-4 m-auto pb-5 box">
               <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-12">
                   <h1
                     className="text-dark fw-bold heading"
-                    style={{
-                      marginLeft: "10px",
-                      textAlign: "center",
-                    }}
                   >
-                    Upload Product
+                    Add Product
                   </h1>
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <input
@@ -81,7 +78,7 @@ function AddProduct() {
                       autoComplete="on"
                     />
                     {errors.ProductName && (
-                      <span className="error_msg">This field is required</span>
+                      <span className="error_msg">ProductName is required</span>
                     )}
 
                     <input
@@ -128,7 +125,7 @@ function AddProduct() {
 
                     <center>
                       <button
-                        className="btn btn-dark w-50 mt-3 mb-3 button"
+                        className="btn btn-dark mt-4 mb-2 button"
                         type="submit"
                       >
                         Upload Product
