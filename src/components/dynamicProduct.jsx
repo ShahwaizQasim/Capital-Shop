@@ -1,21 +1,34 @@
-import { collection } from "firebase/firestore";
-import { useState } from "react";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../utils/firebase";
 
-
-
 function DynamicProduct() {
-const [product,setProduct] = useState([])
+  const [product, setProduct] = useState([]);
 
-const getProducts = () => {
-  try {
-    const productCollection = collection(db, "products")
-  } catch (error) {
-    
-  }
-} 
+  useEffect(() => {
+    getProducts();
+  }, []);
 
+  const getProducts = async () => {
+    try {
+      const productCollection = collection(db, "products");
+      // const que = query(
+      //   productCollection,
+      //   orderBy("createdAt", "desc"),
+      //   limit(3)
+      // );
+      const docs = await getDocs(productCollection);
+      const arr = [];
+      docs.forEach((product) => {
+        return arr.push({ ...product.data(), id: product.id });
+      });
+      setProduct([...arr]);
+      console.log("Products", arr);
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
 
   return (
     <>
@@ -28,7 +41,7 @@ const getProducts = () => {
             <Link to="/addProduct" className="text-decoration-none text-white">
               <button
                 className="button mt-5"
-                style={{ marginLeft: "70%",width:'170px' }}
+                style={{ marginLeft: "70%", width: "170px" }}
               >
                 Add Product
               </button>

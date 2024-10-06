@@ -13,7 +13,7 @@ function Navbar() {
   const [user, setUser] = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  console.log("User=>", user);
+  // console.log("User=>", user);
 
   // // agr user hai tw dashboard pr le joa warna login page le joa
   // onAuthStateChanged(auth, (user) => {

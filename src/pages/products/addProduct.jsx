@@ -4,9 +4,12 @@ import { useForm } from "react-hook-form";
 import { db, storage } from "../../utils/firebase";
 import { message } from "antd";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { Link, useNavigate } from "react-router-dom";
+
 
 function AddProduct() {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -49,6 +52,7 @@ function AddProduct() {
       };
       const docRef = await addDoc(myCollectionRef, myProduct);
       message.success("Product Added Successfully");
+      navigate('/')
     } catch (error) {
       console.log("Error", error);
       message.error(error.message);
@@ -146,7 +150,6 @@ function AddProduct() {
                           "Upload Product "
                         )}
                       </button>
-                      {/* </Link> */}
                     </center>
                   </form>
                 </div>

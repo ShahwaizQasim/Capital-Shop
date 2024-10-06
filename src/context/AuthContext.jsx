@@ -15,9 +15,9 @@ function AuthContextProvider({ children }) {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log("user=>", user);
+        // console.log("user=>", user);
         const uid = user.uid;
-        console.log("User Id", uid);
+        // console.log("User Id", uid);
         setUser({
           isLogin: true,
           userInfo: {
@@ -31,7 +31,7 @@ function AuthContextProvider({ children }) {
         // ...
         setUser({ isLogin: false, userInfo: {} });
 
-        console.log("User SignOut");
+        // console.log("User SignOut");
       }
       setLoading(false);
     });
