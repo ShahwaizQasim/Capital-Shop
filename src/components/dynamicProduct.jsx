@@ -1,6 +1,22 @@
+import { collection } from "firebase/firestore";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { db } from "../utils/firebase";
+
+
 
 function DynamicProduct() {
+const [product,setProduct] = useState([])
+
+const getProducts = () => {
+  try {
+    const productCollection = collection(db, "products")
+  } catch (error) {
+    
+  }
+} 
+
+
   return (
     <>
       <div className="container mt-5 mb-5">
@@ -12,7 +28,7 @@ function DynamicProduct() {
             <Link to="/addProduct" className="text-decoration-none text-white">
               <button
                 className="button mt-5"
-                style={{ marginLeft: "70%",width:'140px' }}
+                style={{ marginLeft: "70%",width:'170px' }}
               >
                 Add Product
               </button>

@@ -53,10 +53,7 @@
   background-size: cover;
 }
 .heading {
-  margin-top: 50px;
   font-family: "Courier New", Courier, monospace;
-  margin-left: "10px";
-  text-align: "center";
 }
 .form-control {
   height: 45px;
@@ -301,6 +298,19 @@
   border-radius: 5px;
 }
 .button:active {
+  border: 4px solid #fff;
+}
+.button2 {
+  height: 40px;
+  width: 170px !important;
+  background-color: #000;
+  color: #fff;
+  font-family: "poppins";
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.button2:active {
   border: 4px solid #fff;
 }
 
