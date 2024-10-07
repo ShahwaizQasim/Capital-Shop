@@ -1,4 +1,4 @@
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../utils/firebase";
@@ -15,12 +15,12 @@ function DynamicProduct() {
   const getProducts = async () => {
     try {
       const productCollection = collection(db, "products");
-      // const que = query(
-      //   productCollection,
-      //   orderBy("createdAt", "desc"),
-      //   limit(3)
-      // );
-      const docs = await getDocs(productCollection);
+      const que = query(
+        productCollection,
+        orderBy("createdAt", "desc"),
+        limit(3)
+      );
+      const docs = await getDocs(que);
       const arr = [];
       docs.forEach((product) => {
         return arr.push({ ...product.data(), id: product.id });
