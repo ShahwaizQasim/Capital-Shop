@@ -365,9 +365,29 @@
   font-family: 'poppins';
 }
 
+
+/* Product Detail */
+
 .productDetail_Link{
   text-decoration: none;
   cursor: pointer;
   font-family: 'poppins';
+}
+.productDetail-cont{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  border: 2px solid red;
+  align-items: center;
+}
 
+.productDetail-dis1{
+     height: 400px;
+     width: 100%;
+     border: 2px solid red;
+}
+.productDetail-dis{
+  height: 400px;
+  width: 100%;
+  border: 2px solid red;
 }

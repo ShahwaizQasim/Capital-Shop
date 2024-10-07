@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../utils/firebase";
 import Cards from "./cards";
+import { message } from "antd";
 
 function DynamicProduct() {
   const [product, setProduct] = useState([]);
@@ -27,7 +28,7 @@ function DynamicProduct() {
       setProduct([...arr]);
       console.log("Products", arr);
     } catch (error) {
-      console.log("Error", error);
+      message.error(error.message)
     }
   };
 
