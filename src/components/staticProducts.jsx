@@ -14,7 +14,7 @@ function StaticProduct() {
                   className="pt-4 ps-4 fw-bold"
                   style={{
                     fontFamily:
-                      "'Trebuchet MS', 'Lucida Sans Unicode','Lucida Grande', 'Lucida Sans', Arial, sans-serif",
+                      "Trebuchet MS', 'Lucida Sans Unicode','Lucida Grande', 'Lucida Sans', Arial, sans-serif",
                   }}
                 >
                   Women
@@ -72,7 +72,7 @@ function StaticProduct() {
             data-aos="fade-left"
             data-aos-duration="1000"
           >
-            <a className="text-decoration-none text-dark" href="">
+            <a className="text-decoration-none text-dark" href="#">
               <div className="dis2">
                 <h3
                   className="pt-4 ps-4 fw-bold"

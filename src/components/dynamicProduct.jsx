@@ -2,6 +2,7 @@ import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../utils/firebase";
+import Cards from "./cards";
 
 function DynamicProduct() {
   const [product, setProduct] = useState([]);
@@ -48,10 +49,15 @@ function DynamicProduct() {
             </Link>
           </div>
         </div>
-        <div className="row">
-          <div className="mt-5 allProducts" />
+        <div className="row mt-5  allProducts"> 
+          {
+            product.map((productData)=> {
+              return <Cards key={productData.id} data={productData} />
+            })
+          }
+          </div>
+         
         </div>
-      </div>
     </>
   );
 }

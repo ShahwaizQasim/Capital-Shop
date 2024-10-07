@@ -1,11 +1,11 @@
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { db, storage } from "../../utils/firebase";
+import { auth, db, storage } from "../../utils/firebase";
 import { message } from "antd";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";
-
+import { categories } from "../../utils/categories";
 
 function AddProduct() {
   const [loading, setLoading] = useState(false);
@@ -18,17 +18,17 @@ function AddProduct() {
     formState: { errors },
   } = useForm();
 
-  // const [ProductName, setProductName] = useState("");
-  // const [ProductPrice, setProductPrice] = useState("");
-  // const [ProductDescription, setProductDescription] = useState("");
-  // const [ProductPicture, setProductPicture] = useState("");
+  const [ProductName, setProductName] = useState("");
+  const [ProductPrice, setProductPrice] = useState("");
+  const [ProductDescription, setProductDescription] = useState("");
   // console.log(ProductPicture);
 
   const onSubmit = async (data) => {
     try {
       console.log(data);
+      
       const Product_Picture = data?.ProductPicture[0];
-
+    
       setLoading(true);
       const product_picture_ref = ref(
         storage,
@@ -45,14 +45,17 @@ function AddProduct() {
       const myCollectionRef = collection(db, "products");
 
       const myProduct = {
-        Product_Name: data?.ProductName,
-        Product_Prize: data?.ProductPrize,
-        Product_Description: data?.ProductDescription,
-        Product_Picture: data?.ProductPicture[0].name,
+        Product_Name:ProductName, 
+        Product_Picture: image_Url,
+        Product_Price: ProductPrice,
+        Product_Description:ProductDescription,
+        Product_Categories: data?.categories,
+        createdAt: serverTimestamp(),
+        status: "Active",
       };
       const docRef = await addDoc(myCollectionRef, myProduct);
       message.success("Product Added Successfully");
-      navigate('/')
+      navigate("/");
     } catch (error) {
       console.log("Error", error);
       message.error(error.message);
@@ -85,12 +88,14 @@ function AddProduct() {
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <input
                       type="text"
-                      placeholder="Product Name"
+                      placeholder="Product Title"
                       {...register("ProductName", {
                         required: true,
                         maxLength: 25,
                       })}
                       className="form-control mt-4 mb-2"
+                      value={ProductName}
+                      onChange={(e)=> setProductName(e.target.value)}
                       autoComplete="on"
                     />
                     {errors.ProductName && (
@@ -104,6 +109,8 @@ function AddProduct() {
                         required: true,
                         maxLength: 50,
                       })}
+                      value={ProductPrice}
+                      onChange={(e)=> setProductPrice(e.target.value)}
                       className="form-control mt-4 mb-2"
                     />
                     {errors.ProductPrize && (
@@ -117,6 +124,9 @@ function AddProduct() {
                         required: true,
                         minLength: 15,
                       })}
+                      
+                      value={ProductDescription}
+                      onChange={(e)=> setProductDescription(e.target.value)}
                       className="form-control mt-4 mb-2"
                     />
                     {errors.ProductDescription && (
@@ -124,6 +134,15 @@ function AddProduct() {
                         ProductDescription is required
                       </span>
                     )}
+
+                    <select
+                      {...register("categories")}
+                      className="form-control mt-4"
+                    >
+                      {categories.map((data)=>{
+                        return <option value={data?.slug}>{data.name}</option>
+                      })}
+                    </select>
 
                     <input
                       type="file"
@@ -144,8 +163,8 @@ function AddProduct() {
                         className="btn btn-dark mt-4 mb-2 button2"
                         type="submit"
                       >
-                       {loading ? (
-                          <h5 className="pt-1 text-normal">loading...</h5>
+                        {loading ? (
+                          <h5 className="pt-1 pb-2 text-normal">loading...</h5>
                         ) : (
                           "Upload Product "
                         )}

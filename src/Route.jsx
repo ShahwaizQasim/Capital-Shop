@@ -7,6 +7,7 @@ import SignIn from "./pages/auth/signin";
 import Home from "./pages/Home";
 import AddProduct from "./pages/products/addProduct";
 import UserProfile from "./userProfile/userprofile";
+import ProductDetail from "./pages/products/productDetail";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/userProfile" element={<UserProfile />} />
+          <Route path="/ProductDetail/:id" element={<ProductDetail/>} />
         </Routes>
       </BrowserRouter>
     </>
