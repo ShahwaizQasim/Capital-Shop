@@ -1,53 +1,50 @@
-import Carousel from "react-bootstrap/Carousel";
+import Carousel from 'react-bootstrap/Carousel';
 import "animate.css";
 
-function DarkVariantExample() {
+
+function CarouselFadeExample() {
   return (
-    <Carousel data-bs-theme="dark">
-      <Carousel.Item className="slider23">
-        <h4 className="animate__animated animate__delay-0.5s animate__fadeInDown slider-heading4">
-          Man New-Season
-        </h4>
-        <h1 className="animate__animated animate__delay-1s animate__fadeInUp slider-heading1">
-          NEW SESSION
-        </h1>
-        <button
-          className="button animate__animated animate__delay-2s animate__zoomIn"
-          style={{ position: "absolute", top: "48%", left: "12%" }}
+    <Carousel fade>
+      <Carousel.Item className='slider23'>
+        <div className="container">
+          <div className="row pt-5">
+            <div className="col-lg-6 sliderColumn pt-5">
+          <h2 className="animate__animated animate__zoomIn">Fashion Sale</h2>
+          <h1 className="animate__animated animate__delay-1s animate__bounceIn">Minimize Menz Style</h1>
+          <p className="animate__animated animate__delay-2s animate__fadeInUp ">Consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.</p>
+          <center>
+          <button
+          className="button animate__animated animate__delay-2s animate__fadeInUp mt-3"
         >
           Shop Now
         </button>
+        </center>
+          </div>
+          <div className="col-lg-6"></div>
+          </div>
+        </div>
       </Carousel.Item>
-      <Carousel.Item className="slider24">
-        <h4 className="animate__animated animate__delay-0.5s animate__rotateInDownLeft slider-heading4">
-          Women Collection 2023
-        </h4>
-        <h1 className="animate__animated animate__delay-1s animate__lightSpeedInRight slider-heading1">
-          Jackets &amp; Coats
-        </h1>
-        <button
-          className="button animate__animated animate__delay-2s animate__fadeInUp"
-          style={{ position: "absolute", top: "48%", left: "12%" }}
+      <Carousel.Item  className='slider24'>
+      <div className="container">
+          <div className="row pt-5">
+            <div className="col-lg-6"> </div>
+          <div className="col-lg-6 sliderColumn pt-5">
+          <h2 className="animate__animated animate__zoomIn">Fashion Sale</h2>
+          <h1 className="animate__animated animate__delay-1s animate__bounceIn">Minimize Womenz Style</h1>
+          <p className="animate__animated animate__delay-2s animate__fadeInUp ">Consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.</p>
+          <center>
+          <button
+          className="button animate__animated animate__delay-2s animate__fadeInUp mt-3"
         >
           Shop Now
         </button>
-      </Carousel.Item>
-      <Carousel.Item className="slider25">
-        <h4 className="animate__animated animate__delay-0.5s animate__rotateInDownLeft slider-heading4">
-          Men's Collection 2023
-        </h4>
-        <h1 className="animate__animated animate__delay-1s animate__lightSpeedInRight slider-heading1">
-          Jackets &amp; Coats
-        </h1>
-        <button
-          className="button animate__animated animate__delay-2s animate__fadeInUp"
-          style={{ position: "absolute", top: "48%", left: "12%" }}
-        >
-          Shop Now
-        </button>
+        </center>
+          </div>
+          </div>
+        </div>
       </Carousel.Item>
     </Carousel>
   );
 }
 
-export default DarkVariantExample;
+export default CarouselFadeExample;
