@@ -37,6 +37,20 @@
   border-radius: 50%;
   background-color: aliceblue;
 }
+.MiniHeader{
+  height: 60px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+}
+.MiniHeader>.container>h5{
+  color: white;
+  font-family: 'poppins';
+  font-size: 1rem;
+  font-weight: normal;
+  padding-top: 5px;
+}
+
 
 /* signup */
 .SignUp-Container {
