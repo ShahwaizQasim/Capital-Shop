@@ -11,7 +11,8 @@ function MiniHeader() {
             style={{
               textDecoration: "none",
               color: "#BC883E",
-              borderBottom: "2px solid #BC883E",
+              borderBottom: "1px solid #BC883E",
+              marginLeft:'8px'
             }}
           >
             Shop Now

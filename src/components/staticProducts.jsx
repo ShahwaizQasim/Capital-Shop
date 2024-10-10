@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function StaticProduct() {
   return (
     <>
@@ -8,96 +10,84 @@ function StaticProduct() {
             data-aos="fade-right"
             data-aos-duration="1000"
           >
-            <a className="text-decoration-none text-dark" href="">
+            <Link className="text-decoration-none text-dark" to="/">
               <div className="dis">
-                <h3
-                  className="pt-4 ps-4 fw-bold"
-                  style={{
-                    fontFamily:
-                      "Trebuchet MS', 'Lucida Sans Unicode','Lucida Grande', 'Lucida Sans', Arial, sans-serif",
-                  }}
-                >
-                  Women
-                </h3>
-                <h6
-                  className="ps-4 fw-bold"
-                  style={{
-                    color: "#918989",
-                    fontFamily:
-                      "Cambria, Cochin, Georgia, Times,'Times New Roman', serif",
-                  }}
-                >
-                  Spring 2018
-                </h6>
-                <button className="button mt-4 ms-4">
-                  Shop Now
-                </button>
+                <div className="img-Dark">
+                  <h3 className="pt-4 ps-4 fw-bold">Men's Fashion</h3>
+                  <Link
+                    to={"/"}
+                    style={{
+                      textDecoration: "none",
+                      position: "absolute",
+                      bottom: "20px",
+                      left: "145px",
+                      fontFamily: "poppins",
+                      borderBottom: "2px solid #ccc",
+                      color: "#ccc",
+                      letterSpacing: "4px",
+                    }}
+                  >
+                    Shop Now
+                  </Link>
+                </div>
               </div>
-            </a>
+            </Link>
           </div>
           <div
             className="col-lg-4 col-md-6 col-sm-12 mt-5"
             data-aos="fade-up"
             data-aos-duration="1000"
           >
-            <a className="text-decoration-none text-dark" href="">
+            <Link className="text-decoration-none text-dark" to="/">
               <div className="dis1">
-                <h3
-                  className="pt-4 ps-4 fw-bold"
-                  style={{
-                    fontFamily:
-                      "'Trebuchet MS', 'Lucida Sans Unicode','Lucida Grande', 'Lucida Sans', Arial, sans-serif",
-                  }}
-                >
-                  Men
-                </h3>
-                <h6
-                  className="ps-4 fw-bold"
-                  style={{
-                    color: "#918989",
-                    fontFamily:
-                      "Cambria, Cochin, Georgia, Times,'Times New Roman', serif",
-                  }}
-                >
-                  Spring 2018
-                </h6>
-                <button className="button mt-4 ms-3">
-                  Shop Now
-                </button>
+                <div className="img-Dark">
+                  <h3 className="pt-4 ps-4 fw-bold">Men's Fashion</h3>
+                  <Link
+                    to={"/"}
+                    style={{
+                      textDecoration: "none",
+                      position: "absolute",
+                      bottom: "20px",
+                      left: "145px",
+                      fontFamily: "poppins",
+                      borderBottom: "2px solid #ccc",
+                      color: "#ccc",
+                      letterSpacing: "4px",
+                    }}
+                  >
+                    Shop Now
+                  </Link>
+                </div>
               </div>
-            </a>
+            </Link>
           </div>
           <div
             className="col-lg-4 col-md-6 col-sm-12 mt-5"
             data-aos="fade-left"
             data-aos-duration="1000"
           >
-            <a className="text-decoration-none text-dark" href="#">
+            <Link className="text-decoration-none text-dark" to="/">
               <div className="dis2">
-                <h3
-                  className="pt-4 ps-4 fw-bold"
-                  style={{
-                    fontFamily:
-                      "'Trebuchet MS', 'Lucida Sans Unicode','Lucida Grande', 'Lucida Sans', Arial, sans-serif",
-                  }}
-                >
-                  Accesories
-                </h3>
-                <h6
-                  className="ps-4 fw-bold"
-                  style={{
-                    color: "#918989",
-                    fontFamily:
-                      "Cambria, Cochin, Georgia, Times,'Times New Roman', serif",
-                  }}
-                >
-                  Spring 2018
-                </h6>
-                <button className="button mt-4 ms-4">
-                  Shop Now
-                </button>
+                <div className="img-Dark">
+                  <h3 className="pt-4 ps-4 fw-bold">Women~'s Fashion</h3>
+                  <Link
+                    to={"/"}
+                    style={{
+                      textDecoration: "none",
+                      position: "absolute",
+                      bottom: "20px",
+                      left: "145px",
+                      fontFamily: "poppins",
+                      borderBottom: "2px solid #ccc",
+                      color: "#ccc",
+                      letterSpacing: "4px",
+                    }}
+                  >
+                    Shop Now
+                  </Link>
+                </div>
               </div>
-            </a>
+            </Link> 
           </div>
         </div>
       </div>

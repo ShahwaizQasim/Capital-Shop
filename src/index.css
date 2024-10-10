@@ -37,20 +37,19 @@
   border-radius: 50%;
   background-color: aliceblue;
 }
-.MiniHeader{
+.MiniHeader {
   height: 60px;
   background-color: #000;
   display: flex;
   align-items: center;
 }
-.MiniHeader>.container>h5{
+.MiniHeader > .container > h5 {
   color: white;
-  font-family: 'poppins';
+  font-family: "poppins";
   font-size: 1rem;
   font-weight: normal;
   padding-top: 5px;
 }
-
 
 /* signup */
 .SignUp-Container {
@@ -282,49 +281,84 @@
 
 /* Static Product  */
 .dis {
-  height: 220px;
-  width: 98%;
+  height: 350px;
+  width: 95%;
   overflow: hidden;
   border: 1px solid #ccc;
   margin-top: 20px;
   transition: transform 0.6s;
-  background-image: url(./img/img-1.jpg);
+  background-image: url(./img/items1.jpg.webp);
   background-size: cover;
+  position: relative;
 }
 .dis:hover {
   transform: translateY(-10px);
   box-shadow: 1px 1px 20px #666;
 }
-.dis > h3 {
-  font-family: "Trebuchet MS', 'Lucida Sans Unicode','Lucida Grande', 'Lucida Sans', Arial, sans-seri";
+.dis > .img-Dark > h3 {
+  font-family: "poppins";
+  position: absolute;
+  bottom: 50px;
+  left: 75px;
+  color: #fff;
+  font-weight: 500 !important;
 }
+
 .dis1 {
-  height: 220px;
-  width: 98%;
+  height: 350px;
+  width: 95%;
   overflow: hidden;
   border: 1px solid #ccc;
   margin-top: 20px;
-  transition: transform 0.6s;
-  background-image: url(./img/img-2.jpg);
+  background-image: url(./img/items2.jpg.webp);
+  z-index: -10;
   background-size: cover;
+  position: relative;
+  transition: transform 0.6s;
 }
 .dis1:hover {
   transform: translateY(-10px);
   box-shadow: 1px 1px 20px #666;
 }
+.dis1 > .img-Dark > h3 {
+  font-family: "poppins";
+  position: absolute;
+  bottom: 50px;
+  left: 75px;
+  color: #fff;
+  font-weight: 500 !important;
+}
+.img-Dark {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0));
+  transform: translateY(0%);
+}
 .dis2 {
-  height: 220px;
-  width: 98%;
+  height: 350px;
+  width: 95%;
   overflow: hidden;
   border: 1px solid #ccc;
   margin-top: 20px;
   transition: transform 0.6s;
-  background-image: url(./img/img-3.jpg);
+  background-image: url(./img/items3.jpg.webp);
   background-size: cover;
+  position: relative;
 }
 .dis2:hover {
   transform: translateY(-10px);
   box-shadow: 1px 1px 20px #666;
+}
+.dis2 > .img-Dark > h3 {
+  font-family: "poppins";
+  position: absolute;
+  bottom: 50px;
+  left: 75px;
+  color: #fff;
+  font-weight: 500 !important;
 }
 .button {
   height: 40px;
