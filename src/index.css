@@ -9,7 +9,7 @@
 }
 ::selection {
   background-color: white;
-  color: green;
+  color: #ff201e;
 }
 
 /* navbar  */
@@ -280,6 +280,16 @@
 }
 
 /* Static Product  */
+
+.img-Dark {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0));
+  transform: translateY(0%);
+}
 .dis {
   height: 350px;
   width: 95%;
@@ -293,7 +303,7 @@
 }
 .dis:hover {
   transform: translateY(-10px);
-  box-shadow: 1px 1px 20px #666;
+  box-shadow: 1px 1px 20px #ccc;
 }
 .dis > .img-Dark > h3 {
   font-family: "poppins";
@@ -310,15 +320,14 @@
   overflow: hidden;
   border: 1px solid #ccc;
   margin-top: 20px;
+  transition: transform 0.6s;
   background-image: url(./img/items2.jpg.webp);
-  z-index: -10;
   background-size: cover;
   position: relative;
-  transition: transform 0.6s;
 }
 .dis1:hover {
   transform: translateY(-10px);
-  box-shadow: 1px 1px 20px #666;
+  box-shadow: 1px 1px 20px #ccc;
 }
 .dis1 > .img-Dark > h3 {
   font-family: "poppins";
@@ -328,15 +337,9 @@
   color: #fff;
   font-weight: 500 !important;
 }
-.img-Dark {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0));
-  transform: translateY(0%);
-}
+
+
+
 .dis2 {
   height: 350px;
   width: 95%;
@@ -350,13 +353,13 @@
 }
 .dis2:hover {
   transform: translateY(-10px);
-  box-shadow: 1px 1px 20px #666;
+  box-shadow: 1px 1px 20px #ccc;
 }
 .dis2 > .img-Dark > h3 {
   font-family: "poppins";
   position: absolute;
   bottom: 50px;
-  left: 75px;
+  left: 70px;
   color: #fff;
   font-weight: 500 !important;
 }

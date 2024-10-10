@@ -69,7 +69,7 @@ function StaticProduct() {
             <Link className="text-decoration-none text-dark" to="/">
               <div className="dis2">
                 <div className="img-Dark">
-                  <h3 className="pt-4 ps-4 fw-bold">Women~'s Fashion</h3>
+                  <h3 className="pt-4 ps-4 fw-bold">Women's Fashion</h3>
                   <Link
                     to={"/"}
                     style={{
