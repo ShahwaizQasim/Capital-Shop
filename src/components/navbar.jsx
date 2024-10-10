@@ -52,7 +52,9 @@ function Navbar() {
         id="nav2"
       >
         <div className="container">
-          <nav className="nav navbar navbar-expand-xxl text-center pb-1 pt-1">
+          <nav className="nav navbar navbar-expand-xxl text-center pb-1 pt-1" style={{
+            border:'2px solid red'
+          }}>
             <Link
               to="/"
               className="navbar-brand"
@@ -122,24 +124,9 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                   {/* Example single danger button */}
-                  <div className="btn-group">
-                    <button
-                      type="button"
-                      className="btn dropdown-toggle"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <div className="userPhoto">
+                  <div className="userPhoto">
                         <Avatar src={user?.userInfo?.UserPhoto} />
                       </div>
-                    </button>
-
-                    <ul className="dropdown-menu">
-                      <li>
-                        <Link to={"/UserProfile"}>User Profile</Link>
-                      </li>
-                    </ul>
-                  </div>
                 </li>
               </ul>
             </div>

@@ -79,7 +79,7 @@ function Footer() {
                     height: "25px",
                     position: "absolute",
                     right: "135",
-                    top: "55px",
+                    top: "45px",
                   }}
                 />
                 <FontAwesomeIcon
@@ -89,7 +89,7 @@ function Footer() {
                     height: "25px",
                     position: "absolute",
                     right: "90",
-                    top: "55px",
+                    top: "45px",
                   }}
                 />
                 <FontAwesomeIcon
@@ -99,17 +99,17 @@ function Footer() {
                     height: "25px",
                     position: "absolute",
                     right: "40",
-                    top: "55px",
+                    top: "45px",
                   }}
                 />
               </div>
             </div>
           </div>
           <div className="row pt-3">
-            <div className="col-lg-3 col-md-3 col-sm-12 mt-5">
+            <div className="col-lg-3 col-md-4 col-sm-12 mt-5">
              <img src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo2_footer.png.webp" alt="logo" />
             </div>
-            <div className="col-lg-2 col-md-3 col-sm-12">
+            <div className="col-lg-2 col-md-4 col-sm-12">
               <h5
                 className="text-light mt-5"
                 style={{
@@ -120,102 +120,164 @@ function Footer() {
                 Shop Men
               </h5>
               <p
-                className="lh-base pt-4"
-                style={{ color: "#918989", fontFamily: "poppins" }}
+                className="lh-base pt-3"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
               >
-                Track Order
+               Clothing Fashion
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins" }}
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
               >
-                Returns
+                Winter
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins" }}
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
               >
-                Shipping
+                Summer
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins" }}
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
               >
-                FAQ's
+                Formal
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+              >
+                Casual
               </p>
             </div>
-            <div className="col-lg-2 col-md-3 col-sm-12">
+            <div className="col-lg-2 col-md-4 col-sm-12">
               <h5
-                className="fw-bold text-light mt-5"
-                style={{ fontFamily: '"Times New Roman", Times, serif' }}
+                className="text-light mt-5"
+                style={{
+                  fontFamily: "Jost, sans-serif",
+                  fontWeight:'normal',
+                }}
               >
-                GET IN TOUCH
+                Shop Women
               </h5>
               <p
-                className="lh-base pt-4"
-                style={{ color: "#918989", fontFamily: "poppins" }}
+                className="lh-base pt-3"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
               >
-                Any questions? Let us know in store at 8th floor, 379 Hudson St,
-                New York, NY 10018 or call us on (+1) 96 716
+               Clothing Fashion
               </p>
-              <a href="" className="ic">
-                <i
-                  className="fa-brands fa-facebook fs-5 mt-2 me-2"
-                  style={{ color: "#918989" }}
-                />
-              </a>
-              <a href="" className="ic">
-                <i
-                  className="fa-brands fa-instagram fs-5 mt-2 me-2"
-                  style={{ color: "#918989" }}
-                />
-              </a>
-              <a href="" className="ic">
-                <i
-                  className="fa-brands fa-pinterest fs-5 mt-2 me-2"
-                  style={{ color: "#918989" }}
-                />
-              </a>
-            </div>
-            <div className="col-lg-2 col-md-3 col-sm-12">
-              <h5
-                className="fw-bold text-light mt-5 ms-4"
-                style={{ fontFamily: '"Times New Roman", Times, serif' }}
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
               >
-                NEWSLETTER
-              </h5>
-              <div class="group2">
-                <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    className="search-icon"
-                  ></FontAwesomeIcon>
-                </svg>
-
-                <input className="input" type="email" placeholder="Email..." />
-              </div>
-
-              <button className="button mt-4 ms-4">Subscribe</button>
-            </div>
-            <div className="col-lg-2 col-md-3 col-sm-12">
-              <h5
-                className="fw-bold text-light mt-5 ms-4"
-                style={{ fontFamily: '"Times New Roman", Times, serif' }}
+                Winter
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
               >
-                NEWSLETTER
+                Summer
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+              >
+                Formal
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+              >
+                Casual
+              </p>
+            </div>
+            <div className="col-lg-2 col-md-6 col-sm-12">
+              <h5
+                className="text-light mt-5"
+                style={{
+                  fontFamily: "Jost, sans-serif",
+                  fontWeight:'normal',
+                }}
+              >
+               Baby Collection
               </h5>
-              <div class="group2">
-                <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    className="search-icon"
-                  ></FontAwesomeIcon>
-                </svg>
-
-                <input className="input" type="email" placeholder="Email..." />
-              </div>
-
-              <button className="button mt-4 ms-4">Subscribe</button>
+              <p
+                className="lh-base pt-3"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+              >
+               Clothing Fashion
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+              >
+                Winter
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+              >
+                Summer
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+              >
+                Formal
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+              >
+                Casual
+              </p>
+            </div>
+            <div className="col-lg-2 col-md-6 col-sm-12">
+              <h5
+                className="text-light mt-5"
+                style={{
+                  fontFamily: "Jost, sans-serif",
+                  fontWeight:'normal',
+                }}
+              >
+                Quick Links
+              </h5>
+              <p
+                className="lh-base pt-3"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+              >
+               Track Your Order
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+              >
+                Support
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+              >
+               FAQ
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+              >
+               Carrier
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+              >
+                About
+              </p>
+              <p
+                className="lh-base"
+                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+              >
+                Contact Us
+              </p>
             </div>
           </div>
         </div>
