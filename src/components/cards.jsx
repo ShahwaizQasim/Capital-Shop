@@ -9,7 +9,7 @@ function Cards({data}){
     
       return (
         <>
-        <div className="col-lg-4">
+        <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="pro_dis">
             <div className="pro-img">
               <img src={Product_Picture} alt="" />

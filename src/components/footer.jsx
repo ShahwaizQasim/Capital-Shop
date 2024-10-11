@@ -18,7 +18,7 @@ function Footer() {
             borderBottom:'1px solid #666',
             paddingBottom:'25px'
           }}>
-            <div className="col-lg-4 pt-4 pb-4">
+            <div className="col-lg-4 col-md-4 col-sm-12 pt-4 pb-4">
               <h2
                 style={{
                   color: "#fff",
@@ -38,8 +38,8 @@ function Footer() {
                 Subscribe newsletter to get 5% on all products.
               </p>
             </div>
-            <div className="col-lg-4 pt-4">
-              <div>
+            <div className="col-lg-4 col-md-4 col-sm-12 pt-4">
+              <div className="footer-input">
                 <input
                   type="text"
                   placeholder="Enter your email"
@@ -66,7 +66,7 @@ function Footer() {
               </div>
             </div>
             <div
-              className="col-lg-4 pt-4"
+              className="col-lg-4 col-md-4 col-sm-12 pt-4 pb-5"
               style={{
                 position: "relative",
               }}

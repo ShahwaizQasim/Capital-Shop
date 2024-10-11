@@ -17,10 +17,12 @@
   transition: 1s;
 }
 .nav-link {
-  transition: 0.9s;
+  transition: 0.4s;
 }
 .nav-link:hover {
-  color: #31d2f2 !important;
+  color: #fff !important;
+  background-color: #000;
+  margin-right: 10px;
 }
 
 .dropdown-toggle {

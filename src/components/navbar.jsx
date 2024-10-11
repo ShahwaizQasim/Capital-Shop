@@ -7,7 +7,11 @@ import { Avatar } from "@mui/material";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { message } from "antd";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import {
+  LogoutOutlined,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from "@ant-design/icons";
 
 function Navbar() {
   const [user, setUser] = useContext(AuthContext);
@@ -52,9 +56,7 @@ function Navbar() {
         id="nav2"
       >
         <div className="container">
-          <nav className="nav navbar navbar-expand-xxl text-center pb-1 pt-1" style={{
-            border:'2px solid red'
-          }}>
+          <nav className="nav navbar navbar-expand-lg text-center pb-1 pt-1">
             <Link
               to="/"
               className="navbar-brand"
@@ -79,54 +81,92 @@ function Navbar() {
               <ul className="navbar-nav">
                 <li className="nav-item">
                   <Link
-                    to="/"
-                    className="nav-link pe-4"
+                    to="#"
+                    className="nav-link pe-3 mt-1"
                     style={{ fontFamily: "poppins" }}
                   >
-                    Home
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    to="/"
-                    className="nav-link pe-4"
-                    style={{ fontFamily: "poppins" }}
-                  >
-                    Shop
+                    <SearchOutlined style={{ fontSize: "1.6rem" }} />{" "}
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
                     to="#"
-                    className="nav-link pe-4"
+                    className="nav-link pe-3"
                     style={{ fontFamily: "poppins" }}
                   >
-                    About
+                    <ShoppingCartOutlined style={{ fontSize: "1.8rem" }} />
                   </Link>
                 </li>
+
                 <li className="nav-item">
-                  <Link
-                    to="#"
-                    className="nav-link pe-4"
-                    style={{ fontFamily: "poppins" }}
-                  >
-                    <ShoppingCartOutlined />
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <button
-                    className="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
-                  >
-                    Logout <FontAwesomeIcon icon={faUser} />{" "}
-                  </button>
-                </li>
-                <li className="nav-item">
-                  {/* Example single danger button */}
-                  <div className="userPhoto">
-                        <Avatar src={user?.userInfo?.UserPhoto} />
-                      </div>
+                  <>
+                    {/* Example single danger button */}
+                    <div className="btn-group">
+                      <button
+                        type="button"
+                        className="btn dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <div className="userPhoto">
+                          <Avatar src={user?.userInfo?.UserPhoto} />
+                        </div>
+                      </button>
+                      <ul className="dropdown-menu ps-2">
+                        <li>
+                          <Link
+                            to="/"
+                            className="nav-link pe-4"
+                            style={{ fontFamily: "poppins" }}
+                          >
+                            Home
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/"
+                            className="nav-link pe-4"
+                            style={{ fontFamily: "poppins" }}
+                          >
+                            Products
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/"
+                            className="nav-link pe-4"
+                            style={{ fontFamily: "poppins" }}
+                          >
+                            Contact Us
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/"
+                            className="nav-link pe-4"
+                            style={{ fontFamily: "poppins" }}
+                          >
+                            User Profile <FontAwesomeIcon icon={faUser} />{" "}
+                          </Link>
+                        </li>
+                        <li>
+                          <hr className="dropdown-divider" />
+                        </li>
+                        <li>
+                          <Link className="dropdown-item" to="#">
+                            <button
+                              className="button"
+                              data-bs-toggle="modal"
+                              data-bs-target="#staticBackdrop"
+                            >
+                              Logout <LogoutOutlined />
+                            </button>
+                          </Link>
+                        </li>
+                      
+                      </ul>
+                    </div>
+                  </>
                 </li>
               </ul>
             </div>
@@ -149,16 +189,16 @@ function Navbar() {
               <h5
                 className="text-center"
                 style={{
-                  fontFamily: "poppins",
+                  fontFamily: "Jost, sans-serif",
                   fontSize: "1.4rem",
                   borderBottom: "1px solid #ccc",
                   paddingBottom: 15,
                 }}
               >
-                Log out of Caza Store
+                Log out of Capital Shop
               </h5>
               <p style={{ fontFamily: "poppins", fontSize: "0.8rem" }}>
-                Are you sure that you want to log out of Caza Store before
+                Are you sure that you want to log out of Capital Shop before
                 confirming your email address? Confirming the email address on
                 your account ensures that you will be able to log in again.
               </p>
@@ -176,7 +216,7 @@ function Navbar() {
               </Link>
               <button
                 type="button"
-                className="btn btn-success"
+                className="button"
                 style={{ fontFamily: "poppins" }}
                 onClick={handleOnLogOut}
               >

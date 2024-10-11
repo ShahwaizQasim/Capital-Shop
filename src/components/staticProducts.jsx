@@ -6,7 +6,7 @@ function StaticProduct() {
       <div className="container mt-5 mb-5">
         <div className="row">
           <div
-            className="col-lg-4 col-md-6 col-sm-12 mt-5"
+            className="col-lg-4 col-md-4 col-sm-12 mt-5 m-auto"
             data-aos="fade-right"
             data-aos-duration="1000"
           >
@@ -15,6 +15,7 @@ function StaticProduct() {
                 <div className="img-Dark">
                   <h3 className="pt-4 ps-4 fw-bold">Men's Fashion</h3>
                   <Link
+                  className="static"
                     to={"/"}
                     style={{
                       textDecoration: "none",
@@ -34,7 +35,7 @@ function StaticProduct() {
             </Link>
           </div>
           <div
-            className="col-lg-4 col-md-6 col-sm-12 mt-5"
+            className="col-lg-4 col-md-4 col-sm-12 mt-5"
             data-aos="fade-up"
             data-aos-duration="1000"
           >
@@ -43,6 +44,7 @@ function StaticProduct() {
                 <div className="img-Dark">
                   <h3 className="pt-4 ps-4 fw-bold">Men's Fashion</h3>
                   <Link
+                  className="static"
                     to={"/"}
                     style={{
                       textDecoration: "none",
@@ -62,7 +64,7 @@ function StaticProduct() {
             </Link>
           </div>
           <div
-            className="col-lg-4 col-md-6 col-sm-12 mt-5"
+            className="col-lg-4 col-md-4 col-sm-12 mt-5"
             data-aos="fade-left"
             data-aos-duration="1000"
           >
@@ -71,6 +73,7 @@ function StaticProduct() {
                 <div className="img-Dark">
                   <h3 className="pt-4 ps-4 fw-bold">Women's Fashion</h3>
                   <Link
+                  className="static"
                     to={"/"}
                     style={{
                       textDecoration: "none",
