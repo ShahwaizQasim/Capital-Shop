@@ -109,6 +109,14 @@
    .footer-input > button{
     width: 40% !important;
   }
+  .dynamicProduct1{
+    position: auto;
+    left: 15px;
+  }
+  .dynamicProduct2{
+    position: absolute;
+    left: 15px;
+  }
 }
 
 @media screen and (max-width: 425px) {
@@ -191,6 +199,12 @@
     height: 40px;
     width: 140px;
   }
+  .sliderColumn > h1 {
+    font-size: 2.2rem !important;
+  }
+  .sliderColumn > p {
+    padding-inline: 20px;
+  }
 }
 @media screen and (max-width: 350px) {
   .heading {
@@ -201,6 +215,21 @@
   }
   .error_msg {
     font-size: 0.9rem;
+  }
+  .dis > .img-Dark > h3 {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+  }
+  .dis1 > .img-Dark > h3 {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+  }
+  .dis2 > .img-Dark > h3 {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
   }
 }
 @media screen and (max-width: 320px) {

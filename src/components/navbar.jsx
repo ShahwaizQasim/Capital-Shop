@@ -163,7 +163,6 @@ function Navbar() {
                             </button>
                           </Link>
                         </li>
-                      
                       </ul>
                     </div>
                   </>

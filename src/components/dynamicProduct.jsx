@@ -36,21 +36,19 @@ function DynamicProduct() {
     <>
       <div className="container mt-5 mb-5">
         <div className="row">
-          <div className="col-lg-6 col-md-6 col-sm-12 mt-5" style={{
-            border:'2px solid red '
-          }}>
+          <div className="col-lg-6 col-md-6 col-sm-12 mt-5 dynamicProduct1">
             <h2 className="hdg mt-5 fw-bold">Product Upload</h2>
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12 mt-5" style={{
-            height:'auto',
-            width:'48%',
-            border:'1px solid red'
+            height:'100px',
+            position:'relative',
           }}>
             <Link to="/addProduct" className="text-decoration-none text-white">
               <button
-                className="button mt-5"
+                className="button dynamicProduct2 mt-5"
                 style={{
-                  marginLeft:'290px'
+                  position:'absolute',
+                  right:0,
                 }}
               >
                 Add Product
