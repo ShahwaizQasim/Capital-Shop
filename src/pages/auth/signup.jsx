@@ -59,7 +59,10 @@ function SignUp() {
               className="text-center text-light mt-5 fw-bold d-inline"
               style={{ fontFamily: '"Courier New", Courier, monospace' }}
             >
-              <img src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png.webp" alt="" />
+              <img
+                src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png.webp"
+                alt=""
+              />
             </h1>
             <div className="col-lg-9 mt-4 m-auto pb-5 box">
               <div className="row">

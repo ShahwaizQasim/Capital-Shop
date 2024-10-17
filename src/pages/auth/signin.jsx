@@ -95,7 +95,7 @@ function SignIn() {
               />
             </h1>
 
-            <div className="col-9 box2 mt-4 m-auto">
+            <div className="col-lg-9 col-md-12 box2 mt-4 m-auto">
               <div className="row">
                 <div
                   className="col-lg-5 col-md-8 col-sm-7 m-auto mt-4 pb-4"
@@ -183,7 +183,7 @@ function SignIn() {
                       id="error_show"
                       className="error_msg text-center fs-5"
                     ></p>
-                    <span className="ps-4 para">Don't have an Account ?</span>
+                    <span className="para">Don't have an Account ?</span>
                     <Link to="/SignUp" className="ps-1 para">
                       Sign up
                     </Link>
@@ -200,6 +200,7 @@ function SignIn() {
 
                       <h4
                         style={{
+                          width:'50%',
                           fontFamily: "poppins",
                         }}
                       >
@@ -209,10 +210,9 @@ function SignIn() {
                   </form>
                   <center>
                     <button
-                      className="btn btn-dark mt-1 mb-2 button"
+                      className="btn btn-dark mt-1 mb-2 LoginButton"
                       type="submit"
                       style={{
-                        width: "50%",
                         fontSize: "0.9rem",
                       }}
                       onClick={LoginWithGoogle}
@@ -227,7 +227,7 @@ function SignIn() {
                     </button>
                   </center>
                 </div>
-                <div className="col-lg-6"></div>
+                <div className="col-lg-6 col-md-4 col-sm-5"></div>
               </div>
             </div>
           </div>

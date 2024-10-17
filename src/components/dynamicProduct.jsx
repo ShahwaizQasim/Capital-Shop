@@ -28,7 +28,7 @@ function DynamicProduct() {
       setProduct([...arr]);
       console.log("Products", arr);
     } catch (error) {
-      message.error(error.message)
+      message.error(error.message);
     }
   };
 
@@ -39,16 +39,19 @@ function DynamicProduct() {
           <div className="col-lg-6 col-md-6 col-sm-12 mt-5 dynamicProduct1">
             <h2 className="hdg mt-5 fw-bold">Product Upload</h2>
           </div>
-          <div className="col-lg-6 col-md-6 col-sm-12 mt-5" style={{
-            height:'100px',
-            position:'relative',
-          }}>
+          <div
+            className="col-lg-6 col-md-6 col-sm-12 mt-5"
+            style={{
+              height: "100px",
+              position: "relative",
+            }}
+          >
             <Link to="/addProduct" className="text-decoration-none text-white">
               <button
                 className="button dynamicProduct2 mt-5"
                 style={{
-                  position:'absolute',
-                  right:0,
+                  position: "absolute",
+                  right: 0,
                 }}
               >
                 Add Product
@@ -56,15 +59,12 @@ function DynamicProduct() {
             </Link>
           </div>
         </div>
-        <div className="row mt-5  allProducts"> 
-          {
-            product.map((productData)=> {
-              return <Cards key={productData.id} data={productData} />
-            })
-          }
-          </div>
-         
+        <div className="row mt-5  allProducts">
+          {product.map((productData) => {
+            return <Cards key={productData.id} data={productData} />;
+          })}
         </div>
+      </div>
     </>
   );
 }

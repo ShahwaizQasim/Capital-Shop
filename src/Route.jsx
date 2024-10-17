@@ -11,7 +11,9 @@ import ProductDetail from "./pages/products/productDetail";
 import { AuthContext } from "./context/AuthContext";
 
 function App() {
-  const { user } = useContext(AuthContext);
+  const [user, setUser] = useContext(AuthContext);
+  console.log("user", user);
+
   return (
     <>
       <BrowserRouter>
@@ -23,7 +25,9 @@ function App() {
 
           <Route
             path="/"
-            element={user?.isLogin ? <Home /> : <Navigate to={"/signIn"} />}
+            element={
+              user?.isLogin ? <AddProduct /> : <Navigate to={"/signIn"} />
+            }
           >
             <Route path="/addProduct" element={<AddProduct />} />
             <Route path="/userProfile" element={<UserProfile />} />

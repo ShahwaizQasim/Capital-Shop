@@ -14,10 +14,13 @@ function Footer() {
         style={{ height: "auto", backgroundColor: "#000" }}
       >
         <div className="container mt-5">
-          <div className="row pt-5" style={{
-            borderBottom:'1px solid #666',
-            paddingBottom:'25px'
-          }}>
+          <div
+            className="row pt-5"
+            style={{
+              borderBottom: "1px solid #666",
+              paddingBottom: "25px",
+            }}
+          >
             <div className="col-lg-4 col-md-4 col-sm-12 pt-4 pb-4">
               <h2
                 style={{
@@ -58,7 +61,7 @@ function Footer() {
                     width: "30%",
                     backgroundColor: "#ff201e",
                     color: "#fff",
-                    fontFamily: "poppins",  
+                    fontFamily: "poppins",
                   }}
                 >
                   Subscribe
@@ -107,45 +110,68 @@ function Footer() {
           </div>
           <div className="row pt-3">
             <div className="col-lg-3 col-md-4 col-sm-12 mt-5">
-             <img src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo2_footer.png.webp" alt="logo" />
+              <img
+                src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo2_footer.png.webp"
+                alt="logo"
+              />
             </div>
             <div className="col-lg-2 col-md-4 col-sm-12">
               <h5
                 className="text-light mt-5"
                 style={{
                   fontFamily: "Jost, sans-serif",
-                  fontWeight:'normal',
+                  fontWeight: "normal",
                 }}
               >
                 Shop Men
               </h5>
               <p
                 className="lh-base pt-3"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
-               Clothing Fashion
+                Clothing Fashion
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Winter
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Summer
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Formal
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Casual
               </p>
@@ -155,38 +181,58 @@ function Footer() {
                 className="text-light mt-5"
                 style={{
                   fontFamily: "Jost, sans-serif",
-                  fontWeight:'normal',
+                  fontWeight: "normal",
                 }}
               >
                 Shop Women
               </h5>
               <p
                 className="lh-base pt-3"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
-               Clothing Fashion
+                Clothing Fashion
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Winter
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Summer
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Formal
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer' }}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Casual
               </p>
@@ -196,38 +242,58 @@ function Footer() {
                 className="text-light mt-5"
                 style={{
                   fontFamily: "Jost, sans-serif",
-                  fontWeight:'normal',
+                  fontWeight: "normal",
                 }}
               >
-               Baby Collection
+                Baby Collection
               </h5>
               <p
                 className="lh-base pt-3"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
-               Clothing Fashion
+                Clothing Fashion
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Winter
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Summer
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Formal
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Casual
               </p>
@@ -237,44 +303,68 @@ function Footer() {
                 className="text-light mt-5"
                 style={{
                   fontFamily: "Jost, sans-serif",
-                  fontWeight:'normal',
+                  fontWeight: "normal",
                 }}
               >
                 Quick Links
               </h5>
               <p
                 className="lh-base pt-3"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
-               Track Your Order
+                Track Your Order
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Support
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
-               FAQ
+                FAQ
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
-               Carrier
+                Carrier
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 About
               </p>
               <p
                 className="lh-base"
-                style={{ color: "#918989", fontFamily: "poppins", cursor:'pointer'}}
+                style={{
+                  color: "#918989",
+                  fontFamily: "poppins",
+                  cursor: "pointer",
+                }}
               >
                 Contact Us
               </p>

@@ -17,8 +17,6 @@ function Navbar() {
   const [user, setUser] = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { CurrentUser } = useContext(AuthContext);
-  // console.log("User=>", user);
 
   // // agr user hai tw dashboard pr le joa warna login page le joa
   // onAuthStateChanged(auth, (user) => {
@@ -36,7 +34,7 @@ function Navbar() {
       setLoading(true);
       const userSignOut = await signOut(auth);
       message.success("Logout Successfully");
-      navigate("/SignIn");
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     } finally {
@@ -230,6 +228,7 @@ function Navbar() {
               <button
                 type="button"
                 className="button"
+                data-bs-dismiss="modal"
                 style={{ fontFamily: "poppins" }}
                 onClick={handleOnLogOut}
               >

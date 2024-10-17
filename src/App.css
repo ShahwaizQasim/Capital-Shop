@@ -16,7 +16,7 @@
     font-size: 1.3rem;
   }
   .dis > .img-Dark > .static {
-   display: none;
+    display: none;
   }
   .dis1 {
     width: 99%;
@@ -29,7 +29,7 @@
   }
   .dis1 > .img-Dark > .static {
     display: none;
-   }
+  }
   .dis2 {
     width: 99%;
   }
@@ -41,7 +41,7 @@
   }
   .dis2 > .img-Dark > .static {
     display: none;
-   }
+  }
 }
 @media screen and (max-width: 768px) {
   .heading {
@@ -63,7 +63,7 @@
     text-align: center;
     padding-left: 21px;
   }
-  .MiniHeader{
+  .MiniHeader {
     display: none;
   }
   .dis {
@@ -77,7 +77,7 @@
     font-size: 1.3rem;
   }
   .dis > .img-Dark > .static {
-   display: none;
+    display: none;
   }
   .dis1 {
     width: 100%;
@@ -90,7 +90,7 @@
   }
   .dis1 > .img-Dark > .static {
     display: none;
-   }
+  }
   .dis2 {
     width: 100%;
   }
@@ -102,20 +102,23 @@
   }
   .dis2 > .img-Dark > .static {
     display: none;
-   }
-   .footer-input > input{
-     width: 60% !important;
-   }
-   .footer-input > button{
+  }
+  .footer-input > input {
+    width: 60% !important;
+  }
+  .footer-input > button {
     width: 40% !important;
   }
-  .dynamicProduct1{
+  .dynamicProduct1 {
     position: auto;
     left: 15px;
   }
-  .dynamicProduct2{
+  .dynamicProduct2 {
     position: absolute;
     left: 15px;
+  }
+  .LoginButton {
+    width: 220px;
   }
 }
 
@@ -152,7 +155,7 @@
     font-size: 1.5rem;
   }
   .dis > .img-Dark > .static {
-   display: none;
+    display: none;
   }
   .dis1 {
     width: 100%;
@@ -165,7 +168,7 @@
   }
   .dis1 > .img-Dark > .static {
     display: none;
-   }
+  }
   .dis2 {
     width: 100%;
   }
@@ -177,12 +180,15 @@
   }
   .dis2 > .img-Dark > .static {
     display: none;
-   }
-   .footer-input > input{
-     width: 60% !important;
-   }
-   .footer-input > button{
+  }
+  .footer-input > input {
+    width: 60% !important;
+  }
+  .footer-input > button {
     width: 40% !important;
+  }
+  .LoginButton {
+    width: 190px;
   }
 }
 @media screen and (max-width: 375px) {
@@ -204,6 +210,9 @@
   }
   .sliderColumn > p {
     padding-inline: 20px;
+  }
+  .LoginButton {
+    width: 190px;
   }
 }
 @media screen and (max-width: 350px) {
@@ -240,6 +249,5 @@
   .button {
     height: 40px;
     width: 150px;
-    
   }
 }

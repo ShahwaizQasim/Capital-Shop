@@ -162,6 +162,7 @@
 
 .para {
   font-family: "poppins";
+  padding-left: 2rem;
 }
 
 .message {
@@ -342,8 +343,6 @@
   font-weight: 500 !important;
 }
 
-
-
 .dis2 {
   height: 350px;
   width: 95%;
@@ -378,6 +377,19 @@
   border-radius: 5px;
 }
 .button:active {
+  border: 4px solid #fff;
+}
+.LoginButton {
+  height: 40px;
+  width: 200px;
+  background-color: #000;
+  color: #fff;
+  font-family: "poppins";
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.LoginButton:active {
   border: 4px solid #fff;
 }
 .button2 {
