@@ -62,11 +62,13 @@
   border-radius: 15px;
   background-image: url(./img/slide-02.jpg.webp);
   background-size: cover;
+  box-shadow: 1px 1px 10px #666;
 }
 .box2 {
   height: auto;
   border-radius: 15px;
   background-image: url(./img/slide-03.jpg.webp);
+  box-shadow: 1px 1px 10px #666;
   background-size: cover;
 }
 .heading {

@@ -64,7 +64,7 @@ function SignUp() {
             <div className="col-lg-9 mt-4 m-auto pb-5 box">
               <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-12">
-                  <h1 className="text-dark text-center fw-bold heading">
+                  <h1 className="text-dark text-center fw-bold heading pt-5">
                     Sign Up
                   </h1>
                   <form onSubmit={handleSubmit(onSubmit)}>

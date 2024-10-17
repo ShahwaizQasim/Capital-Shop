@@ -18,7 +18,7 @@ function Cards({data}){
               <h6>{Product_Categories}</h6>
               <h3>{Product_Name}</h3>
               <p>{Product_Description.slice(0,140)}</p>
-              <Link to={`/productDetail/${id}`} className="productDetail_Link">View Detail <FontAwesomeIcon icon={faArrowRight}/></Link>
+              <Link to={`/productDetail/${id}`} className="productDetail_Link">Read More <FontAwesomeIcon icon={faArrowRight}/></Link>
             </div>
           </div>
         </div>

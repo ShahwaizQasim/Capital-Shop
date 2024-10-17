@@ -17,6 +17,7 @@ function Navbar() {
   const [user, setUser] = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { CurrentUser } = useContext(AuthContext);
   // console.log("User=>", user);
 
   // // agr user hai tw dashboard pr le joa warna login page le joa
@@ -78,96 +79,109 @@ function Navbar() {
               className="collapse navbar-collapse justify-content-end pe-5"
               id="navi"
             >
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <Link
-                    to="#"
-                    className="nav-link pe-3 mt-1"
-                    style={{ fontFamily: "poppins" }}
-                  >
-                    <SearchOutlined style={{ fontSize: "1.6rem" }} />{" "}
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    to="#"
-                    className="nav-link pe-3"
-                    style={{ fontFamily: "poppins" }}
-                  >
-                    <ShoppingCartOutlined style={{ fontSize: "1.8rem" }} />
-                  </Link>
-                </li>
+              {user?.isLogin ? (
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <Link
+                      to="#"
+                      className="nav-link pe-3 mt-1"
+                      style={{ fontFamily: "poppins" }}
+                    >
+                      <SearchOutlined style={{ fontSize: "1.6rem" }} />{" "}
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      to="#"
+                      className="nav-link pe-3"
+                      style={{ fontFamily: "poppins" }}
+                    >
+                      <ShoppingCartOutlined style={{ fontSize: "1.8rem" }} />
+                    </Link>
+                  </li>
 
-                <li className="nav-item">
-                  <>
-                    {/* Example single danger button */}
-                    <div className="btn-group">
-                      <button
-                        type="button"
-                        className="btn dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        <div className="userPhoto">
-                          <Avatar src={user?.userInfo?.UserPhoto} />
-                        </div>
-                      </button>
-                      <ul className="dropdown-menu ps-2">
-                        <li>
-                          <Link
-                            to="/"
-                            className="nav-link pe-4"
-                            style={{ fontFamily: "poppins" }}
-                          >
-                            Home
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/"
-                            className="nav-link pe-4"
-                            style={{ fontFamily: "poppins" }}
-                          >
-                            Products
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/"
-                            className="nav-link pe-4"
-                            style={{ fontFamily: "poppins" }}
-                          >
-                            Contact Us
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/"
-                            className="nav-link pe-4"
-                            style={{ fontFamily: "poppins" }}
-                          >
-                            User Profile <FontAwesomeIcon icon={faUser} />{" "}
-                          </Link>
-                        </li>
-                        <li>
-                          <hr className="dropdown-divider" />
-                        </li>
-                        <li>
-                          <Link className="dropdown-item" to="#">
-                            <button
-                              className="button"
-                              data-bs-toggle="modal"
-                              data-bs-target="#staticBackdrop"
+                  <li className="nav-item">
+                    <>
+                      {/* Example single danger button */}
+                      <div className="btn-group">
+                        <button
+                          type="button"
+                          className="btn dropdown-toggle"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          <div className="userPhoto">
+                            <Avatar src={user?.userInfo?.UserPhoto} />
+                          </div>
+                        </button>
+                        <ul className="dropdown-menu ps-2">
+                          <li>
+                            <Link
+                              to="/"
+                              className="nav-link pe-4"
+                              style={{ fontFamily: "poppins" }}
                             >
-                              Logout <LogoutOutlined />
-                            </button>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </>
-                </li>
-              </ul>
+                              Home
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/"
+                              className="nav-link pe-4"
+                              style={{ fontFamily: "poppins" }}
+                            >
+                              Products
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/"
+                              className="nav-link pe-4"
+                              style={{ fontFamily: "poppins" }}
+                            >
+                              Contact Us
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              to="/"
+                              className="nav-link pe-4"
+                              style={{ fontFamily: "poppins" }}
+                            >
+                              User Profile <FontAwesomeIcon icon={faUser} />{" "}
+                            </Link>
+                          </li>
+                          <li>
+                            <hr className="dropdown-divider" />
+                          </li>
+                          <li>
+                            <Link className="dropdown-item" to="#">
+                              <button
+                                className="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop"
+                              >
+                                Logout <LogoutOutlined />
+                              </button>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </>
+                  </li>
+                </ul>
+              ) : (
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <Link to={"/SignIn"}>
+                      <button className="button">
+                        Login <FontAwesomeIcon icon={faUser} />
+                      </button>
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </div>
           </nav>
         </div>

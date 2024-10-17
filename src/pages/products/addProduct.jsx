@@ -70,7 +70,7 @@ function AddProduct() {
         <div className="container">
           <div className="row">
             <h1
-              className="text-center text-light mt-5 fw-bold d-inline"
+              className="text-center text-light mt-4 fw-bold d-inline"
               style={{ fontFamily: '"Courier New", Courier, monospace' }}
             >
               <img
@@ -139,9 +139,18 @@ function AddProduct() {
                       {...register("categories")}
                       className="form-control mt-4"
                     >
-                      {categories.map((data)=>{
-                        return <option value={data?.slug}>{data.name}</option>
-                      })}
+                     
+                        <option value="Men's Jeans">Jeans</option>
+                        <option value="Shirt">Shirt</option>
+                        <option value="T-Shirt">T-Shirt</option>
+                        <option value="Men's Jogger"> Men's Jogger</option>
+                        <option value="Landies Sandle">Landies Sandle</option>
+                        <option value="Children Frok">Children Frok</option>
+                        <option value="Women's Kameez Shalwar">Women's Kameez Shalwar</option>
+                        <option value="Men's Sandle">Men's Sandle</option>
+                        <option value="Men's Kameez Shalwar">Men's Kameez Shalwar</option>
+                        <option value="Men's Kameez Shalwar">Ladies Jogger</option>
+                    
                     </select>
 
                     <input
