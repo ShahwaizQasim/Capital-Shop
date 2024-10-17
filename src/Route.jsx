@@ -7,8 +7,8 @@ import SignIn from "./pages/auth/signin";
 import Home from "./pages/Home";
 import AddProduct from "./pages/products/addProduct";
 import UserProfile from "./userProfile/userprofile";
-import ProductDetail from "./pages/products/productDetail";
 import { AuthContext } from "./context/AuthContext";
+import Cards from "./components/cards";
 
 function App() {
   const [user, setUser] = useContext(AuthContext);
@@ -23,16 +23,16 @@ function App() {
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/SignIn" element={<SignIn />} />
 
-          <Route
+          {/* <Route
             path="/"
             element={
-              user?.isLogin ? <AddProduct /> : <Navigate to={"/signIn"} />
+              user?.isLogin ? <Home /> : <Navigate to={"/signIn"} />
             }
-          >
+          > */}
             <Route path="/addProduct" element={<AddProduct />} />
             <Route path="/userProfile" element={<UserProfile />} />
-            <Route path="/ProductDetail/:id" element={<ProductDetail />} />
-          </Route>
+            <Route path="/ProductDetail/:id" element={<Cards />} />
+          {/* </Route> */}
         </Routes>
       </BrowserRouter>
     </>

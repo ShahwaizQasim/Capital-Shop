@@ -12,22 +12,22 @@ function Cards({ data }) {
     Product_Categories,
     id,
   } = data;
-  console.log(Product_Categories);
+  // console.log(Product_Categories);
 
   return (
     <>
       <div className="col-lg-4 col-md-6 col-sm-12">
         <div className="pro_dis">
           <div className="pro-img">
-            <img src={Product_Picture} alt="" />
+            {/* <img src={Product_Picture} alt="" /> */}
           </div>
           <div className="pro_desc">
-            <h6>{Product_Categories}</h6>
+            {/* <h6>{Product_Categories}</h6>
             <h3>{Product_Name}</h3>
-            <p>{Product_Description.slice(0, 140)}</p>
-            <Link to={`/productDetail/${id}`} className="productDetail_Link">
+            <p>{Product_Description?.slice(0, 140)}</p>
+            <Link to={`/ProductDetail/${id}`} className="productDetail_Link">
               Read More <FontAwesomeIcon icon={faArrowRight} />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

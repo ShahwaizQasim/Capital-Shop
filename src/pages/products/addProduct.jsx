@@ -5,7 +5,6 @@ import { auth, db, storage } from "../../utils/firebase";
 import { message } from "antd";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";
-import { categories } from "../../utils/categories";
 
 function AddProduct() {
   const [loading, setLoading] = useState(false);

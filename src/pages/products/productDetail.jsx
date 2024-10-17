@@ -12,6 +12,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import Spinner from "../../components/loading";
 import { AuthContext } from "../../context/AuthContext";
+import Navbar from "../../components/navbar";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -50,6 +51,8 @@ function ProductDetail() {
       {loading ? (
         <Spinner />
       ) : (
+        <>
+        <Navbar />
         <div className="container">
           <div className="row productDetail-cont">
             <div className="col-lg-5">
@@ -110,6 +113,7 @@ function ProductDetail() {
             </div>
           </div>
         </div>
+        </>
       )}
     </>
   );
