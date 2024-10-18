@@ -6,7 +6,7 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { Avatar } from "@mui/material";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { message } from "antd";
+import { Badge, message } from "antd";
 import {
   LogoutOutlined,
   SearchOutlined,
@@ -96,7 +96,9 @@ function Navbar() {
                       className="nav-link nav-icon pe-3"
                       style={{ fontFamily: "poppins" }}
                     >
+                      <Badge count={4}>
                       <ShoppingCartOutlined style={{ fontSize: "1.8rem" }} />
+                      </Badge>
                     </Link>
                   </li>
 
