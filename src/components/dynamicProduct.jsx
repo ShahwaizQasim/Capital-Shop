@@ -18,15 +18,15 @@ function DynamicProduct() {
       const que = query(
         productCollection,
         orderBy("createdAt", "desc"),
-        limit(3)
+        limit(6)
       );
       const docs = await getDocs(que);
       const arr = [];
       docs.forEach((product) => {
         return arr.push({ ...product.data(), id: product.id });
       });
+      
       setProduct([...arr]);
-      console.log("Products", arr);
     } catch (error) {
       message.error(error.message);
     }

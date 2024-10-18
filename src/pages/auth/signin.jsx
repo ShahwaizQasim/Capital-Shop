@@ -38,10 +38,10 @@ function SignIn() {
         data?.email,
         data?.Password
       );
-      message.success('Login Successfully')
+      message.success("Login Successfully");
       navigate("/");
     } catch (error) {
-      message.error(error.message)
+      message.error(error.message);
       firebaseErrorShow.innerText = error.message.slice(10);
     }
   };
@@ -200,7 +200,7 @@ function SignIn() {
 
                       <h4
                         style={{
-                          width:'50%',
+                          width: "50%",
                           fontFamily: "poppins",
                         }}
                       >

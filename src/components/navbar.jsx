@@ -82,7 +82,7 @@ function Navbar() {
                   <li className="nav-item">
                     <Link
                       to="#"
-                      className="nav-link pe-3 mt-1"
+                      className="nav-link nav-icon pe-3 mt-1"
                       style={{ fontFamily: "poppins" }}
                     >
                       <SearchOutlined style={{ fontSize: "1.6rem" }} />{" "}
@@ -91,7 +91,7 @@ function Navbar() {
                   <li className="nav-item">
                     <Link
                       to="#"
-                      className="nav-link pe-3"
+                      className="nav-link nav-icon pe-3"
                       style={{ fontFamily: "poppins" }}
                     >
                       <ShoppingCartOutlined style={{ fontSize: "1.8rem" }} />
@@ -116,7 +116,7 @@ function Navbar() {
                           <li>
                             <Link
                               to="/"
-                              className="nav-link pe-4"
+                              className="nav-link nav-text pe-4"
                               style={{ fontFamily: "poppins" }}
                             >
                               Home
@@ -125,7 +125,7 @@ function Navbar() {
                           <li>
                             <Link
                               to="/"
-                              className="nav-link pe-4"
+                              className="nav-link nav-text pe-4"
                               style={{ fontFamily: "poppins" }}
                             >
                               Products
@@ -134,7 +134,7 @@ function Navbar() {
                           <li>
                             <Link
                               to="/"
-                              className="nav-link pe-4"
+                              className="nav-link nav-text pe-4"
                               style={{ fontFamily: "poppins" }}
                             >
                               Contact Us
@@ -144,7 +144,7 @@ function Navbar() {
                           <li>
                             <Link
                               to="/"
-                              className="nav-link pe-4"
+                              className="nav-link nav-text pe-4"
                               style={{ fontFamily: "poppins" }}
                             >
                               User Profile <FontAwesomeIcon icon={faUser} />{" "}

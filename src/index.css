@@ -16,10 +16,19 @@
 #nav2 {
   transition: 1s;
 }
-.nav-link {
+.nav-icon {
+  transition: 0.4s;
+  border-radius: 4px;
+}
+.nav-icon:hover {
+  color: #000 !important;
+  background-color: #ccc;
+}
+
+.nav-text {
   transition: 0.4s;
 }
-.nav-link:hover {
+.nav-text:hover {
   color: #fff !important;
   background-color: #000;
   margin-right: 10px;
@@ -267,6 +276,8 @@
   width: 100%;
   background-image: url(./img/h1_hero2.jpg);
   background-size: "cover";
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .slider-heading4 {
@@ -429,10 +440,10 @@
   height: 500px;
   border: 1px solid #ccc;
   margin-bottom: 40px;
+  box-shadow: 1px 1px 4px #ccc;
 }
 .pro-img {
   height: 280px;
-  border: 1px solid red;
   overflow: hidden;
 }
 .pro-img > img {
@@ -461,10 +472,8 @@
   font-family: "poppins";
 }
 .productDetail-cont {
-  height: 100vh;
   display: flex;
   justify-content: center;
-  border: 2px solid red;
   align-items: center;
 }
 

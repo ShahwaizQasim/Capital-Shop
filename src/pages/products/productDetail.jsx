@@ -13,16 +13,16 @@ import {
 import Spinner from "../../components/loading";
 import { AuthContext } from "../../context/AuthContext";
 import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
 
 function ProductDetail() {
+  const [product, setProduct] = useState();
+  const [loading, setLoading] = useState(false);
+  const { user } = useContext(AuthContext);
   const { id } = useParams();
   console.log("id", id);
 
-  const [product, setProduct] = useState({});
-  const [loading, setLoading] = useState(false);
-
-  const { user } = useContext(AuthContext);
-  console.log("User", user);
+  console.log("Product", product);
 
   useEffect(() => {
     getProductsDetail();
@@ -42,8 +42,8 @@ function ProductDetail() {
       setLoading(false);
     }
 
-    // const currentProducts = products.find((data) => console.log(data))
-    // console.log('currentProducts', currentProducts);
+    // const currentProducts = products.find((data) => console.log(data));
+    // console.log("currentProducts", currentProducts);
   };
 
   return (
@@ -52,69 +52,79 @@ function ProductDetail() {
         <Spinner />
       ) : (
         <>
-        <Navbar />
-        <div className="container">
-          <div className="row productDetail-cont">
-            <div className="col-lg-5">
-              <div className="productDetail-dis1">
-                <img src={product?.Product_Picture} alt="Product_Picture" />
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="productDetail-dis">
-                <h4>{product?.Product_Categories}</h4>
-                <h2>{product?.Product_Name}</h2>
-                <div className="iconsReview">
-                  <div className="icons">
-                    <FontAwesomeIcon icon={faStar} className="icon" />
-                    <FontAwesomeIcon icon={faStar} className="icon" />
-                    <FontAwesomeIcon icon={faStar} className="icon" />
-                    <FontAwesomeIcon icon={faStar} className="icon" />
-                    <FontAwesomeIcon icon={faStar} className="icon" />
-                    <span>reviews</span>
-                    <p>|</p>
-                  </div>
-                  <div className="review">
-                    <FontAwesomeIcon icon={faFacebook} className="reviewIcon" />
-                    <FontAwesomeIcon icon={faTwitter} className="reviewIcon" />
-                    <FontAwesomeIcon
-                      icon={faInstagram}
-                      className="reviewIcon"
-                    />
-                  </div>
+          <Navbar />
+          <div className="container" style={{
+            marginTop:'150px',
+            marginBottom:'150px',
+          }}>
+            <div className="row productDetail-cont">
+              <div className="col-lg-5">
+                <div className="productDetail-dis1">
+                  <img src={product?.Product_Picture} alt="Product_Picture" />
                 </div>
-                <h5>{product?.Product_Description}</h5>
-                <hr
-                  style={{
-                    marginTop: "30px",
-                    color: "#ccc",
-                  }}
-                />
-                <div className="price-Con">
-                  <div>
-                    <h5
-                      style={{
-                        fontWeight: "600",
-                        fontSize: "1.4rem",
-                        fontFamily: "poppins",
-                        paddingTop: "5px",
-                      }}
-                    >
-                      Price: ${product?.Product_Price}
-                    </h5>
+              </div>
+              <div className="col-lg-6">
+                <div className="productDetail-dis">
+                  <h4>{product?.Product_Categories}</h4>
+                  <h2>{product?.Product_Name}</h2>
+                  <div className="iconsReview">
+                    <div className="icons">
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <span>reviews</span>
+                      <p>|</p>
+                    </div>
+                    <div className="review">
+                      <FontAwesomeIcon
+                        icon={faFacebook}
+                        className="reviewIcon"
+                      />
+                      <FontAwesomeIcon
+                        icon={faTwitter}
+                        className="reviewIcon"
+                      />
+                      <FontAwesomeIcon
+                        icon={faInstagram}
+                        className="reviewIcon"
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <button className="button">
-                      Add to Cart <FontAwesomeIcon icon={faCartShopping} />
-                    </button>
+                  <h5>{product?.Product_Description}</h5>
+                  <hr
+                    style={{
+                      marginTop: "30px",
+                      color: "#ccc",
+                    }}
+                  />
+                  <div className="price-Con">
+                    <div>
+                      <h5
+                        style={{
+                          fontWeight: "600",
+                          fontSize: "1.4rem",
+                          fontFamily: "poppins",
+                          paddingTop: "5px",
+                        }}
+                      >
+                        Price: ${product?.Product_Price}
+                      </h5>
+                    </div>
+                    <div>
+                      <button className="button">
+                        Add to Cart <FontAwesomeIcon icon={faCartShopping} />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         </>
       )}
+      <Footer />
     </>
   );
 }

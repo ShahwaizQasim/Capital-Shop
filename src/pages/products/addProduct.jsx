@@ -25,9 +25,9 @@ function AddProduct() {
   const onSubmit = async (data) => {
     try {
       console.log(data);
-      
+
       const Product_Picture = data?.ProductPicture[0];
-    
+
       setLoading(true);
       const product_picture_ref = ref(
         storage,
@@ -44,10 +44,10 @@ function AddProduct() {
       const myCollectionRef = collection(db, "products");
 
       const myProduct = {
-        Product_Name:ProductName, 
+        Product_Name: ProductName,
         Product_Picture: image_Url,
         Product_Price: ProductPrice,
-        Product_Description:ProductDescription,
+        Product_Description: ProductDescription,
         Product_Categories: data?.categories,
         createdAt: serverTimestamp(),
         status: "Active",
@@ -94,7 +94,7 @@ function AddProduct() {
                       })}
                       className="form-control mt-4 mb-2"
                       value={ProductName}
-                      onChange={(e)=> setProductName(e.target.value)}
+                      onChange={(e) => setProductName(e.target.value)}
                       autoComplete="on"
                     />
                     {errors.ProductName && (
@@ -109,7 +109,7 @@ function AddProduct() {
                         maxLength: 50,
                       })}
                       value={ProductPrice}
-                      onChange={(e)=> setProductPrice(e.target.value)}
+                      onChange={(e) => setProductPrice(e.target.value)}
                       className="form-control mt-4 mb-2"
                     />
                     {errors.ProductPrize && (
@@ -123,9 +123,8 @@ function AddProduct() {
                         required: true,
                         minLength: 15,
                       })}
-                      
                       value={ProductDescription}
-                      onChange={(e)=> setProductDescription(e.target.value)}
+                      onChange={(e) => setProductDescription(e.target.value)}
                       className="form-control mt-4 mb-2"
                     />
                     {errors.ProductDescription && (
@@ -138,18 +137,22 @@ function AddProduct() {
                       {...register("categories")}
                       className="form-control mt-4"
                     >
-                     
-                        <option value="Men's Jeans">Jeans</option>
-                        <option value="Shirt">Shirt</option>
-                        <option value="T-Shirt">T-Shirt</option>
-                        <option value="Men's Jogger"> Men's Jogger</option>
-                        <option value="Landies Sandle">Landies Sandle</option>
-                        <option value="Children Frok">Children Frok</option>
-                        <option value="Women's Kameez Shalwar">Women's Kameez Shalwar</option>
-                        <option value="Men's Sandle">Men's Sandle</option>
-                        <option value="Men's Kameez Shalwar">Men's Kameez Shalwar</option>
-                        <option value="Men's Kameez Shalwar">Ladies Jogger</option>
-                    
+                      <option value="Men's Jeans">Jeans</option>
+                      <option value="Shirt">Shirt</option>
+                      <option value="T-Shirt">T-Shirt</option>
+                      <option value="Men's Jogger"> Men's Jogger</option>
+                      <option value="Landies Sandle">Landies Sandle</option>
+                      <option value="Children Frok">Children Frok</option>
+                      <option value="Women's Kameez Shalwar">
+                        Women's Kameez Shalwar
+                      </option>
+                      <option value="Men's Sandle">Men's Sandle</option>
+                      <option value="Men's Kameez Shalwar">
+                        Men's Kameez Shalwar
+                      </option>
+                      <option value="Men's Kameez Shalwar">
+                        Ladies Jogger
+                      </option>
                     </select>
 
                     <input

@@ -8,7 +8,8 @@ import Home from "./pages/Home";
 import AddProduct from "./pages/products/addProduct";
 import UserProfile from "./userProfile/userprofile";
 import { AuthContext } from "./context/AuthContext";
-import Cards from "./components/cards";
+import ProductDetail from "./pages/products/productDetail";
+import AllProducts from "./pages/products/allProduct";
 
 function App() {
   const [user, setUser] = useContext(AuthContext);
@@ -31,7 +32,8 @@ function App() {
           > */}
             <Route path="/addProduct" element={<AddProduct />} />
             <Route path="/userProfile" element={<UserProfile />} />
-            <Route path="/ProductDetail/:id" element={<Cards />} />
+            <Route path="/ProductDetail/:id" element={<ProductDetail />} />
+            <Route path="/AllProducts" element={<AllProducts />} />
           {/* </Route> */}
         </Routes>
       </BrowserRouter>
