@@ -51,11 +51,13 @@ function Navbar() {
           top: 0,
           zIndex: 12,
           backgroundColor: "#fff",
+          boxShadow:'1px 0px 10px #ccc'
         }}
         id="nav2"
       >
         <div className="container">
-          <nav className="nav navbar navbar-expand-lg text-center pb-1 pt-1">
+          <nav className="nav navbar navbar-expand-lg text-center pb-1 pt-1"
+            >
             <Link
               to="/"
               className="navbar-brand"
@@ -124,7 +126,7 @@ function Navbar() {
                           </li>
                           <li>
                             <Link
-                              to="/"
+                              to="/AllProducts"
                               className="nav-link nav-text pe-4"
                               style={{ fontFamily: "poppins" }}
                             >

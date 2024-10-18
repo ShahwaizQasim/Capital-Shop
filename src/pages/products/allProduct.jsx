@@ -1,9 +1,20 @@
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebase";
-import { getDoc } from "firebase/firestore";
+import {
+  collection,
+  getDoc,
+  getDocs,
+  orderBy,
+  query,
+} from "firebase/firestore";
+import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
+import Cards from "../../components/cards";
+import { Skeleton } from "antd";
+import Spinner from "../../components/loading";
 
 function AllProducts() {
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -12,20 +23,54 @@ function AllProducts() {
 
   const getProducts = async () => {
     try {
+      const ProCollection = collection(db, "products");
+      const q = query(ProCollection, orderBy("createdAt", "desc"));
+      const arr = [];
       setLoading(true);
-      const docRef = (db, "products");
-      const allProducts = await getDoc(docRef);
-      const AllProducts_Fetch = allProducts.data();
-      console.log("allProductsFetch", AllProducts_Fetch);
-      setProduct({ ...AllProducts_Fetch });
-
+      const docs = await getDocs(q);
+      docs.forEach((allProducts) => {
+        return arr.push({ ...allProducts.data(), id: allProducts.id });
+      });
+      setProduct([...arr]);
+      console.log("product", product);
+      setLoading(false);
     } catch (error) {
       console.log("error", error);
-    } finally {
-      setLoading(false);
     }
   };
-  return <></>;
+  return (
+    <>
+      <Navbar />
+      <div
+        className="container-fluid"
+        style={{
+          borderTop: "1px solid #ccc",
+        }}
+      >
+        <div className="container">
+          <h1
+            className="text-center pt-5 mb-5"
+            style={{
+              fontFamily: "poppins",
+            }}
+          >
+            All Products
+          </h1>
+
+          <div className="row mt-5">
+            {product.map((productData) =>
+              loading ? (
+                <Spinner />
+              ) : (
+                <Cards key={productData.id} data={productData} />
+              )
+            )}
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
 }
 
 export default AllProducts;

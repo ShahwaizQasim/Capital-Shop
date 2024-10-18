@@ -7,6 +7,7 @@ import { message } from "antd";
 
 function DynamicProduct() {
   const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getProducts();

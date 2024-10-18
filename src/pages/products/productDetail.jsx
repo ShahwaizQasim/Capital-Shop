@@ -53,10 +53,13 @@ function ProductDetail() {
       ) : (
         <>
           <Navbar />
-          <div className="container" style={{
-            marginTop:'150px',
-            marginBottom:'150px',
-          }}>
+          <div
+            className="container"
+            style={{
+              marginTop: "150px",
+              marginBottom: "150px",
+            }}
+          >
             <div className="row productDetail-cont">
               <div className="col-lg-5">
                 <div className="productDetail-dis1">
@@ -113,7 +116,12 @@ function ProductDetail() {
                       </h5>
                     </div>
                     <div>
-                      <button className="button">
+                      <button
+                        className="button"
+                        style={{
+                          fontSize: "0.9rem",
+                        }}
+                      >
                         Add to Cart <FontAwesomeIcon icon={faCartShopping} />
                       </button>
                     </div>

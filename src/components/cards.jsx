@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "antd";
 
 function Cards({ data }) {
   const {
@@ -22,9 +23,17 @@ function Cards({ data }) {
             <h6>{Product_Categories}</h6>
             <h3>{Product_Name}</h3>
             <p>{Product_Description?.slice(0, 140)}</p>
+            <div style={{
+              display:'flex',
+              justifyContent:'space-between',
+              marginRight:'15px',
+              marginBottom:'10px'
+            }}>
             <Link to={`/ProductDetail/${id}`} className="productDetail_Link">
-              Read More <FontAwesomeIcon icon={faArrowRight} />
+              View Detail <FontAwesomeIcon icon={faArrowRight} />
             </Link>
+            <Button color="default" variant="solid"> Add To Cart</Button>
+            </div>
           </div>
         </div>
       </div>
