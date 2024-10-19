@@ -42,6 +42,9 @@
   .dis2 > .img-Dark > .static {
     display: none;
   }
+  .pro_dis{
+    height: 525px;
+  }
 }
 @media screen and (max-width: 768px) {
   .heading {
@@ -190,6 +193,9 @@
   .LoginButton {
     width: 190px;
   }
+  .pro_dis{
+    height: 500px;
+  }
 }
 @media screen and (max-width: 375px) {
   .heading {
@@ -213,6 +219,9 @@
   }
   .LoginButton {
     width: 190px;
+  }
+  .pro_dis{
+    height: 525px;
   }
 }
 @media screen and (max-width: 350px) {
@@ -240,6 +249,9 @@
     bottom: 40px;
     left: 40px;
   }
+  .pro_dis{
+    height: 535px;
+  }
 }
 @media screen and (max-width: 320px) {
   .heading {
@@ -249,5 +261,8 @@
   .button {
     height: 40px;
     width: 150px;
+  }
+  .pro_dis{
+    height: 540px;
   }
 }

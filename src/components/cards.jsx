@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "antd";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 function Cards({ data }) {
+  const {cartItems,AddItemToCart,isItemAdded } = useContext(CartContext);
   const {
     Product_Description,
     Product_Name,
@@ -32,7 +35,9 @@ function Cards({ data }) {
             <Link to={`/ProductDetail/${id}`} className="productDetail_Link">
               View Detail <FontAwesomeIcon icon={faArrowRight} />
             </Link>
-            <Button color="default" variant="solid"> Add To Cart</Button>
+            <Button color="default" variant="solid" onClick={()=> AddItemToCart(data) }>
+               {isItemAdded(data.id) ? `Added (${isItemAdded(data.id).quantity})`: 'Add To Cart'}
+               </Button>
             </div>
           </div>
         </div>

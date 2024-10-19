@@ -12,11 +12,16 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
+import { CartContext } from "../context/CartContext";
 
 function Navbar() {
   const [user, setUser] = useContext(AuthContext);
+  const {cartItems} = useContext(CartContext)
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  console.log("cartItems", cartItems);
+  
 
   // // agr user hai tw dashboard pr le joa warna login page le joa
   // onAuthStateChanged(auth, (user) => {
@@ -96,7 +101,7 @@ function Navbar() {
                       className="nav-link nav-icon pe-3"
                       style={{ fontFamily: "poppins" }}
                     >
-                      <Badge count={4}>
+                      <Badge count={cartItems.length}>
                       <ShoppingCartOutlined style={{ fontSize: "1.8rem" }} />
                       </Badge>
                     </Link>
