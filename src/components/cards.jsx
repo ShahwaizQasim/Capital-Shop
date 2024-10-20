@@ -35,7 +35,7 @@ function Cards({ data }) {
               marginRight:'15px',
               marginBottom:'10px'
             }}>
-            <Link to={user.isLogin? `/ProductDetail/${id}`: navigate('/SignIn')} className="productDetail_Link">
+            <Link to={`/ProductDetail/${id}`} className="productDetail_Link">
               View Detail <FontAwesomeIcon icon={faArrowRight} />
             </Link>
             <Button color="default" variant="solid" onClick={()=> AddItemToCart(data) }>
