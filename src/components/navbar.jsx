@@ -16,12 +16,11 @@ import { CartContext } from "../context/CartContext";
 
 function Navbar() {
   const [user, setUser] = useContext(AuthContext);
-  const {cartItems} = useContext(CartContext)
+  const { cartItems } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   console.log("cartItems", cartItems);
-  
 
   // // agr user hai tw dashboard pr le joa warna login page le joa
   // onAuthStateChanged(auth, (user) => {
@@ -39,7 +38,7 @@ function Navbar() {
       setLoading(true);
       const userSignOut = await signOut(auth);
       message.success("Logout Successfully");
-      navigate("/");
+      // navigate("/");
     } catch (error) {
       console.log(error.message);
     } finally {
@@ -56,13 +55,12 @@ function Navbar() {
           top: 0,
           zIndex: 12,
           backgroundColor: "#fff",
-          boxShadow:'1px 0px 10px #ccc'
+          boxShadow: "1px 0px 10px #ccc",
         }}
         id="nav2"
       >
         <div className="container">
-          <nav className="nav navbar navbar-expand-lg text-center pb-1 pt-1"
-            >
+          <nav className="nav navbar navbar-expand-lg text-center pb-1 pt-1">
             <Link
               to="/"
               className="navbar-brand"
@@ -97,12 +95,12 @@ function Navbar() {
                   </li>
                   <li className="nav-item">
                     <Link
-                      to="#"
+                      to="/Cart"
                       className="nav-link nav-icon pe-3"
                       style={{ fontFamily: "poppins" }}
                     >
                       <Badge count={cartItems.length}>
-                      <ShoppingCartOutlined style={{ fontSize: "1.8rem" }} />
+                        <ShoppingCartOutlined style={{ fontSize: "1.8rem" }} />
                       </Badge>
                     </Link>
                   </li>

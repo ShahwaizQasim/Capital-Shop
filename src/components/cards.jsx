@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "antd";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { AuthContext } from "../context/AuthContext";
 
 function Cards({ data }) {
   const {cartItems,AddItemToCart,isItemAdded } = useContext(CartContext);
+  const [user, setUser] = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     Product_Description,
     Product_Name,
@@ -32,11 +35,11 @@ function Cards({ data }) {
               marginRight:'15px',
               marginBottom:'10px'
             }}>
-            <Link to={`/ProductDetail/${id}`} className="productDetail_Link">
+            <Link to={user.isLogin? `/ProductDetail/${id}`: navigate('/SignIn')} className="productDetail_Link">
               View Detail <FontAwesomeIcon icon={faArrowRight} />
             </Link>
             <Button color="default" variant="solid" onClick={()=> AddItemToCart(data) }>
-               {isItemAdded(data.id) ? `Added (${isItemAdded(data.id).quantity})`: 'Add To Cart'}
+                {isItemAdded(data.id) ? `Added (${isItemAdded(data.id).quantity})`: 'Add To Cart'}
                </Button>
             </div>
           </div>
