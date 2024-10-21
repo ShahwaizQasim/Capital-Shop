@@ -26,7 +26,8 @@ function Cart() {
         <h2 className="cartItems_Head">Cart Items</h2>
         <div className="carts-container m-auto">
           <div className="row">
-            <div className="col-lg-4 pb-3">
+            <div className="col-lg-6 col-md-6 col-sm-12 pb-3">
+              <div className="cart_dis">
               <h4
                 className="text-center pt-3"
                 style={{
@@ -43,8 +44,10 @@ function Cart() {
               >
                 {totalQuantity}
               </h4>
+              </div>
             </div>
-            <div className="col-lg-4 pb-3">
+            <div className="col-lg-6 col-md-6 col-sm-12 pb-3">
+            <div className="cart_dis">
               <h4
                 className="text-center pt-3 "
                 style={{
@@ -59,10 +62,10 @@ function Cart() {
                   fontFamily: "poppins",
                 }}
               >
-                {totalAmount}
+                {Math.round(totalAmount)}
               </h4>
+              </div>
             </div>
-            <div className="col-lg-4 pb-3"></div>
           </div>
         </div>
       </div>
@@ -105,15 +108,9 @@ function Cart() {
                   Remove Item
                 </Button>
               </div>
-              <div className="item-price">${data?.Product_Price}</div>
+              <div className="item-price" style={{fontFamily:'poppins'}}>${data?.Product_Price}</div>
             </div>
           ))}
-        </div>
-        <div className="cart-summary">
-          <h3>Cart Summary</h3>
-          <p>Total Items: 3</p>
-          <p>Total Price: $47.97</p>
-          <button className="checkout-btn">Proceed to Checkout</button>
         </div>
       </section>
       <Footer />

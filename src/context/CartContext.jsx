@@ -1,10 +1,26 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext();
 
 function CartContextProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false)
 
+  useEffect(()=>{
+    if (isLoaded) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+},[cartItems])
+
+
+useEffect(()=>{
+  const item = localStorage.getItem("cartItems");
+  if (item) {
+    setCartItems([...JSON.parse(item)])
+    setIsLoaded(true)
+  }
+},[])
+  
   const AddItemToCart = (item) => {
     const arr = cartItems;
     //  item add nhi hai, tw add krwa do

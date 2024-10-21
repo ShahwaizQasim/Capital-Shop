@@ -19,7 +19,7 @@ function CarouselFadeExample() {
                 voluptas iure, delectus dignissimos facilis neque nulla earum.
               </p>
               <center>
-                <button className="button animate__animated animate__delay-2s animate__fadeInUp mt-3">
+                <button className="button animate__animated animate__delay-3s animate__fadeInUp mt-3">
                   Shop Now
                 </button>
               </center>
@@ -44,7 +44,7 @@ function CarouselFadeExample() {
                 voluptas iure, delectus dignissimos facilis neque nulla earum.
               </p>
               <center>
-                <button className="button animate__animated animate__delay-2s animate__fadeInUp mt-3">
+                <button className="button animate__animated animate__delay-3s animate__fadeInUp mt-3">
                   Shop Now
                 </button>
               </center>

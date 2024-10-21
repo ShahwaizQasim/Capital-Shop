@@ -569,6 +569,11 @@
   font-family: "poppins";
   text-align: center;
 }
+.cart_dis{
+  width: 95%;
+  border: 1px solid #ccc;
+  margin: auto;
+}
 
 .cart {
   max-width: 80%;

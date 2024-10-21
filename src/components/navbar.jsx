@@ -19,7 +19,7 @@ function Navbar() {
   const { cartItems } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  
+
   // user ko logout karwaya hai
   const handleOnLogOut = async () => {
     console.log("data");
@@ -129,11 +129,11 @@ function Navbar() {
                           </li>
                           <li>
                             <Link
-                              to="/"
+                              to="/Cart"
                               className="nav-link nav-text pe-4"
                               style={{ fontFamily: "poppins" }}
                             >
-                              Contact Us
+                              Add to Cart
                             </Link>
                           </li>
 

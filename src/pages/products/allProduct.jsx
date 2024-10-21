@@ -60,7 +60,9 @@ function AllProducts() {
           <div className="row mt-5">
             {product.map((productData) =>
               loading ? (
-                <Spinner />
+                <h2 className="text-center" style={{ fontFamily: "poppins" }}>
+                  Loading...
+                </h2>
               ) : (
                 <Cards key={productData.id} data={productData} />
               )

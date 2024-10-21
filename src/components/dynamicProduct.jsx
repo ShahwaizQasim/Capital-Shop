@@ -4,10 +4,16 @@ import { Link } from "react-router-dom";
 import { db } from "../utils/firebase";
 import Cards from "./cards";
 import { message } from "antd";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function DynamicProduct() {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   useEffect(() => {
     getProducts();
@@ -26,7 +32,7 @@ function DynamicProduct() {
       docs.forEach((product) => {
         return arr.push({ ...product.data(), id: product.id });
       });
-      
+
       setProduct([...arr]);
     } catch (error) {
       message.error(error.message);
@@ -37,11 +43,17 @@ function DynamicProduct() {
     <>
       <div className="container mt-5 mb-5">
         <div className="row">
-          <div className="col-lg-6 col-md-6 col-sm-12 mt-5 dynamicProduct1">
+          <div
+            className="col-lg-6 col-md-6 col-sm-12 mt-5 dynamicProduct1"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
             <h2 className="hdg mt-5 fw-bold">Product Upload</h2>
           </div>
           <div
             className="col-lg-6 col-md-6 col-sm-12 mt-5"
+            data-aos="fade-left"
+            data-aos-duration="1000"
             style={{
               height: "100px",
               position: "relative",

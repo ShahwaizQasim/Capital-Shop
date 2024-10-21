@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 function StaticProduct() {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <>
       <div className="container mt-5 mb-5">
@@ -15,7 +21,7 @@ function StaticProduct() {
                 <div className="img-Dark">
                   <h3 className="pt-4 ps-4 fw-bold">Men's Fashion</h3>
                   <Link
-                  className="static"
+                    className="static"
                     to={"/"}
                     style={{
                       textDecoration: "none",
@@ -44,7 +50,7 @@ function StaticProduct() {
                 <div className="img-Dark">
                   <h3 className="pt-4 ps-4 fw-bold">Men's Fashion</h3>
                   <Link
-                  className="static"
+                    className="static"
                     to={"/"}
                     style={{
                       textDecoration: "none",
@@ -73,7 +79,7 @@ function StaticProduct() {
                 <div className="img-Dark">
                   <h3 className="pt-4 ps-4 fw-bold">Women's Fashion</h3>
                   <Link
-                  className="static"
+                    className="static"
                     to={"/"}
                     style={{
                       textDecoration: "none",
@@ -90,7 +96,7 @@ function StaticProduct() {
                   </Link>
                 </div>
               </div>
-            </Link> 
+            </Link>
           </div>
         </div>
       </div>
