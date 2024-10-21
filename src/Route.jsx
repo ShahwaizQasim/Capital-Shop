@@ -53,7 +53,7 @@ function App() {
             element={user?.isLogin ? <Cart /> : <Navigate to={"/SignIn"} />}
           ></Route>
 
-          <Route
+          {/* <Route
             path="/adminPanel"
             element={
             <AdminRoute user={user}>
@@ -64,7 +64,7 @@ function App() {
             <Route path="viewUsers" element={<ViewUsers />} />
             <Route path="viewOrders" element={<ViewOrders />} />
             <Route path="viewProducts" element={<UserProducts />} />
-          </Route>
+          </Route> */}
         </Routes>
       </BrowserRouter>
     </>

@@ -1,29 +1,112 @@
+import { useContext } from "react";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
+import { CartContext } from "../../context/CartContext";
+import { Button } from "antd";
+import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 
 function Cart() {
+  const { cartItems, removeItemFromCart } = useContext(CartContext);
+
+  const totalAmount = cartItems.reduce(
+    (total, obj) => total + obj.quantity * obj.price,
+    0
+  );
+  const totalQuantity = cartItems.reduce(
+    (total, obj) => total + obj.quantity,
+    0
+  );
+
+  console.log("cartItems", cartItems);
+
   return (
     <>
       <Navbar />
+      <div className="container-fluid mt-5 mb-5">
+        <div className="carts-container m-auto">
+          <div className="row">
+            <div className="col-lg-4">
+              <h4
+                className="text-center pt-3"
+                style={{
+                  fontFamily: "poppins",
+                }}
+              >
+                Total Quantity
+              </h4>
+              <h4
+                className="text-center pt-1"
+                style={{
+                  fontFamily: "poppins",
+                }}
+              >
+                {totalQuantity}
+              </h4>
+            </div>
+            <div className="col-lg-4">
+              <h4
+                className="text-center pt-3"
+                style={{
+                  fontFamily: "poppins",
+                }}
+              >
+                Total Amount
+              </h4>
+              <h4
+                className="text-center pt-1"
+                style={{
+                  fontFamily: "poppins",
+                }}
+              >
+                {totalAmount}
+              </h4>
+            </div>
+            <div className="col-lg-4"></div>
+          </div>
+        </div>
+      </div>
       <section className="cart">
         <h2>Cart Items</h2>
-        <div className="cart-items">
-          <div className="cart-item">
-            <img src="https://via.placeholder.com/80" alt="Product Image" />
-            <div className="item-details">
-              <p>Product 1</p>
-              <p>Quantity: 1</p>
+        <div className="cart-items">~
+          {cartItems.map((data) => (
+            <div className="cart-item">
+              <img src={data?.Product_Picture} alt="Product Image" />
+              <div className="item-details">
+                <h4
+                  style={{
+                    fontFamily: "poppins",
+                  }}
+                >{`${data?.Product_Name} (${data?.Product_Categories})`}</h4>
+                <p
+                  style={{
+                    fontFamily: "poppins",
+                  }}
+                >
+                  {data.Product_Description}
+                </p>
+                <div>
+                  <Button
+                    onClick={() => alert("plus")}
+                    icon={<PlusOutlined />}
+                  ></Button>
+                  <span className="p-3">{data?.quantity}</span>{" "}
+                  <Button
+                    onClick={() => alert("minus")}
+                    icon={<MinusOutlined />}
+                  ></Button>
+                </div>
+                <Button
+                  color="danger"
+                  variant="filled"
+                  onClick={() => removeItemFromCart(data.id)}
+                  className="mt-4"
+                >
+                  Remove Item
+                </Button>
+              </div>
+              <div className="item-price">${data?.Product_Price}</div>
             </div>
-            <div className="item-price">$25.99</div>
-          </div>
-          <div className="cart-item">
-            <img src="https://via.placeholder.com/80" alt="Product Image" />
-            <div className="item-details">
-              <p>Product 2</p>
-              <p>Quantity: 2</p>
-            </div>
-            <div className="item-price">$10.99</div>
-          </div>
+          ))}
         </div>
         <div className="cart-summary">
           <h3>Cart Summary</h3>

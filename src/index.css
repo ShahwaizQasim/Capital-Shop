@@ -442,8 +442,8 @@
   margin-bottom: 40px;
   box-shadow: 1px 1px 4px #ccc;
 }
-.pro_dis:hover{
-  cursor:pointer;
+.pro_dis:hover {
+  cursor: pointer;
 }
 .pro-img {
   height: 280px;
@@ -454,7 +454,7 @@
   width: 100%;
   transition: 0.4s;
 }
-.pro_dis:hover .pro-img> img{
+.pro_dis:hover .pro-img > img {
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -478,7 +478,7 @@
   text-decoration: none;
   cursor: pointer;
   font-family: "poppins";
-  margin-top:4px;
+  margin-top: 4px;
 }
 .productDetail-cont {
   display: flex;
@@ -497,7 +497,7 @@
   width: 100%;
   transition: 0.4s;
 }
-.productDetail-dis1:hover >img{
+.productDetail-dis1:hover > img {
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -556,19 +556,27 @@
 }
 
 /* Cart Page Design  */
+.carts-container{
+  height: 100px;
+  max-width: 900px;
+  background-color: #fff;
+  box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+
 .cart {
-  max-width: 800px;
+  max-width: 900px;
   margin: 2rem auto;
   background-color: white;
   padding: 1.5rem;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.6);
 }
 
-.cart>h2 {
+.cart > h2 {
   border-bottom: 2px solid #333;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
-  font-family: 'poppins';
+  font-family: "poppins";
   text-align: center;
 }
 
@@ -583,12 +591,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
 }
 
 .cart-item img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
 }
 
@@ -618,7 +626,6 @@
 .checkout-btn:hover {
   background-color: #555;
 }
-
 
 /* Admin Panel Design  */
 .admin-panel {
@@ -703,11 +710,14 @@ table {
   margin-top: 1rem;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid #ddd;
 }
 
-th, td {
+th,
+td {
   padding: 0.8rem;
   text-align: left;
 }
