@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../utils/firebase";
+import { auth, db } from "../../utils/firebase";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +13,7 @@ import {
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { message } from "antd";
 import * as React from "react";
+import { doc, setDoc } from "firebase/firestore";
 
 function SignUp() {
   const {
@@ -33,15 +34,26 @@ function SignUp() {
 
   const onSubmit = async (data) => {
     try {
+      console.log("data", data);
+
       setLoading(true);
       const user = await createUserWithEmailAndPassword(
         auth,
         data?.email,
         data?.Password
       );
+      
+      const myCollectionRef = doc(db, "Users", user.user.uid);
+      const AllUserData = {
+        User_Name: data?.name,
+        User_Email: data?.email,
+        User_Id: user.user.uid,
+      };
+      const UserDataAdd = await setDoc(myCollectionRef, AllUserData);
       message.success("Sign Up Successfully");
-      setLoading(false);
+      
       navigate("/SignIn");
+      setLoading(false);
     } catch (error) {
       message.error(error.message);
       console.log("Error", error.message);
@@ -149,6 +161,7 @@ function SignUp() {
                           width: "15%",
                           marginTop: "2px",
                           fontSize: "1.3rem",
+                          cursor:'pointer'
                         }}
                       />
                     </div>

@@ -19,18 +19,7 @@ function Navbar() {
   const { cartItems } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
-  console.log("cartItems", cartItems);
-
-  // // agr user hai tw dashboard pr le joa warna login page le joa
-  // onAuthStateChanged(auth, (user) => {
-  //   if (user) {
-  //     navigate("/");
-  //   } else {
-  //     navigate("/SignIn");
-  //   }
-  // });
-
+  
   // user ko logout karwaya hai
   const handleOnLogOut = async () => {
     console.log("data");
@@ -38,7 +27,7 @@ function Navbar() {
       setLoading(true);
       const userSignOut = await signOut(auth);
       message.success("Logout Successfully");
-      // navigate("/");
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     } finally {

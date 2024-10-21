@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 function AdminPanel() {
+const {user} = useContext(AuthContext);
+console.log(user);
+
+
   return (
     <div className="admin-panel">
   {/* Sidebar */}

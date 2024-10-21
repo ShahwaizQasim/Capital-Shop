@@ -7,11 +7,12 @@ import {
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { auth } from "../../utils/firebase";
+import { auth, db } from "../../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { message } from "antd";
+import { doc, setDoc } from "firebase/firestore";
 
 function SignIn() {
   const {
@@ -56,11 +57,20 @@ function SignIn() {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        console.log("user", user);
-        navigate("/");
+        console.log('user', user);
 
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
+        const myCollectionRef = doc(db, "Users", user.uid);
+        const AllUserData = {
+          User_Name: user?.displayName,
+          User_Email: user?.email,
+          User_Id: user?.uid,
+          Photo_Url:user?.photoURL
+        };
+        
+        setDoc(myCollectionRef, AllUserData).then(() => {
+          message.success("Login Successfully");
+          navigate("/");
+        });
       })
       .catch((error) => {
         // Handle Errors here.
@@ -71,6 +81,7 @@ function SignIn() {
         const email = error.customData.email;
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
+        message.success(errorMessage);
         // ...
       });
   };
@@ -169,6 +180,7 @@ function SignIn() {
                           width: "15%",
                           marginTop: "2px",
                           fontSize: "1.3rem",
+                          cursor:'pointer'
                         }}
                       />
                     </div>

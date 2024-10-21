@@ -15,19 +15,20 @@ import ViewUsers from "./pages/admin/viewUsers";
 import ViewOrders from "./pages/admin/vieworders";
 import UserProducts from "./pages/admin/userProducts";
 import Dashboard from "./pages/admin/dashboard";
+import AdminRoute from "./components/AdminRoute";
 
 function App() {
   const [user, setUser] = useContext(AuthContext);
-  console.log("user", user);
+  console.log("user", user?.userInfo?.userEmail === 'qasim@gmail.com');
 
   return (
     <>
       <BrowserRouter>
         <Routes>
           {/* <Route path='/' element={<Loading />} /> */}
-          <Route path="/" element={<Home />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/SignIn" element={<SignIn />} />
+          <Route path="/" element={<Home />} />
 
           <Route
             path="/addProduct"
@@ -52,7 +53,13 @@ function App() {
             element={user?.isLogin ? <Cart /> : <Navigate to={"/SignIn"} />}
           ></Route>
 
-          <Route path="/adminPanel" element={<AdminPanel />}>
+          <Route
+            path="/adminPanel"
+            element={
+            <AdminRoute user={user}>
+              <AdminPanel />
+            </AdminRoute>}
+          >
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="viewUsers" element={<ViewUsers />} />
             <Route path="viewOrders" element={<ViewOrders />} />
