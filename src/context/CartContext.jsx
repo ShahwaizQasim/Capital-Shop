@@ -21,6 +21,15 @@ function CartContextProvider({ children }) {
     setCartItems([...arr]);
   };
 
+
+  const LessItemQuantityFromCart = (id) => {
+    const arr = cartItems;
+    const ProductIndex = cartItems.findIndex((data) => data.id == id);
+      arr[ProductIndex].quantity--;
+    setCartItems([...arr]);
+  };
+
+
   const removeItemFromCart = (id) => {
     const arr = cartItems;
     const ProductIndex = cartItems.findIndex((data) => data.id == id);
@@ -40,7 +49,7 @@ function CartContextProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, AddItemToCart, removeItemFromCart, isItemAdded }}
+      value={{ cartItems, AddItemToCart, removeItemFromCart, isItemAdded,LessItemQuantityFromCart  }}
     >
       {children}
     </CartContext.Provider>

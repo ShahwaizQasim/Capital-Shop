@@ -6,10 +6,10 @@ import { Button } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 
 function Cart() {
-  const { cartItems, removeItemFromCart } = useContext(CartContext);
+  const { cartItems, removeItemFromCart,AddItemToCart,LessItemQuantityFromCart  } = useContext(CartContext);
 
   const totalAmount = cartItems.reduce(
-    (total, obj) => total + obj.quantity * obj.price,
+    (total, obj) => total + obj.quantity * obj.Product_Price,
     0
   );
   const totalQuantity = cartItems.reduce(
@@ -23,9 +23,10 @@ function Cart() {
     <>
       <Navbar />
       <div className="container-fluid mt-5 mb-5">
+        <h2 className="cartItems_Head">Cart Items</h2>
         <div className="carts-container m-auto">
           <div className="row">
-            <div className="col-lg-4">
+            <div className="col-lg-4 pb-3">
               <h4
                 className="text-center pt-3"
                 style={{
@@ -43,9 +44,9 @@ function Cart() {
                 {totalQuantity}
               </h4>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 pb-3">
               <h4
-                className="text-center pt-3"
+                className="text-center pt-3 "
                 style={{
                   fontFamily: "poppins",
                 }}
@@ -61,13 +62,12 @@ function Cart() {
                 {totalAmount}
               </h4>
             </div>
-            <div className="col-lg-4"></div>
+            <div className="col-lg-4 pb-3"></div>
           </div>
         </div>
       </div>
       <section className="cart">
-        <h2>Cart Items</h2>
-        <div className="cart-items">~
+        <div className="cart-items">
           {cartItems.map((data) => (
             <div className="cart-item">
               <img src={data?.Product_Picture} alt="Product Image" />
@@ -86,13 +86,14 @@ function Cart() {
                 </p>
                 <div>
                   <Button
-                    onClick={() => alert("plus")}
+                    onClick={() => AddItemToCart(data)}
                     icon={<PlusOutlined />}
                   ></Button>
                   <span className="p-3">{data?.quantity}</span>{" "}
                   <Button
-                    onClick={() => alert("minus")}
+                    onClick={() => LessItemQuantityFromCart(data.id)}
                     icon={<MinusOutlined />}
+                    disabled={data.quantity===1}
                   ></Button>
                 </div>
                 <Button
