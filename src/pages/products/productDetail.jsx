@@ -130,9 +130,9 @@ function ProductDetail() {
               </div>
             </div>
           </div>
+          <Footer />
         </>
       )}
-      <Footer />
     </>
   );
 }
