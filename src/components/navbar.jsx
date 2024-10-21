@@ -84,7 +84,7 @@ function Navbar() {
                   </li>
                   <li className="nav-item">
                     <Link
-                      to="/Cart"
+                      to="/addToCart"
                       className="nav-link nav-icon pe-3"
                       style={{ fontFamily: "poppins" }}
                     >
@@ -129,7 +129,7 @@ function Navbar() {
                           </li>
                           <li>
                             <Link
-                              to="/Cart"
+                              to="/addToCart"
                               className="nav-link nav-text pe-4"
                               style={{ fontFamily: "poppins" }}
                             >

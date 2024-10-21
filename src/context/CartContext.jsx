@@ -4,23 +4,22 @@ export const CartContext = createContext();
 
 function CartContextProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (isLoaded) {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
-},[cartItems])
+  }, [cartItems]);
 
+  useEffect(() => {
+    const item = localStorage.getItem("cartItems");
+    if (item) {
+      setCartItems([...JSON.parse(item)]);
+      setIsLoaded(true);
+    }
+  }, []);
 
-useEffect(()=>{
-  const item = localStorage.getItem("cartItems");
-  if (item) {
-    setCartItems([...JSON.parse(item)])
-    setIsLoaded(true)
-  }
-},[])
-  
   const AddItemToCart = (item) => {
     const arr = cartItems;
     //  item add nhi hai, tw add krwa do
@@ -37,14 +36,12 @@ useEffect(()=>{
     setCartItems([...arr]);
   };
 
-
   const LessItemQuantityFromCart = (id) => {
     const arr = cartItems;
     const ProductIndex = cartItems.findIndex((data) => data.id == id);
-      arr[ProductIndex].quantity--;
+    arr[ProductIndex].quantity--;
     setCartItems([...arr]);
   };
-
 
   const removeItemFromCart = (id) => {
     const arr = cartItems;
@@ -65,7 +62,13 @@ useEffect(()=>{
 
   return (
     <CartContext.Provider
-      value={{ cartItems, AddItemToCart, removeItemFromCart, isItemAdded,LessItemQuantityFromCart  }}
+      value={{
+        cartItems,
+        AddItemToCart,
+        removeItemFromCart,
+        isItemAdded,
+        LessItemQuantityFromCart,
+      }}
     >
       {children}
     </CartContext.Provider>
