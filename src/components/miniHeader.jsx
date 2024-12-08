@@ -12,7 +12,7 @@ function MiniHeader() {
               textDecoration: "none",
               color: "#BC883E",
               borderBottom: "1px solid #BC883E",
-              marginLeft:'8px'
+              marginLeft: '8px'
             }}
           >
             Shop Now

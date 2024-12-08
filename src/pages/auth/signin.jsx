@@ -64,9 +64,9 @@ function SignIn() {
           User_Name: user?.displayName,
           User_Email: user?.email,
           User_Id: user?.uid,
-          Photo_Url:user?.photoURL
+          Photo_Url: user?.photoURL
         };
-        
+
         setDoc(myCollectionRef, AllUserData).then(() => {
           message.success("Login Successfully");
           navigate("/");
@@ -180,7 +180,7 @@ function SignIn() {
                           width: "15%",
                           marginTop: "2px",
                           fontSize: "1.3rem",
-                          cursor:'pointer'
+                          cursor: 'pointer'
                         }}
                       />
                     </div>

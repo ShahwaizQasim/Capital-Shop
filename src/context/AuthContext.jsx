@@ -35,7 +35,7 @@ function AuthContextProvider({ children }) {
       }
       setLoading(false);
     });
-    
+
   }, []);
 
   return (

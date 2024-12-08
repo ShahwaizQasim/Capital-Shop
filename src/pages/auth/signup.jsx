@@ -42,7 +42,7 @@ function SignUp() {
         data?.email,
         data?.Password
       );
-      
+
       const myCollectionRef = doc(db, "Users", user.user.uid);
       const AllUserData = {
         User_Name: data?.name,
@@ -51,7 +51,7 @@ function SignUp() {
       };
       const UserDataAdd = await setDoc(myCollectionRef, AllUserData);
       message.success("Sign Up Successfully");
-      
+
       navigate("/SignIn");
       setLoading(false);
     } catch (error) {
@@ -161,7 +161,7 @@ function SignUp() {
                           width: "15%",
                           marginTop: "2px",
                           fontSize: "1.3rem",
-                          cursor:'pointer'
+                          cursor: 'pointer'
                         }}
                       />
                     </div>

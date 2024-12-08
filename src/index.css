@@ -556,7 +556,7 @@
 }
 
 /* Cart Page Design  */
-.carts-container{
+.carts-container {
   height: auto;
   max-width: 80%;
   background-color: #fff;
@@ -569,7 +569,7 @@
   font-family: "poppins";
   text-align: center;
 }
-.cart_dis{
+.cart_dis {
   width: 95%;
   border: 1px solid #ccc;
   margin: auto;

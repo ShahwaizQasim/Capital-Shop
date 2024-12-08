@@ -42,7 +42,7 @@
   .dis2 > .img-Dark > .static {
     display: none;
   }
-  .pro_dis{
+  .pro_dis {
     height: 525px;
   }
 }
@@ -193,7 +193,7 @@
   .LoginButton {
     width: 190px;
   }
-  .pro_dis{
+  .pro_dis {
     height: 500px;
   }
 }
@@ -220,7 +220,7 @@
   .LoginButton {
     width: 190px;
   }
-  .pro_dis{
+  .pro_dis {
     height: 525px;
   }
 }
@@ -249,7 +249,7 @@
     bottom: 40px;
     left: 40px;
   }
-  .pro_dis{
+  .pro_dis {
     height: 535px;
   }
 }
@@ -262,7 +262,7 @@
     height: 40px;
     width: 150px;
   }
-  .pro_dis{
+  .pro_dis {
     height: 540px;
   }
 }

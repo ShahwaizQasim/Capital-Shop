@@ -1,8 +1,8 @@
 
-function ViewOrders(){
-    return(
-        <>
-        <section id="orders-section" className="section">
+function ViewOrders() {
+  return (
+    <>
+      <section id="orders-section" className="section">
         <h2>Manage Orders</h2>
         <table>
           <thead>
@@ -40,7 +40,7 @@ function ViewOrders(){
         <h2>System Settings</h2>
         <p>Modify system settings here...</p>
       </section>
-      </>
-    )
+    </>
+  )
 }
 export default ViewOrders;
