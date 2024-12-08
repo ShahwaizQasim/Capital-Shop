@@ -15,7 +15,6 @@ import ViewUsers from "./pages/admin/viewUsers";
 import ViewOrders from "./pages/admin/vieworders";
 import UserProducts from "./pages/admin/userProducts";
 import Dashboard from "./pages/admin/dashboard";
-import AdminRoute from "./components/AdminRoute";
 
 function App() {
   const [user, setUser] = useContext(AuthContext);
@@ -53,17 +52,11 @@ function App() {
             element={user?.isLogin ? <Cart /> : <Navigate to={"/SignIn"} />}
           ></Route>
 
-          <Route
-            path="/adminPanel"
-            element={
-            <AdminRoute user={user}>
-              <AdminPanel />
-            </AdminRoute>}
-          >
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="viewUsers" element={<ViewUsers />} />
-            <Route path="viewOrders" element={<ViewOrders />} />
-            <Route path="viewProducts" element={<UserProducts />} />
+          <Route path="/adminPanel" element={<AdminPanel />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="viewUsers" element={<ViewUsers />} />
+          <Route path="viewOrders" element={<ViewOrders />} />
+          <Route path="viewProducts" element={<UserProducts />} />
           </Route>
         </Routes>
       </BrowserRouter>
