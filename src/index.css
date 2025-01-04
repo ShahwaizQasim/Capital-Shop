@@ -43,8 +43,8 @@
   border: none;
 }
 .userPhoto {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   background-color: aliceblue;
 }
@@ -750,6 +750,9 @@ button:hover {
 }
 
 .card {
+  height: auto;
+  border: 2px solid red;
+  width: 280px;
   background-color: white;
   padding: 1.5rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);

@@ -3,10 +3,9 @@ import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { Avatar } from "@mui/material";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { Badge, message } from "antd";
+import { Avatar, Badge, message } from "antd";
 import {
   LogoutOutlined,
   SearchOutlined,
@@ -22,7 +21,6 @@ function Navbar() {
 
   // user ko logout karwaya hai
   const handleOnLogOut = async () => {
-    console.log("data");
     try {
       setLoading(true);
       const userSignOut = await signOut(auth);
@@ -105,7 +103,7 @@ function Navbar() {
                           aria-expanded="false"
                         >
                           <div className="userPhoto">
-                            <Avatar src={user?.userInfo?.UserPhoto} />
+                            <Avatar src={user.userInfo.UserPhoto} style={{height:'40px', width:'40px'}} />
                           </div>
                         </button>
                         <ul className="dropdown-menu ps-2">

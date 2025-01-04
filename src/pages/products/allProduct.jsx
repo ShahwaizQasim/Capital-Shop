@@ -25,6 +25,7 @@ function AllProducts() {
     try {
       const ProCollection = collection(db, "products");
       const q = query(ProCollection, orderBy("createdAt", "desc"));
+      // const q = query(ProCollection, orderBy("createdAt", "desc"), limit(3));
       const arr = [];
       setLoading(true);
       const docs = await getDocs(q);

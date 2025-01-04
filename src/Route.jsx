@@ -18,7 +18,7 @@ import Dashboard from "./pages/admin/dashboard";
 
 function App() {
   const [user, setUser] = useContext(AuthContext);
-  console.log("user", user?.userInfo?.userEmail === 'qasim@gmail.com');
+  // console.log("user", user?.userInfo?.userEmail === 'qasim@gmail.com');
 
   return (
     <>
