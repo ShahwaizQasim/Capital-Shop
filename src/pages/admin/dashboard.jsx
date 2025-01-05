@@ -51,11 +51,10 @@ function Dashboard() {
   console.log('getProducts', getProducts.length);
 
   return (
-    <section id="dashboard-section" className="dashboard">
+    (<section id="dashboard-section" className="dashboard h-[100vh]">
       <div className="card-container flex justify-center" style={{
-        border: '2px solid red',
         display: 'flex',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
       }}>
         <div className="card">
           <h3>Total Users</h3>
@@ -70,7 +69,8 @@ function Dashboard() {
           <p>1,540</p>
         </div>
       </div>
-    </section>
+    </section>)
+
   );
 }
 export default Dashboard;

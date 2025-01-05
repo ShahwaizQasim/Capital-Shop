@@ -750,9 +750,8 @@ button:hover {
 }
 
 .card {
-  height: auto;
-  border: 2px solid red;
-  width: 280px;
+  height:auto;
+  width: 300px;
   background-color: white;
   padding: 1.5rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
