@@ -13,21 +13,22 @@ function Dashboard() {
 
   const GetUsers = async () => {
     try {
-      const UserCollection = collection(db, 'Users');
+      const UserCollection = collection(db, 'users');
       const q = query(UserCollection, orderBy('createdAt', "desc"));
       const arr = [];
       setLoading(true);
       const docs = await getDocs(q);
-      
-      docs.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
-      })
+      console.log('docs=>', docs);
+
+      docs.forEach((allProducts) => {
+        return arr.push({ ...allProducts.data(), id: allProducts.id });
+      });
       console.log('arr', arr);
-      setGetUser(arr);
-      
+      setGetUser([...arr]);
+
     } catch (error) {
       console.log("error in adminPanel", error);
-    }finally{
+    } finally {
       setLoading(false)
     }
     console.log("Get User=>", getUser);

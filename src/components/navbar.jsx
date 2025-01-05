@@ -103,7 +103,7 @@ function Navbar() {
                           aria-expanded="false"
                         >
                           <div className="userPhoto">
-                            <Avatar src={user.userInfo.UserPhoto} style={{height:'40px', width:'40px'}} />
+                            <Avatar src={user.userInfo.UserPhoto} style={{ height: '40px', width: '40px' }} />
                           </div>
                         </button>
                         <ul className="dropdown-menu ps-2">
