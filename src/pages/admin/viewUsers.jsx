@@ -33,7 +33,8 @@ function ViewUsers() {
   console.log("getUser", getUser);
 
   return (
-    <section id="users-section" className="section">
+
+    <section id="users-section" className="section" >
       <h2 style={{
         fontFamily: 'poppins',
         marginTop: '50px'
