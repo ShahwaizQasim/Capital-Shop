@@ -5,34 +5,51 @@ import { db } from "../../utils/firebase";
 function Dashboard() {
 
   const [getUser, setGetUser] = useState([]);
+  const [getProducts, setGetProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    GetUsers()
+    UsersGet()
+    productsGet()
   }, [])
 
-  const GetUsers = async () => {
+  const UsersGet = async () => {
     try {
-      const UserCollection = collection(db, 'users');
-      const q = query(UserCollection, orderBy('createdAt', "desc"));
+      const UserCollection = collection(db, 'Users');
+      const q = query(UserCollection)
       const arr = [];
       setLoading(true);
       const docs = await getDocs(q);
-      console.log('docs=>', docs);
-
-      docs.forEach((allProducts) => {
-        return arr.push({ ...allProducts.data(), id: allProducts.id });
+      docs.docs.forEach((users) => {
+        return arr.push({ ...users.data(), id: users.id });
       });
-      console.log('arr', arr);
       setGetUser([...arr]);
-
     } catch (error) {
       console.log("error in adminPanel", error);
     } finally {
       setLoading(false)
     }
-    console.log("Get User=>", getUser);
   }
+
+  const productsGet = async () => {
+    try {
+      const ProductsCollection = collection(db, "products");
+      const q = query(ProductsCollection, orderBy("createdAt", "desc"))
+      const arr = [];
+      setLoading(true);
+      const QuerySnapshot = await getDocs(q);
+      QuerySnapshot.forEach((products) => {
+        return arr.push({ ...products.data(), id: products.id });
+      });
+      setGetProducts([...arr])
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false)
+    }
+  }
+  console.log('getProducts', getProducts.length);
+
   return (
     <section id="dashboard-section" className="dashboard">
       <div className="card-container flex justify-center" style={{
@@ -42,11 +59,11 @@ function Dashboard() {
       }}>
         <div className="card">
           <h3>Total Users</h3>
-          <p>1,024</p>
+          <p>{getUser.length}</p>
         </div>
         <div className="card">
           <h3>Total Products</h3>
-          <p>256</p>
+          <p>{getProducts.length}</p>
         </div>
         <div className="card">
           <h3>Total Orders</h3>

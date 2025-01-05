@@ -183,7 +183,7 @@ function SignUp() {
                         type="submit"
                       >
                         {loading ? (
-                          <h5 className="pt-1 text-normal">loading...</h5>
+                          <p className="pt-1 text-normal">loading...</p>
                         ) : (
                           "SignUp"
                         )}
