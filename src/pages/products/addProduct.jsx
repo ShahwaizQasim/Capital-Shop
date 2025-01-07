@@ -20,7 +20,6 @@ function AddProduct() {
   const [ProductName, setProductName] = useState("");
   const [ProductPrice, setProductPrice] = useState("");
   const [ProductDescription, setProductDescription] = useState("");
-  // console.log(ProductPicture);
 
   const onSubmit = async (data) => {
     try {

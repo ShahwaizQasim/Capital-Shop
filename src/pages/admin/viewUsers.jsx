@@ -44,10 +44,10 @@ function ViewUsers() {
           <tr style={{
             fontFamily: 'poppins'
           }}>
-            <th>User ID</th>
-            <th>Name</th>
+            <th>User Name</th>
             <th>Email</th>
             <th>Role</th>
+            <th>Updates User</th>
           </tr>
         </thead>
         <tbody>

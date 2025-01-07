@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import { CartContext } from "../../context/CartContext";
-import { Button } from "antd";
+import { Button, Image } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -79,7 +79,7 @@ function Cart() {
                     fontFamily: "poppins",
                   }}
                 >
-                  {Math.round(totalAmount)}
+                  ${Math.round(totalAmount)}
                 </h4>
               </div>
             </div>
@@ -94,7 +94,11 @@ function Cart() {
               data-aos="fade-up"
               data-aos-duration="1000"
             >
-              <img src={data?.Product_Picture} alt="Product Image" />
+              <Image
+                width={200}
+                src={data.Product_Picture}
+              />
+              {/* <img src={data?.Product_Picture} alt="Product Image" /> */}
               <div className="item-details">
                 <h4
                   style={{
@@ -122,11 +126,23 @@ function Cart() {
                 </div>
                 <Button
                   color="danger"
-                  variant="filled"
+                  variant="solid"
                   onClick={() => removeItemFromCart(data.id)}
                   className="mt-4"
                 >
                   Remove Item
+                </Button>
+                <Button
+                  color="danger"
+                  variant="solid"
+                  style={{
+                    fontFamily: 'poppins',
+                    marginLeft: '10px'
+                  }}
+                  onClick={() => removeItemFromCart(data.id)}
+                  className="mt-4"
+                >
+                  Order Now
                 </Button>
               </div>
               <div className="item-price" style={{ fontFamily: "poppins" }}>

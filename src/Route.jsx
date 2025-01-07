@@ -15,6 +15,7 @@ import ViewUsers from "./pages/admin/viewUsers";
 import ViewOrders from "./pages/admin/vieworders";
 import UserProducts from "./pages/admin/userProducts";
 import Dashboard from "./pages/admin/dashboard";
+import AddOrder from "./pages/products/addOrder";
 
 function App() {
   const [user, setUser] = useContext(AuthContext);
@@ -50,7 +51,11 @@ function App() {
           <Route
             path="/addToCart"
             element={user?.isLogin ? <Cart /> : <Navigate to={"/SignIn"} />}
-          ></Route>
+          />
+          <Route
+            path="/orderNow"
+            element={user?.isLogin ? <AddOrder /> : <Navigate to={"/SignIn"} />}
+          />
 
           <Route path="/adminPanel" element={<AdminPanel />}>
             <Route path="dashboard" element={<Dashboard />} />

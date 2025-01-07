@@ -115,7 +115,7 @@ function ProductDetail() {
                         Price: ${product?.Product_Price}
                       </h5>
                     </div>
-                    <div>
+                    <div style={{display:'flex', gap:"10px"}}>
                       <button
                         className="button"
                         style={{
@@ -123,6 +123,14 @@ function ProductDetail() {
                         }}
                       >
                         Add to Cart <FontAwesomeIcon icon={faCartShopping} />
+                      </button>
+                      <button
+                        className="button"
+                        style={{
+                          fontSize: "0.9rem",
+                        }}
+                      >
+                        Order Now <FontAwesomeIcon icon={faCartShopping} />
                       </button>
                     </div>
                   </div>
