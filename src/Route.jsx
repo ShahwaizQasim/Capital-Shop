@@ -16,6 +16,7 @@ import ViewOrders from "./pages/admin/vieworders";
 import UserProducts from "./pages/admin/userProducts";
 import Dashboard from "./pages/admin/dashboard";
 import AddOrder from "./pages/products/addOrder";
+import UserProfile from "./pages/userProfile/userProfile";
 
 function App() {
   const [user, setUser] = useContext(AuthContext);
@@ -29,6 +30,7 @@ function App() {
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/" element={<Home />} />
+          <Route path="/userProfile" element={<UserProfile />} />
 
           <Route
             path="/addProduct"

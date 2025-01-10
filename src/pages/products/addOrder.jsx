@@ -22,8 +22,10 @@ function OrderNow() {
         try {
             setLoading(true);
             const productRef = doc(db, "products", id);
-            const productFetch = await getDoc(productRef);
-            console.log('products', productFetch.data());
+            const productInfo = await getDoc(productRef);
+            const productFetch = productInfo.data()
+            setProducts({ productFetch });
+            console.log("product", product.productFetch.Product_Name);
 
         } catch (error) {
             console.log("error", error);
@@ -51,6 +53,8 @@ function OrderNow() {
                 PhoneNumber: data?.PhoneNumber,
                 Address: data?.ShippingAddress,
                 City: data?.city,
+                ProductName: data?.ProductName,
+                ProductImage: data?.ProductPicture,
                 createdAt: serverTimestamp(),
             }
             console.log("UsersOrders", UsersOrders);
@@ -58,6 +62,7 @@ function OrderNow() {
             const docRef = await addDoc(orderCollection, UsersOrders);
             formRef.current.reset();
             message.success("Your Order Placed Successfully")
+            navigate('/')
         } catch (err) {
             console.log("error", err)
         } finally {
@@ -166,6 +171,35 @@ function OrderNow() {
                                                 city is required
                                             </span>
                                         )}
+
+                                        <input
+                                            type="text"
+                                            placeholder="Product Name"
+                                            value={product?.productFetch?.Product_Name}
+                                            {...register("ProductName", {
+                                                minLength: 2,
+                                                maxLength: 25,
+                                            })}
+                                            className="form-control mt-4 mb-2"
+                                            autoComplete="on"
+                                        />
+                                        {errors.ProductName && (
+                                            <span className="error_msg">ProductName is required</span>
+                                        )}
+
+                                        <input
+                                            type="url"
+                                            placeholder="Product Picture"
+                                            value={product?.productFetch?.Product_Picture}
+                                            {...register("ProductPicture", {
+                                            })}
+                                            className="form-control mt-4 mb-2"
+                                            autoComplete="on"
+                                        />
+                                        {errors.ProductPicture && (
+                                            <span className="error_msg">ProductPicture is required</span>
+                                        )}
+
                                         <center>
                                             <button
                                                 className="btn btn-dark mt-4 mb-2 button2"

@@ -8,8 +8,8 @@
   box-sizing: border-box;
 }
 ::selection {
-  background-color: white;
-  color: #ff201e;
+  background-color: #ff201e;
+  color: white;
 }
 
 /* navbar  */
@@ -435,19 +435,28 @@
 
 .allProducts {
   height: auto;
+  display: flex;
+  justify-content: center;
 }
 .pro_dis {
-  height: 500px;
+  min-height: 500px;
+  max-height: 700px;
+  width: 95%;
   border: 1px solid #ccc;
   margin-bottom: 40px;
-  box-shadow: 1px 1px 4px #ccc;
+  box-shadow: 1px 1px 10px #ccc;
+  border-radius: 5px;
 }
 .pro_dis:hover {
   cursor: pointer;
 }
 .pro-img {
   height: 280px;
+  width: 95%;
+  margin: auto;
   overflow: hidden;
+  position: relative;
+  top: 10px;
 }
 .pro-img > img {
   height: 100%;
@@ -750,7 +759,7 @@ button:hover {
 }
 
 .card {
-  height:auto;
+  height: auto;
   width: 300px;
   background-color: white;
   padding: 1.5rem;

@@ -138,7 +138,7 @@ function Navbar() {
 
                           <li>
                             <Link
-                              to="/"
+                              to="/userProfile"
                               className="nav-link nav-text pe-4"
                               style={{ fontFamily: "poppins" }}
                             >

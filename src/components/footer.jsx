@@ -58,7 +58,6 @@ function Footer() {
                 <button
                   style={{
                     height: "50px",
-                    width: "30%",
                     backgroundColor: "#ff201e",
                     color: "#fff",
                     fontFamily: "poppins",
