@@ -14,10 +14,13 @@ import Spinner from "../../components/loading";
 import { AuthContext } from "../../context/AuthContext";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
+import { CartContext } from "../../context/CartContext";
 
 function ProductDetail() {
+
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(false);
+  const { AddItemToCart, isItemAdded } = useContext(CartContext)
   const { user } = useContext(AuthContext);
   const { id } = useParams();
   console.log("id", id);
@@ -115,14 +118,18 @@ function ProductDetail() {
                         Price: ${product?.Product_Price}
                       </h5>
                     </div>
-                    <div style={{display:'flex', gap:"10px"}}>
+                    <div style={{ display: 'flex', gap: "10px" }}>
                       <button
                         className="button"
                         style={{
                           fontSize: "0.9rem",
                         }}
+                        onClick={() => AddItemToCart(product)}
                       >
-                        Add to Cart <FontAwesomeIcon icon={faCartShopping} />
+                        {
+                          isItemAdded(product?.Product_Name) ? `Added (${isItemAdded(product?.Product_Name).quantity})` : <p>Add to Cart <FontAwesomeIcon icon={faCartShopping} /></p>
+                        }
+
                       </button>
                       <button
                         className="button"

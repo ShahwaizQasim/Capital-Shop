@@ -2,10 +2,14 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { db } from "../../utils/firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { message } from "antd";
 
 function OrderNow() {
     const [loading, setLoading] = useState(false);
+    const formRef = useRef(null);
+    console.log("formRef", formRef);
+    
     const navigate = useNavigate();
     const {
         register,
@@ -18,26 +22,27 @@ function OrderNow() {
 
     const onSubmit = async (data) => {
         try {
-            console.log("data", data);
             setLoading(true)
-            const orderCollection = collection(db, "orders" );
+            const orderCollection = collection(db, "orders");
             const UsersOrders = {
-                 FullName: data?.FullName,
-                 Email: data?.EmailAddress,
-                 PhoneNumber: data?.PhoneNumber,
-                 Address: data?.ShippingAddress,
-                 City: data?.city,
-                 createdAt: serverTimestamp(),
+                FullName: data?.FullName,
+                Email: data?.EmailAddress,
+                PhoneNumber: data?.PhoneNumber,
+                Address: data?.ShippingAddress,
+                City: data?.city,
+                createdAt: serverTimestamp(),
             }
             console.log("UsersOrders", UsersOrders);
-            
 
             const docRef = await addDoc(orderCollection, UsersOrders);
-
-
+            formRef.current.reset();
+            message.success("Your Order Placed Successfully")
         } catch (err) {
             console.log("error", err)
+        } finally {
+            setLoading(false)
         }
+
     }
 
     return (
@@ -61,7 +66,7 @@ function OrderNow() {
                                     <h1 className="text-dark text-center mt-5 fw-bold heading">
                                         Order Now
                                     </h1>
-                                    <form onSubmit={handleSubmit(onSubmit)}>
+                                    <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
                                         <input
                                             type="text"
                                             placeholder="Full Name"
