@@ -6,9 +6,10 @@ import { Button, Image } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Cart() {
+
   const {
     cartItems,
     removeItemFromCart,
@@ -28,6 +29,8 @@ function Cart() {
     (total, obj) => total + obj.quantity,
     0
   );
+  console.log(cartItems);
+
 
   return (
     <>
@@ -133,7 +136,7 @@ function Cart() {
                 >
                   Remove Item
                 </Button>
-                <Link to={'/orderNow'}>
+                <Link to={`/orderNow/${data.id}`}>
                   <Button
                     color="danger"
                     variant="solid"
@@ -141,7 +144,6 @@ function Cart() {
                       fontFamily: 'poppins',
                       marginLeft: '10px'
                     }}
-                    onClick={() => removeItemFromCart(data.id)}
                     className="mt-4"
                   >
                     Order Now

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -14,6 +14,7 @@ import {
 import { CartContext } from "../context/CartContext";
 
 function Navbar() {
+  
   const [user, setUser] = useContext(AuthContext);
   const { cartItems } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
@@ -82,7 +83,7 @@ function Navbar() {
                   </li>
                   <li className="nav-item">
                     <Link
-                      to="/addToCart"
+                      to={`/addToCart`}
                       className="nav-link nav-icon pe-3"
                       style={{ fontFamily: "poppins" }}
                     >

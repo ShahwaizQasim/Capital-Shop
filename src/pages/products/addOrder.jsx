@@ -1,16 +1,37 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { db } from "../../utils/firebase";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { useRef, useState } from "react";
+import { addDoc, collection, doc, getDoc, serverTimestamp } from "firebase/firestore";
+import { useContext, useEffect, useRef, useState } from "react";
 import { message } from "antd";
+import { CartContext } from "../../context/CartContext";
 
 function OrderNow() {
-    const [loading, setLoading] = useState(false);
-    const formRef = useRef(null);
-    console.log("formRef", formRef);
-    
+    const { id } = useParams();
     const navigate = useNavigate();
+    const formRef = useRef(null);
+    const [loading, setLoading] = useState(false);
+    const [product, setProducts] = useState(null);
+    console.log("formRef", formRef);
+
+    useEffect(() => {
+        getProducts();
+    }, [])
+
+    const getProducts = async () => {
+        try {
+            setLoading(true);
+            const productRef = doc(db, "products", id);
+            const productFetch = await getDoc(productRef);
+            console.log('products', productFetch.data());
+
+        } catch (error) {
+            console.log("error", error);
+        } finally {
+            setLoading(false)
+        }
+    }
+
     const {
         register,
         handleSubmit,
@@ -151,7 +172,7 @@ function OrderNow() {
                                                 type="submit"
                                             >
                                                 {loading ? (
-                                                    <h5 className="pt-1 pb-2 text-normal">loading...</h5>
+                                                    <h6 className="pt-1 pb-2 text-normal">loading...</h6>
                                                 ) : (
                                                     "Order Now"
                                                 )}

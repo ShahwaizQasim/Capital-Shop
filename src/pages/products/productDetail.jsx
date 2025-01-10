@@ -14,16 +14,14 @@ import Spinner from "../../components/loading";
 import { AuthContext } from "../../context/AuthContext";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
-import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 function ProductDetail() {
-
+  
+  const { id } = useParams();
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(false);
-  const { AddItemToCart, isItemAdded } = useContext(CartContext)
   const { user } = useContext(AuthContext);
-  const { id } = useParams();
-  console.log("id", id);
 
   console.log("Product", product);
 
@@ -119,26 +117,16 @@ function ProductDetail() {
                       </h5>
                     </div>
                     <div style={{ display: 'flex', gap: "10px" }}>
-                      <button
-                        className="button"
-                        style={{
-                          fontSize: "0.9rem",
-                        }}
-                        onClick={() => AddItemToCart(product)}
-                      >
-                        {
-                          isItemAdded(product?.Product_Name) ? `Added (${isItemAdded(product?.Product_Name).quantity})` : <p>Add to Cart <FontAwesomeIcon icon={faCartShopping} /></p>
-                        }
-
-                      </button>
-                      <button
-                        className="button"
-                        style={{
-                          fontSize: "0.9rem",
-                        }}
-                      >
-                        Order Now <FontAwesomeIcon icon={faCartShopping} />
-                      </button>
+                      <Link to={`/orderNow/${id}`}>
+                        <button
+                          className="button"
+                          style={{
+                            fontSize: "0.9rem",
+                          }}
+                        >
+                          Order Now <FontAwesomeIcon icon={faCartShopping} />
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

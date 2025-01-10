@@ -53,7 +53,7 @@ function App() {
             element={user?.isLogin ? <Cart /> : <Navigate to={"/SignIn"} />}
           />
           <Route
-            path="/orderNow"
+            path="/orderNow/:id"
             element={user?.isLogin ? <AddOrder /> : <Navigate to={"/SignIn"} />}
           />
 
