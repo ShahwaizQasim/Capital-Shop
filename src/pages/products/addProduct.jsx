@@ -1,10 +1,10 @@
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { auth, db, storage } from "../../utils/firebase";
+import {  db, storage } from "../../utils/firebase";
 import { message } from "antd";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function AddProduct() {
   const [loading, setLoading] = useState(false);

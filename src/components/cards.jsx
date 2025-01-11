@@ -38,7 +38,9 @@ function Cards({ data }) {
           <div className="pro_desc">
             <h6>{Product_Categories}</h6>
             <h3>{Product_Name}</h3>
-            <p>{Product_Description?.slice(0, 140)}</p>
+            <p style={{
+              paddingRight: '4px',
+            }}>{Product_Description?.slice(0, 140)}</p>
             <div
               style={{
                 display: "flex",

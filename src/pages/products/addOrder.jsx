@@ -1,10 +1,9 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { db } from "../../utils/firebase";
 import { addDoc, collection, doc, getDoc, serverTimestamp } from "firebase/firestore";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { message } from "antd";
-import { CartContext } from "../../context/CartContext";
 
 function OrderNow() {
     const { id } = useParams();
@@ -55,6 +54,7 @@ function OrderNow() {
                 City: data?.city,
                 ProductName: data?.ProductName,
                 ProductImage: data?.ProductPicture,
+                productId: id,
                 createdAt: serverTimestamp(),
             }
             console.log("UsersOrders", UsersOrders);
