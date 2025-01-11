@@ -1,5 +1,34 @@
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { db } from "../../utils/firebase";
 
 function ViewOrders() {
+
+  const [loading, setLoading] = useState();
+
+  useEffect(() => {
+    getOrders();
+  }, [])
+
+  const getOrders = async () => {
+    try {
+      const OrderCollection = collection(db, "orders");
+      const q = query(OrderCollection, orderBy("createdAt", "desc"));
+      const arr = [];
+      const UsersOrdersGet = await getDocs(q);
+      UsersOrdersGet.forEach((data) => {
+        return arr.push({ ...data.data(), Users: data.id })
+      })
+      console.log(UsersOrdersGet);
+      console.log('arr', arr);
+
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
   return (
     <>
       <section id="orders-section" className="section">
@@ -35,10 +64,6 @@ function ViewOrders() {
             </tr>
           </tbody>
         </table>
-      </section>
-      <section id="settings-section" className="section">
-        <h2>System Settings</h2>
-        <p>Modify system settings here...</p>
       </section>
     </>
   )

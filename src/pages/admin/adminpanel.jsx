@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -35,9 +35,6 @@ function AdminPanel() {
               fontFamily: 'poppins'
             }}>Orders</Link>
           </li>
-          <li>
-            <a href="#settings-section">Settings</a>
-          </li>
         </ul>
       </nav>
       {/* Main Content */}
@@ -46,7 +43,12 @@ function AdminPanel() {
         <header className="navbar">
           <h1 style={{
             fontFamily: 'poppins'
-          }}>Admin Dashboard</h1>
+          }}>
+            <img
+              src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png.webp"
+              alt="Logo"
+            />
+          </h1>
           <div className="profile">
             <img src={user.userInfo.UserPhoto} alt="Profile Picture" />
             <span style={{

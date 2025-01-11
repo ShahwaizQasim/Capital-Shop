@@ -777,3 +777,11 @@ button:hover {
   color: #333;
   font-weight: bold;
 }
+
+/* userProfile */
+.user_Photo {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
