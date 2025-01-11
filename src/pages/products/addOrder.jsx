@@ -11,7 +11,9 @@ function OrderNow() {
     const formRef = useRef(null);
     const [loading, setLoading] = useState(false);
     const [product, setProducts] = useState(null);
-    console.log("formRef", formRef);
+
+    console.log("id", id);
+    
 
     useEffect(() => {
         getProducts();
@@ -22,9 +24,11 @@ function OrderNow() {
             setLoading(true);
             const productRef = doc(db, "products", id);
             const productInfo = await getDoc(productRef);
-            const productFetch = productInfo.data()
-            setProducts({ productFetch });
-            console.log("product", product.productFetch.Product_Name);
+            const productFetch =  productInfo.data()
+            console.log("productFetch", productFetch);
+            
+            setProducts({ ...productFetch });
+            console.log("product", product);
 
         } catch (error) {
             console.log("error", error);
