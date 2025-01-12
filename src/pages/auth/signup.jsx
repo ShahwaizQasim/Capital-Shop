@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../../utils/firebase";
+import { auth, db, storage } from "../../utils/firebase";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -51,7 +51,6 @@ function SignUp() {
       };
       const UserDataAdd = await setDoc(myCollectionRef, AllUserData);
       message.success("Sign Up Successfully");
-
       navigate("/SignIn");
       setLoading(false);
     } catch (error) {
@@ -59,7 +58,7 @@ function SignUp() {
       console.log("Error", error.message);
       setLoading(false);
     }
-    console.log("Data");
+    // console.log("Data");
   };
 
   return (
@@ -132,6 +131,19 @@ function SignUp() {
                       <span className="error_msg">Email is required</span>
                     )}
 
+                    <input
+                      className="input"
+                      type="file"
+                      placeholder="Image..."
+                      {...register("Image", {
+                        required: true,
+                        maxLength: 25,
+                      })}
+                    />
+                    {errors.Image && (
+                      <span className="error_msg">Image is required</span>
+                    )}
+
                     <div class="group">
                       <svg
                         viewBox="0 0 24 24"
@@ -183,7 +195,7 @@ function SignUp() {
                         type="submit"
                       >
                         {loading ? (
-                          <p className="pt-1 text-normal">loading...</p>
+                          "loading..."
                         ) : (
                           "SignUp"
                         )}
@@ -195,8 +207,8 @@ function SignUp() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
     </>
   );
 }

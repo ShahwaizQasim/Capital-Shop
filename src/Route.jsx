@@ -17,10 +17,10 @@ import UserProducts from "./pages/admin/userProducts";
 import Dashboard from "./pages/admin/dashboard";
 import AddOrder from "./pages/products/addOrder";
 import UserProfile from "./pages/userProfile/userProfile";
+import AdminLogin from "./pages/auth/adminLogin";
 
 function App() {
   const [user, setUser] = useContext(AuthContext);
-  // console.log("user", user?.userInfo?.userEmail === 'qasim@gmail.com');
 
   return (
     <>
@@ -59,6 +59,7 @@ function App() {
             element={user?.isLogin ? <AddOrder /> : <Navigate to={"/SignIn"} />}
           />
 
+         <Route path="/adminLogin" element={<AdminLogin />} />
           <Route path="/adminPanel" element={<AdminPanel />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="viewUsers" element={<ViewUsers />} />

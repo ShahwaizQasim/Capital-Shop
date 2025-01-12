@@ -26,12 +26,12 @@ function AuthContextProvider({ children }) {
             userEmail: user?.email,
           },
         });
-        
+
       } else {
         // User is signed out
         // ...
         setUser({ isLogin: false, userInfo: {} });
-        
+
         // console.log("User SignOut");
       }
       setLoading(false);

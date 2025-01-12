@@ -24,6 +24,8 @@ function SignIn() {
   } = useForm();
 
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleOnShowPassword = () => {
@@ -34,6 +36,7 @@ function SignIn() {
 
   const onSubmit = async (data) => {
     try {
+      setLoading(true);
       const userLogin = await signInWithEmailAndPassword(
         auth,
         data?.email,
@@ -44,6 +47,8 @@ function SignIn() {
     } catch (error) {
       message.error(error.message);
       firebaseErrorShow.innerText = error.message.slice(10);
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -207,7 +212,9 @@ function SignIn() {
                           width: "50%",
                         }}
                       >
-                        Log in
+                        {
+                          loading ? "loading..." :  "Log in"
+                        }
                       </button>
 
                       <h4

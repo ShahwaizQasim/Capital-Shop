@@ -33,6 +33,7 @@ function Navbar() {
       setLoading(false);
     }
   };
+console.log(user);
 
   return (
     <>
