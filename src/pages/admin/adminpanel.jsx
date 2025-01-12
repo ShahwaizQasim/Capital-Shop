@@ -1,11 +1,38 @@
-import { useContext, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
 import Dashboard from "./dashboard";
+import { message } from "antd";
+import { collection, getDocs, query } from "firebase/firestore";
+import { db } from "../../utils/firebase";
 
 function AdminPanel() {
-  const [user] = useContext(AuthContext);
 
+  const [Admin, setAdmin] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+
+  useEffect(() => {
+    getAdminData();
+  }, [])
+
+  const getAdminData = async () => {
+    setLoading(true)
+    try {
+      const OrdersCollection = collection(db, "AdminUsers");
+      const q = query(OrdersCollection);
+      const arr = [];
+      const AdminQuerySnap = await getDocs(q);
+      console.log("AdminQuerySnap", AdminQuerySnap);
+      AdminQuerySnap.docs.map((adminData) => {
+        arr.push({ ...adminData.data() });
+      })
+      setAdmin(arr)
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false)
+    }
+  }
   return (
     <div className="admin-panel">
       {/* Sidebar */}
@@ -51,11 +78,18 @@ function AdminPanel() {
             />
           </h1>
           <div className="profile">
-            <img src={user.userInfo.UserPhoto} alt="Profile Picture" />
-            <span style={{
-              fontFamily: 'poppins',
-              fontWeight: 'bold'
-            }}>Shahwaiz Qasim</span>
+            {
+              Admin.map((data) => {
+                console.log("data", data);
+                return <>
+                  <img src={data.User_Image} alt="Profile Picture" />
+                  <span style={{
+                    fontFamily: 'poppins',
+                    fontWeight: 'bold'
+                  }}>{data.User_Name}</span>
+                </>
+              })
+            }
           </div>
         </header>
         <Outlet />

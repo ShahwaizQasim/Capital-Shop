@@ -14,7 +14,7 @@ import {
 import { CartContext } from "../context/CartContext";
 
 function Navbar() {
-  
+
   const [user, setUser] = useContext(AuthContext);
   const { cartItems } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ function Navbar() {
       setLoading(false);
     }
   };
-console.log(user);
+  console.log(user);
 
   return (
     <>
@@ -136,7 +136,15 @@ console.log(user);
                               Add to Cart
                             </Link>
                           </li>
-
+                          <li>
+                            <Link
+                              to="/adminLogin"
+                              className="nav-link nav-text pe-4"
+                              style={{ fontFamily: "poppins" }}
+                            >
+                              Admin Panel
+                            </Link>
+                          </li>
                           <li>
                             <Link
                               to="/userProfile"

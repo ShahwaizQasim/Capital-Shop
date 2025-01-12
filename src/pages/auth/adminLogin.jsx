@@ -1,14 +1,17 @@
 import { faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { db } from '../../utils/firebase';
+import { message } from 'antd';
 
 function AdminLogin() {
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
-
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -17,11 +20,31 @@ function AdminLogin() {
         formState: { errors },
     } = useForm();
 
-    
-
     const handleOnShowPassword = () => {
         setShowPassword(!showPassword);
     };
+
+    const OnSubmit = async (data) => {
+        setLoading(true)
+        try {
+            console.log("data", data);
+            const OrdersCollection = collection(db, "AdminUsers");
+            const q = query(OrdersCollection, where("User_Email", "==", data?.Email), where("User_Password", "==", data?.Password));
+            const AdminQuerySnap = await getDocs(q);
+            console.log("AdminQuerySnap", AdminQuerySnap);
+            if (!AdminQuerySnap.empty) {
+                navigate('/adminPanel')
+            } else {
+                message.error("Invalid Email and Password!")
+            }
+
+        } catch (err) {
+            message.error("Invalid Email and Password!")
+            console.log(err);
+        } finally {
+            setLoading(false)
+        }
+    }
 
 
     return (
@@ -34,7 +57,7 @@ function AdminLogin() {
             <div className="container pt-5">
                 <div className="row">
                     <h1
-                        className="text-center text-light mt-3 fw-bold d-inline"
+                        className="text-center text-light mt-5 fw-bold d-inline"
                         style={{ fontFamily: '"Courier New", Courier, monospace' }}
                     >
                         <img
@@ -43,9 +66,9 @@ function AdminLogin() {
                         />
                     </h1>
 
-                    <div className="col-lg-5 col-md-12 mt-4 box m-auto">
+                    <div className="col-lg-4 col-md-12 mt-4 box m-auto">
 
-                        <form>
+                        <form onSubmit={handleSubmit(OnSubmit)}>
                             <h1
                                 className="text-dark fw-bold text-center mt-3"
                                 style={{
@@ -71,13 +94,13 @@ function AdminLogin() {
                                     className="input"
                                     type="email"
                                     placeholder="Email..."
-                                    {...register("email", {
+                                    {...register("Email", {
                                         required: true,
                                         maxLength: 25,
                                     })}
                                 />
                             </div>
-                            {errors.email && (
+                            {errors.Email && (
                                 <span className="error_msg ps-4">Email is required</span>
                             )}
                             <div class="group2">
