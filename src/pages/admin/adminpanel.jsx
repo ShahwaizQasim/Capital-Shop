@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import Dashboard from "./dashboard";
 
 function AdminPanel() {
   const [user] = useContext(AuthContext);

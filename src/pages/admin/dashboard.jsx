@@ -6,11 +6,13 @@ function Dashboard() {
 
   const [getUser, setGetUser] = useState([]);
   const [getProducts, setGetProducts] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     UsersGet()
     productsGet()
+    getOrders();
   }, [])
 
   const UsersGet = async () => {
@@ -48,7 +50,25 @@ function Dashboard() {
       setLoading(false)
     }
   }
-  console.log('getProducts', getProducts.length);
+
+  const getOrders = async () => {
+    try {
+      setLoading(true)
+      const OrderCollection = collection(db, "orders");
+      const q = query(OrderCollection, orderBy("createdAt", "desc"));
+      const arr = [];
+      const UsersOrdersGet = await getDocs(q);
+      UsersOrdersGet.forEach((data) => {
+        return arr.push({ ...data.data(), Users: data.id })
+      })
+      setOrders([...arr]);
+      console.log('orders', orders);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     (<section id="dashboard-section" className="dashboard h-[100vh]">
@@ -66,7 +86,7 @@ function Dashboard() {
         </div>
         <div className="card">
           <h3>Total Orders</h3>
-          <p>1,540</p>
+          <p>{orders.length}</p>
         </div>
       </div>
     </section>)
