@@ -25,8 +25,6 @@ function OrderNow() {
             const productRef = doc(db, "products", id);
             const productInfo = await getDoc(productRef);
             const productFetch =  productInfo.data()
-            console.log("productFetch", productFetch);
-            
             setProducts({ ...productFetch });
             console.log("product", product);
 
@@ -61,8 +59,7 @@ function OrderNow() {
                 productId: id,
                 createdAt: serverTimestamp(),
             }
-            console.log("UsersOrders", UsersOrders);
-
+            
             const docRef = await addDoc(orderCollection, UsersOrders);
             formRef.current.reset();
             message.success("Your Order Placed Successfully")
@@ -72,6 +69,7 @@ function OrderNow() {
         } finally {
             setLoading(false)
         }
+        console.log("UsersOrders", product);
 
     }
 
@@ -179,7 +177,8 @@ function OrderNow() {
                                         <input
                                             type="text"
                                             placeholder="Product Name"
-                                            value={product?.productFetch?.Product_Name}
+                                            value={product?.Product_Name}
+                                            required
                                             {...register("ProductName", {
                                                 minLength: 2,
                                                 maxLength: 25,
@@ -192,9 +191,10 @@ function OrderNow() {
                                         )}
 
                                         <input
-                                            type="url"
+                                            type="text"
                                             placeholder="Product Picture"
-                                            value={product?.productFetch?.Product_Picture}
+                                            value={product?.Product_Picture}
+                                            required
                                             {...register("ProductPicture", {
                                             })}
                                             className="form-control mt-4 mb-2"

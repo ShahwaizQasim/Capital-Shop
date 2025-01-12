@@ -1,10 +1,12 @@
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebase";
+import { Image } from "antd";
 
 function ViewOrders() {
 
-  const [loading, setLoading] = useState();
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getOrders();
@@ -12,6 +14,7 @@ function ViewOrders() {
 
   const getOrders = async () => {
     try {
+      setLoading(true)
       const OrderCollection = collection(db, "orders");
       const q = query(OrderCollection, orderBy("createdAt", "desc"));
       const arr = [];
@@ -19,12 +22,12 @@ function ViewOrders() {
       UsersOrdersGet.forEach((data) => {
         return arr.push({ ...data.data(), Users: data.id })
       })
-      console.log(UsersOrdersGet);
-      console.log('arr', arr);
-
-
+      setOrders([...arr]);
+      console.log('orders', orders);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -32,36 +35,45 @@ function ViewOrders() {
   return (
     <>
       <section id="orders-section" className="section">
-        <h2>Manage Orders</h2>
-        <table>
+        <h2 style={{
+          fontFamily: 'poppins',
+          marginTop: '70px'
+        }}>Manage Orders</h2>
+        <table style={{
+          fontFamily: 'poppins',
+          marginTop: '40px'
+        }}>
           <thead>
             <tr>
               <th>Order ID</th>
               <th>Customer</th>
-              <th>Total</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Email</th>
+              <th>Shipping Address</th>
+              <th>Order Picture</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>501</td>
-              <td>John Doe</td>
-              <td>$50.00</td>
-              <td>Completed</td>
-              <td>
-                <button>View</button>
-              </td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Jane Smith</td>
-              <td>$75.00</td>
-              <td>Pending</td>
-              <td>
-                <button>View</button>
-              </td>
-            </tr>
+            {
+              orders.map((data) => {
+                console.log("data", data);
+
+                return <tr id={data.id}>
+                  <td>{data?.productId}</td>
+                  <td>{data?.FullName}</td>
+                  <td>{data?.Email}</td>
+                  <td>{data?.Address}</td>
+                  <td>
+                    <td>
+                      <Image
+                        width={50}
+                        height={50}
+                        src={data.ProductImage}
+                      />
+                    </td>
+                  </td>
+                </tr>
+              })
+            }
           </tbody>
         </table>
       </section>
