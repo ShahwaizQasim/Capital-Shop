@@ -1,38 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Dashboard from "./dashboard";
-import { message } from "antd";
+import { Avatar, message } from "antd";
 import { collection, getDocs, query } from "firebase/firestore";
 import { db } from "../../utils/firebase";
+import { AdminContext } from "../../context/AdminContext";
+import {
+  LogoutOutlined
+} from "@ant-design/icons";
 
 function AdminPanel() {
 
-  const [Admin, setAdmin] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [AdminData] = useContext(AdminContext);
+  console.log("AdminData2", AdminData);
 
-
-  useEffect(() => {
-    getAdminData();
-  }, [])
-
-  const getAdminData = async () => {
-    setLoading(true)
-    try {
-      const OrdersCollection = collection(db, "AdminUsers");
-      const q = query(OrdersCollection);
-      const arr = [];
-      const AdminQuerySnap = await getDocs(q);
-      console.log("AdminQuerySnap", AdminQuerySnap);
-      AdminQuerySnap.docs.map((adminData) => {
-        arr.push({ ...adminData.data() });
-      })
-      setAdmin(arr)
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false)
-    }
-  }
   return (
     <div className="admin-panel">
       {/* Sidebar */}
@@ -78,18 +59,17 @@ function AdminPanel() {
             />
           </h1>
           <div className="profile">
-            {
-              Admin.map((data) => {
-                console.log("data", data);
-                return <>
-                  <img src={data.User_Image} alt="Profile Picture" />
-                  <span style={{
-                    fontFamily: 'poppins',
-                    fontWeight: 'bold'
-                  }}>{data.User_Name}</span>
-                </>
-              })
-            }
+
+            <img src={AdminData?.AdminInfo?.User_Image} alt="Profile Picture" />
+            <span style={{
+              fontFamily: 'poppins',
+              fontWeight: 'bold'
+            }}>{AdminData?.AdminInfo?.User_Name}</span>
+
+
+            
+
+
           </div>
         </header>
         <Outlet />

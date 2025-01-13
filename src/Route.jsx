@@ -18,9 +18,13 @@ import Dashboard from "./pages/admin/dashboard";
 import AddOrder from "./pages/products/addOrder";
 import UserProfile from "./pages/userProfile/userProfile";
 import AdminLogin from "./pages/auth/adminLogin";
+import { AdminContext } from "./context/AdminContext";
 
 function App() {
   const [user, setUser] = useContext(AuthContext);
+  const [AdminData, setAdminData] = useContext(AdminContext);
+  console.log(AdminData);
+
 
   return (
     <>
@@ -59,15 +63,18 @@ function App() {
             element={user?.isLogin ? <AddOrder /> : <Navigate to={"/SignIn"} />}
           />
 
-         <Route path="/adminLogin" element={<AdminLogin />} />
 
-         
-          <Route path="/adminPanel" element={<AdminPanel />}>
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="viewUsers" element={<ViewUsers />} />
-            <Route path="viewOrders" element={<ViewOrders />} />
-            <Route path="viewProducts" element={<UserProducts />} />
-          </Route>
+
+          {
+            AdminData?.AdminLogin ?
+
+              <Route path="/adminPanel" element={<AdminPanel />}>
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="viewUsers" element={<ViewUsers />} />
+                <Route path="viewOrders" element={<ViewOrders />} />
+                <Route path="viewProducts" element={<UserProducts />} />
+              </Route> : <Route path="/adminLogin" element={<AdminLogin />} />
+          }
         </Routes>
       </BrowserRouter>
     </>

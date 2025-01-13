@@ -5,13 +5,16 @@ import "./index.css";
 import "./App.css";
 import AuthContextProvider from "./context/AuthContext.jsx";
 import CartContextProvider from "./context/CartContext.jsx";
+import AdminContextProvider from "./context/AdminContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthContextProvider>
-      <CartContextProvider>
-        <App />
-      </CartContextProvider>
-    </AuthContextProvider>
+    <AdminContextProvider >
+      <AuthContextProvider>
+        <CartContextProvider>
+          <App />
+        </CartContextProvider>
+      </AuthContextProvider>
+    </AdminContextProvider>
   </StrictMode>
 );

@@ -2,13 +2,15 @@ import { faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-regular-svg-ico
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../../utils/firebase';
 import { message } from 'antd';
+import { AdminContext } from '../../context/AdminContext';
 
 function AdminLogin() {
+    const [AdminData, setAdminData] = useContext(AdminContext)
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -33,6 +35,19 @@ function AdminLogin() {
             const AdminQuerySnap = await getDocs(q);
             console.log("AdminQuerySnap", AdminQuerySnap);
             if (!AdminQuerySnap.empty) {
+                AdminQuerySnap.docs.map((data) => {
+                    const dataAdmin = data.data();
+                    setAdminData({
+                        AdminLogin: true,
+                        AdminInfo: {
+                            USER_ID: dataAdmin.User_Id,
+                            User_Name: dataAdmin.User_Name,
+                            User_Image: dataAdmin.User_Image,
+                            Email: dataAdmin?.User_Email,
+                            Password: dataAdmin?.User_Password,
+                        }
+                    })
+                })
                 navigate('/adminPanel')
             } else {
                 message.error("Invalid Email and Password!")
@@ -45,6 +60,7 @@ function AdminLogin() {
             setLoading(false)
         }
     }
+    console.log("AdminData", AdminData);
 
 
     return (

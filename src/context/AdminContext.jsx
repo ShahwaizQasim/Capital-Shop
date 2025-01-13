@@ -1,20 +1,35 @@
-import React, { createContext, useState } from 'react'
+import { onAuthStateChanged } from 'firebase/auth';
+import React, { createContext, useEffect, useState } from 'react'
+import { auth } from '../utils/firebase';
 
-export const AuthContext = createContext();
+export const AdminContext = createContext();
 
-function AdminContext({ children }) {
+function AdminContextProvider({ children }) {
     const [AdminData, setAdminData] = useState({
         AdminLogin: false,
         AdminInfo: {}
     });
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log(user.uid);
+            } else {
+                setAdminData({
+                    AdminLogin: false,
+                    AdminInfo: {}
+                })
+            }
+        })
+    }, [])
     return (
-        <AuthContext.Provider value={[AdminData, setAdminData]}>
+        <AdminContext.Provider value={[AdminData, setAdminData]}>
             {children}
-        </AuthContext.Provider>
+        </AdminContext.Provider>
     )
 
 }
 
 
 
-export default AdminContext
+export default AdminContextProvider;
