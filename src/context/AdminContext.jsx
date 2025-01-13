@@ -10,18 +10,11 @@ function AdminContextProvider({ children }) {
         AdminInfo: {}
     });
 
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                console.log(user.uid);
-            } else {
-                setAdminData({
-                    AdminLogin: false,
-                    AdminInfo: {}
-                })
-            }
-        })
-    }, [])
+    console.log("AdminData in context", AdminData);
+    
+    // useEffect(() => {
+
+    // }, [])
     return (
         <AdminContext.Provider value={[AdminData, setAdminData]}>
             {children}

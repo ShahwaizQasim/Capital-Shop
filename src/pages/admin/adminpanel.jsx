@@ -1,13 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import Dashboard from "./dashboard";
-import { Avatar, message } from "antd";
-import { collection, getDocs, query } from "firebase/firestore";
-import { db } from "../../utils/firebase";
 import { AdminContext } from "../../context/AdminContext";
-import {
-  LogoutOutlined
-} from "@ant-design/icons";
 
 function AdminPanel() {
 
@@ -50,14 +43,16 @@ function AdminPanel() {
       <div className="main-content">
         {/* Top Navbar */}
         <header className="navbar">
-          <h1 style={{
-            fontFamily: 'poppins'
-          }}>
-            <img
-              src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png.webp"
-              alt="Logo"
-            />
-          </h1>
+          <Link to={'/'}>
+            <h1 style={{
+              fontFamily: 'poppins'
+            }}>
+              <img
+                src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png.webp"
+                alt="Logo"
+              />
+            </h1>
+          </Link>
           <div className="profile">
 
             <img src={AdminData?.AdminInfo?.User_Image} alt="Profile Picture" />
@@ -65,11 +60,6 @@ function AdminPanel() {
               fontFamily: 'poppins',
               fontWeight: 'bold'
             }}>{AdminData?.AdminInfo?.User_Name}</span>
-
-
-            
-
-
           </div>
         </header>
         <Outlet />
